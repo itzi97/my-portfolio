@@ -6,6 +6,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 	title="About | Itziar Morales Rodríguez"
 	description="Software Engineering student based in Madrid, building data pipelines, ML systems, and backend APIs."
 >
+	<p class="eyebrow">~/about</p>
 	<h1>About</h1>
 
 	<p>
@@ -44,4 +45,14 @@ import PageLayout from '../layouts/PageLayout.astro';
 		If you're looking for someone who can write clean, tested, documented code and grow fast in a
 		data-heavy environment — <a href="mailto:itzimr@pm.me">get in touch</a>.
 	</p>
+
+	<style>
+		.eyebrow {
+			font-family: var(--font-mono);
+			color: var(--accent);
+			font-size: 0.85rem;
+			margin-bottom: 0.4rem;
+			margin-top: 0;
+		}
+	</style>
 </PageLayout>
