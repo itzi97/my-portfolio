@@ -132,15 +132,14 @@ function stars(rating: number) {
 			list-style: none;
 			padding: 0;
 			margin: 0;
-			display: flex;
-			flex-direction: column;
-			gap: 0.45rem;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0.45rem 2rem;
 		}
 		.skill-list li {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			max-width: 420px;
 			border-bottom: 1px solid var(--border);
 			padding-bottom: 0.35rem;
 		}
@@ -159,6 +158,11 @@ function stars(rating: number) {
 		}
 		.star.filled {
 			color: var(--accent);
+		}
+		@media (max-width: 520px) {
+			.skill-list {
+				grid-template-columns: 1fr;
+			}
 		}
 	</style>
 </PageLayout>
