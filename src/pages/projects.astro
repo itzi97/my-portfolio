@@ -5,11 +5,12 @@ import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 
 const projects = [
+	// Machine Learning
 	{
 		title: 'Dogs vs Cats',
 		link: 'https://www.kaggle.com/code/itzi97/u-tad-dogs-vs-cats',
 		summary: 'Image classification using CNNs and transfer learning.',
-		tech: 'Keras · TensorFlow · Python · transfer learning',
+		tech: 'Python · Keras · TensorFlow · transfer learning',
 		highlight: 'Built and fine-tuned a deep learning image classifier.',
 		tags: ['Machine Learning', 'Deep Learning']
 	},
@@ -25,28 +26,30 @@ const projects = [
 		title: 'Spam Filtering',
 		link: 'https://www.kaggle.com/code/itzi97/u-tad-spam-not-spam',
 		summary: 'Text classification project for spam detection.',
-		tech: 'NLP preprocessing · sklearn · feature engineering',
+		tech: 'Python · NLP preprocessing · sklearn · feature engineering',
 		highlight: 'Practical text classification pipeline for message filtering.',
 		tags: ['Machine Learning', 'NLP']
 	},
+	// Data
 	{
-		title: 'DV_Tableau',
+		title: 'Firearm Homicides vs Legislation',
 		link: 'https://github.com/itzi97/DV_Tableau',
 		summary: 'Tableau dashboard analysing firearm homicides in the US.',
-		tech: 'Tableau · CSV data processing · data cleaning',
+		tech: 'Tableau · CSV & Excel data processing · data cleaning',
 		highlight: 'Interactive visualizations for regional and temporal trends.',
 		tags: ['Data Visualisation', 'Data Analysis']
 	},
 	{
-		title: 'DV_Python',
+		title: 'Fitness Tracking Visualization',
 		link: 'https://github.com/itzi97/DV_Python',
 		summary: 'Personal fitness tracking visualizations built with Python.',
-		tech: 'Python · pandas · matplotlib · seaborn · plotly',
+		tech: 'Python · pandas · matplotlib · seaborn · plotly · ipywidgets',
 		highlight: 'Time-series analysis and customizable performance dashboards.',
 		tags: ['Data Visualisation', 'Data Analysis']
 	},
+	// Backend
 	{
-		title: 'AD-ODM',
+		title: 'Social Media Site ODM',
 		link: 'https://github.com/itzi97/AD-ODM',
 		summary: 'Object-document mapper for MongoDB and Redis implemented in Python.',
 		tech: 'Python · pymongo · redis-py · custom serialization',
@@ -56,19 +59,62 @@ const projects = [
 	{
 		title: 'BildyApp',
 		link: 'https://github.com/itzi97/wpii-bildyapp',
-		summary: 'Backend REST API for a fictitious company managing clients, projects, and certifications.',
-		tech: 'Node.js · Express · REST API · JWT · Docker',
+		summary: 'Backend JavaScript app for a fictitious company managing clients, projects, and certifications.',
+		tech: 'Node.js · Express · REST API · JWT · database integration',
 		highlight: 'Role-based endpoints and CRUD for core business entities.',
 		tags: ['Backend']
 	},
 	{
-		title: 'Distributed Systems',
+		title: 'Distributed Systems Exercises',
 		link: 'https://github.com/itzi97/DS_exercise1_fm',
 		summary: 'C++ distributed systems exercises covering chat systems and database tutorials.',
 		tech: 'C++ · Docker · Kubernetes · networking fundamentals',
 		highlight: 'Hands-on exercises demonstrating concurrency, messaging, and containerized deployment.',
 		tags: ['Backend', 'Systems']
 	},
+	// Game Dev
+	{
+		title: '2D Game Engine',
+		link: 'https://github.com/itzi97/engine2d',
+		summary: 'Personal ongoing 2D game engine built from scratch.',
+		tech: 'C++ · Lua · Sol2 · SDL3 · GLM · CMake · Tiled JSON',
+		highlight: 'Writing a game engine from scratch as a personal hobby.',
+		tags: ['Game Dev', 'Systems']
+	},
+	{
+		title: 'World of Traps',
+		link: 'https://gitlab.com/asielorz/world-of-traps-speedrun-edition',
+		summary: 'Speedrun edition of a DigiPen game, built by two college classmates on an engine made from scratch.',
+		tech: 'C++ · CMake · Milkytracker',
+		highlight: 'Contributed to a game built on a custom engine (freshman year project) including a basic soundtrack.',
+		tags: ['Game Dev']
+	},
+	{
+		title: 'DEV — OST',
+		link: 'https://soundcloud.com/zesher/sets/dev-ost',
+		summary: 'Original soundtrack for DEV, a DigiPen student game.',
+		tech: 'Milkytracker',
+		highlight: 'Layered soundtrack designed to mirror the game\'s progression — each track introduces a new element, culminating in the full arrangement.',
+		tags: ['Game Dev', 'Audio']
+	},
+	// Other
+	{
+		title: 'Gateway Technologies',
+		link: 'https://youtu.be/97gPVvl1paQ?si=dHPNczPRvvbmhAbH',
+		summary: 'Stellaris video guide for Paradox Interactive.',
+		tech: 'DaVinci Resolve · Adobe After Effects · Audacity · Adobe Photoshop',
+		highlight: 'Presenting a videogame guide in an entertaining and infographic manner.',
+		tags: ['Video Production']
+	},
+	{
+		title: 'Portfolio Website',
+		link: 'https://github.com/itzi97/my-portfolio',
+		summary: 'This portfolio and blog website.',
+		tech: 'Astro · JavaScript · CSS · Cloudflare',
+		highlight: 'Designed and built from scratch.',
+		tags: ['Web']
+	},
+	// Academic
 	{
 		title: 'AM-apuntes',
 		link: 'https://github.com/itzi97/AM-apuntes',
@@ -78,7 +124,7 @@ const projects = [
 		tags: ['Mathematics']
 	},
 	{
-		title: 'vacumcite',
+		title: 'Vacumcite',
 		link: 'https://github.com/itzi97/vacumcite',
 		summary: 'UX design project for a COVID vaccination website.',
 		tech: 'Figma · HTML · CSS prototyping',
@@ -100,8 +146,8 @@ const projects = [
 				<p class="eyebrow">~/projects</p>
 				<h1>All Projects</h1>
 				<p class="intro">
-					Software engineering, data science, ML, dashboarding, and academic projects.
-					Each card links directly to the repository or notebook.
+					Software engineering, data science, ML, game dev, and academic projects.
+					Each card links directly to the repository, notebook, or demo.
 				</p>
 
 				<div class="projects-grid">
