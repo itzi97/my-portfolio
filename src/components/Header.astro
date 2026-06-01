@@ -6,6 +6,11 @@ import HeaderLink from './HeaderLink.astro';
 <header>
 	<nav>
 		<a href="/" class="site-title">{SITE_AUTHOR}<span class="cursor"></span></a>
+		<button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
 		<div class="nav-links">
 			<HeaderLink href="/">~/home</HeaderLink>
 			<HeaderLink href="/about">~/about</HeaderLink>
@@ -16,6 +21,23 @@ import HeaderLink from './HeaderLink.astro';
 		</div>
 	</nav>
 </header>
+
+<script>
+	const btn = document.querySelector('.hamburger') as HTMLButtonElement;
+	const links = document.querySelector('.nav-links') as HTMLElement;
+
+	btn?.addEventListener('click', () => {
+		const open = links.classList.toggle('open');
+		btn.setAttribute('aria-expanded', String(open));
+	});
+
+	links?.querySelectorAll('a').forEach(a => {
+		a.addEventListener('click', () => {
+			links.classList.remove('open');
+			btn.setAttribute('aria-expanded', 'false');
+		});
+	});
+</script>
 
 <style>
 	header {
@@ -35,6 +57,7 @@ import HeaderLink from './HeaderLink.astro';
 		align-items: center;
 		justify-content: space-between;
 		height: 52px;
+		position: relative;
 	}
 	.site-title {
 		font-family: var(--font-mono);
@@ -68,8 +91,49 @@ import HeaderLink from './HeaderLink.astro';
 	.external:hover {
 		color: var(--accent) !important;
 	}
+	.hamburger {
+		display: none;
+		flex-direction: column;
+		gap: 5px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 4px;
+	}
+	.hamburger span {
+		display: block;
+		width: 22px;
+		height: 2px;
+		background: var(--text-muted);
+		border-radius: 2px;
+		transition: background 0.15s ease;
+	}
+	.hamburger:hover span {
+		background: var(--accent);
+	}
 	@media (max-width: 600px) {
-		.external { display: none; }
-		.nav-links { gap: 1em; }
+		.hamburger {
+			display: flex;
+		}
+		.nav-links {
+			display: none;
+			position: absolute;
+			top: 52px;
+			right: 0;
+			background: rgba(17, 17, 17, 0.98);
+			border: 1px solid var(--border);
+			border-radius: 4px;
+			padding: 0.75em 1.25em;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.85em;
+			min-width: 160px;
+		}
+		.nav-links.open {
+			display: flex;
+		}
+		.nav-links a {
+			font-size: 0.88em !important;
+		}
 	}
 </style>
