@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_TITLE } from '../consts';
 
 const projects = [
 	{
@@ -15,7 +15,7 @@ const projects = [
 	{
 		title: 'wpii-bildyapp',
 		link: 'https://github.com/itzi97/wpii-bildyapp',
-		summary: 'Backend JavaScript app for a fictitious company managing clients, projects, and certifications.',
+		summary: 'Backend app for a fictitious company managing clients, projects, and certifications.',
 		tech: 'Node.js · Express · REST API · JWT/auth · database integration',
 		highlight: 'Role-based endpoints and CRUD for core business entities.'
 	},
@@ -36,7 +36,7 @@ const projects = [
 	{
 		title: 'Distributed Systems Exercises',
 		link: 'https://github.com/itzi97/DS_exercise1_fm',
-		summary: 'C++ distributed systems exercises, with related repos covering chat systems and database tutorials.',
+		summary: 'C++ distributed systems exercises covering chat systems and database tutorials.',
 		tech: 'C++ · Docker · Kubernetes · networking fundamentals',
 		highlight: 'Hands-on exercises demonstrating concurrency, messaging, and containerized deployment.'
 	},
@@ -44,7 +44,7 @@ const projects = [
 		title: 'AM-apuntes',
 		link: 'https://github.com/itzi97/AM-apuntes',
 		summary: 'Real Analysis I & II class notes with linked exercise repositories.',
-		tech: 'LaTeX / Markdown notes · problem repo links',
+		tech: 'LaTeX · Markdown',
 		highlight: 'Structured mathematical notes and worked problems.'
 	},
 	{
@@ -55,14 +55,14 @@ const projects = [
 		highlight: 'User flows and accessibility-focused design decisions.'
 	},
 	{
-		title: 'Alphanumeric classification',
+		title: 'Alphanumeric Classification',
 		link: 'https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification',
 		summary: 'ML pipeline for classifying alphanumeric characters.',
 		tech: 'Python · scikit-learn · data augmentation',
 		highlight: 'Full workflow from preprocessing to evaluation.'
 	},
 	{
-		title: 'Spam filtering',
+		title: 'Spam Filtering',
 		link: 'https://www.kaggle.com/code/itzi97/u-tad-spam-not-spam',
 		summary: 'Text classification project for spam detection.',
 		tech: 'NLP preprocessing · sklearn · feature engineering',
@@ -71,7 +71,7 @@ const projects = [
 	{
 		title: 'Dogs vs Cats',
 		link: 'https://www.kaggle.com/code/itzi97/u-tad-dogs-vs-cats',
-		summary: 'Image classification project using CNNs and transfer learning.',
+		summary: 'Image classification using CNNs and transfer learning.',
 		tech: 'Keras · TensorFlow · Python · transfer learning',
 		highlight: 'Built and fine-tuned a deep learning image classifier.'
 	}
@@ -81,27 +81,27 @@ const projects = [
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Projects | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead title={`Projects | ${SITE_TITLE}`} description="A full collection of software engineering, data science, ML, and academic projects by Itziar Morales Rodríguez." />
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main class="wide">
 			<section class="projects-page">
-				<p class="eyebrow">Portfolio</p>
-				<h1>Projects</h1>
+				<p class="eyebrow">~/projects</p>
+				<h1>All Projects</h1>
 				<p class="intro">
-					A broader collection of software engineering, data science, ML, dashboarding, and academic projects.
+					Software engineering, data science, ML, dashboarding, and academic projects.
 					Each card links directly to the repository or notebook.
 				</p>
 
 				<div class="projects-grid">
 					{projects.map((project) => (
-						<a class="project-card" href={project.link} target="_blank" rel="noopener">
+						<a class="proj-card" href={project.link} target="_blank" rel="noopener">
 							<h2>{project.title}</h2>
-							<p>{project.summary}</p>
-							<p class="tech">{project.tech}</p>
+							<p class="summary">{project.summary}</p>
 							<p class="highlight">{project.highlight}</p>
-							<span class="card-link">Open project ↗</span>
+							<p class="tech">{project.tech}</p>
+							<span class="card-cta">Open ↗</span>
 						</a>
 					))}
 				</div>
@@ -113,61 +113,70 @@ const projects = [
 
 <style>
 	.projects-page {
-		max-width: 960px;
-		margin: 0 auto;
-		padding: 3rem 1.5rem 4rem;
+		padding: 1rem 0 3rem;
 	}
 	.eyebrow {
 		font-family: var(--font-mono);
-		color: var(--green);
+		color: var(--accent);
 		font-size: 0.85rem;
-		margin-bottom: 0.5rem;
+		margin-bottom: 0.4rem;
 	}
 	.projects-page h1 {
-		margin-bottom: 0.75rem;
+		margin-bottom: 0.6rem;
 	}
 	.intro {
-		max-width: 42rem;
 		color: var(--text-muted);
+		max-width: 42rem;
 		margin-bottom: 2rem;
 	}
 	.projects-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 		gap: 1rem;
 	}
-	.project-card {
-		display: block;
+	.proj-card {
+		display: flex;
+		flex-direction: column;
 		padding: 1.25rem;
 		border: 1px solid var(--border);
-		border-radius: 14px;
-		background: rgba(255,255,255,0.02);
+		border-left: 3px solid var(--accent);
+		border-radius: 6px;
+		background: var(--surface);
 		text-decoration: none;
-		transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+		transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+		gap: 0.4rem;
 	}
-	.project-card:hover {
+	.proj-card:hover {
+		border-color: var(--accent);
+		box-shadow: 0 0 14px rgba(167, 139, 250, 0.1);
 		transform: translateY(-2px);
-		border-color: var(--green);
-		background: rgba(255,255,255,0.04);
 	}
-	.project-card h2 {
-		font-size: 1.05rem;
-		margin-bottom: 0.65rem;
+	.proj-card h2 {
+		font-size: 1rem;
+		margin: 0;
+		color: var(--accent);
 	}
-	.project-card p {
-		margin: 0 0 0.8rem;
-		color: var(--text-muted);
+	.proj-card p {
+		margin: 0;
+		font-size: 0.88rem;
 	}
-	.project-card .tech {
+	.proj-card .summary {
 		color: var(--text);
-		font-size: 0.92rem;
 	}
-	.project-card .highlight {
-		font-size: 0.95rem;
+	.proj-card .highlight {
+		color: var(--text-muted);
+		font-size: 0.82rem;
 	}
-	.card-link {
-		color: var(--green);
+	.proj-card .tech {
+		color: var(--text-muted);
+		font-size: 0.78rem;
+		margin-top: auto;
+		padding-top: 0.5rem;
+	}
+	.card-cta {
+		color: var(--accent);
+		font-size: 0.82rem;
 		font-weight: 600;
-		font-size: 0.95rem;
+		margin-top: 0.5rem;
 	}
 </style>
