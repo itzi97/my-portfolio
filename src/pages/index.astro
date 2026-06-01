@@ -3,7 +3,6 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE, GITHUB_URL, LINKEDIN_URL, EMAIL } from '../consts';
-import { Icon } from 'astro-icon/components';
 ---
 
 <!doctype html>
@@ -43,38 +42,19 @@ import { Icon } from 'astro-icon/components';
 				</div>
 
 				<div class="project-card">
-					<div class="project-title-row">
-						<h3><a href="https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification" target="_blank" rel="noopener">Alphanumeric Classification</a></h3>
-						<div class="icons">
-							<Icon name="simple-icons:python" class="card-icon" />
-							<Icon name="simple-icons:scikitlearn" class="card-icon" />
-						</div>
-					</div>
+					<h3><a href="https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification" target="_blank" rel="noopener">Alphanumeric Classification</a></h3>
 					<p>Full ML pipeline for classifying handwritten and printed alphanumeric characters, with detailed walkthrough of preprocessing, feature engineering, and model evaluation.</p>
 					<p class="tech">Python · scikit-learn · data augmentation</p>
 				</div>
 
 				<div class="project-card">
-					<div class="project-title-row">
-						<h3><a href="https://github.com/itzi97/AD-ODM" target="_blank" rel="noopener">MongoDB/Redis ODM</a></h3>
-						<div class="icons">
-							<Icon name="simple-icons:mongodb" class="card-icon" />
-							<Icon name="simple-icons:redis" class="card-icon" />
-							<Icon name="simple-icons:python" class="card-icon" />
-						</div>
-					</div>
+					<h3><a href="https://github.com/itzi97/AD-ODM" target="_blank" rel="noopener">MongoDB/Redis ODM</a></h3>
 					<p>Object-document mapper for MongoDB and Redis implemented in Python. Lightweight ODM with custom serialisation and common pattern examples.</p>
 					<p class="tech">Python · pymongo · redis-py</p>
 				</div>
 
 				<div class="project-card">
-					<div class="project-title-row">
-						<h3><a href="https://github.com/itzi97/engine2d" target="_blank" rel="noopener">2D Game Engine</a></h3>
-						<div class="icons">
-							<Icon name="simple-icons:cplusplus" class="card-icon" />
-							<Icon name="simple-icons:lua" class="card-icon" />
-						</div>
-					</div>
+					<h3><a href="https://github.com/itzi97/engine2d" target="_blank" rel="noopener">2D Game Engine</a></h3>
 					<p>Personal ongoing 2D game engine built from scratch with a Lua scripting layer. Demonstrates low-level systems programming and engine architecture outside of coursework.</p>
 					<p class="tech">C++ · Lua · Sol2 · SDL3 · GLM · CMake</p>
 				</div>
@@ -117,27 +97,7 @@ import { Icon } from 'astro-icon/components';
 	.view-all:hover {
 		text-decoration: underline;
 	}
-	.project-title-row {
-		display: flex;
-		align-items: center;
-		gap: 0.6em;
+	.project-card h3 {
 		margin-bottom: 0.4em;
-	}
-	.project-title-row h3 {
-		margin: 0;
-		line-height: 1;
-	}
-	.icons {
-		display: flex;
-		gap: 0.35em;
-		align-items: center;
-		flex-shrink: 0;
-	}
-	.card-icon {
-		width: 1em;
-		height: 1em;
-		display: block;
-		flex-shrink: 0;
-		color: var(--text-muted);
 	}
 </style>
