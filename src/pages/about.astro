@@ -1,12 +1,14 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 ---
 
-<Layout
-	title="About Me"
+<PageLayout
+	title="About | Itziar Morales Rodríguez"
 	description="Software Engineering student based in Madrid, building data pipelines, ML systems, and backend APIs."
-	pubDate={new Date('2026-06-01')}
 >
+	<p class="eyebrow">~/about</p>
+	<h1>About</h1>
+
 	<p>
 		Hi, I'm Itziar — a Software Engineering student at U-tad (Madrid) with a minor in Data Science & AI,
 		expected to graduate in June 2027. I'm bilingual in Spanish and English (CEFR C2), and I have an
@@ -35,7 +37,22 @@ import Layout from '../layouts/BlogPost.astro';
 	</p>
 
 	<p>
+		You can also <a href="/itziar-morales-cv.pdf" target="_blank" rel="noopener">download my CV</a>
+		for a concise overview of my background, projects, and technical skills.
+	</p>
+
+	<p>
 		If you're looking for someone who can write clean, tested, documented code and grow fast in a
 		data-heavy environment — <a href="mailto:itzimr@pm.me">get in touch</a>.
 	</p>
-</Layout>
+
+	<style>
+		.eyebrow {
+			font-family: var(--font-mono);
+			color: var(--accent);
+			font-size: 0.85rem;
+			margin-bottom: 0.4rem;
+			margin-top: 0;
+		}
+	</style>
+</PageLayout>
