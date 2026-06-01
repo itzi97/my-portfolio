@@ -1,0 +1,173 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const projects = [
+	{
+		title: 'AD-ODM',
+		link: 'https://github.com/itzi97/AD-ODM',
+		summary: 'Object-document mapper for MongoDB and Redis implemented in Python.',
+		tech: 'Python · pymongo · redis-py · custom serialization',
+		highlight: 'Lightweight ODM features and examples for common patterns.'
+	},
+	{
+		title: 'wpii-bildyapp',
+		link: 'https://github.com/itzi97/wpii-bildyapp',
+		summary: 'Backend JavaScript app for a fictitious company managing clients, projects, and certifications.',
+		tech: 'Node.js · Express · REST API · JWT/auth · database integration',
+		highlight: 'Role-based endpoints and CRUD for core business entities.'
+	},
+	{
+		title: 'DV_Tableau',
+		link: 'https://github.com/itzi97/DV_Tableau',
+		summary: 'Tableau dashboard analysing firearm homicides in the US.',
+		tech: 'Tableau · CSV data processing · data cleaning',
+		highlight: 'Interactive visualizations for regional and temporal trends.'
+	},
+	{
+		title: 'DV_Python',
+		link: 'https://github.com/itzi97/DV_Python',
+		summary: 'Personal fitness tracking visualizations built with Python.',
+		tech: 'Python · pandas · matplotlib · seaborn · plotly',
+		highlight: 'Time-series analysis and customizable performance dashboards.'
+	},
+	{
+		title: 'Distributed Systems Exercises',
+		link: 'https://github.com/itzi97/DS_exercise1_fm',
+		summary: 'C++ distributed systems exercises, with related repos covering chat systems and database tutorials.',
+		tech: 'C++ · Docker · Kubernetes · networking fundamentals',
+		highlight: 'Hands-on exercises demonstrating concurrency, messaging, and containerized deployment.'
+	},
+	{
+		title: 'AM-apuntes',
+		link: 'https://github.com/itzi97/AM-apuntes',
+		summary: 'Real Analysis I & II class notes with linked exercise repositories.',
+		tech: 'LaTeX / Markdown notes · problem repo links',
+		highlight: 'Structured mathematical notes and worked problems.'
+	},
+	{
+		title: 'vacumcite',
+		link: 'https://github.com/itzi97/vacumcite',
+		summary: 'UX design project for a COVID vaccination website.',
+		tech: 'Figma · HTML · CSS prototyping',
+		highlight: 'User flows and accessibility-focused design decisions.'
+	},
+	{
+		title: 'Alphanumeric classification',
+		link: 'https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification',
+		summary: 'ML pipeline for classifying alphanumeric characters.',
+		tech: 'Python · scikit-learn · data augmentation',
+		highlight: 'Full workflow from preprocessing to evaluation.'
+	},
+	{
+		title: 'Spam filtering',
+		link: 'https://www.kaggle.com/code/itzi97/u-tad-spam-not-spam',
+		summary: 'Text classification project for spam detection.',
+		tech: 'NLP preprocessing · sklearn · feature engineering',
+		highlight: 'Practical text classification pipeline for message filtering.'
+	},
+	{
+		title: 'Dogs vs Cats',
+		link: 'https://www.kaggle.com/code/itzi97/u-tad-dogs-vs-cats',
+		summary: 'Image classification project using CNNs and transfer learning.',
+		tech: 'Keras · TensorFlow · Python · transfer learning',
+		highlight: 'Built and fine-tuned a deep learning image classifier.'
+	}
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Projects | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="projects-page">
+				<p class="eyebrow">Portfolio</p>
+				<h1>Projects</h1>
+				<p class="intro">
+					A broader collection of software engineering, data science, ML, dashboarding, and academic projects.
+					Each card links directly to the repository or notebook.
+				</p>
+
+				<div class="projects-grid">
+					{projects.map((project) => (
+						<a class="project-card" href={project.link} target="_blank" rel="noopener">
+							<h2>{project.title}</h2>
+							<p>{project.summary}</p>
+							<p class="tech">{project.tech}</p>
+							<p class="highlight">{project.highlight}</p>
+							<span class="card-link">Open project ↗</span>
+						</a>
+					))}
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.projects-page {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 3rem 1.5rem 4rem;
+	}
+	.eyebrow {
+		font-family: var(--font-mono);
+		color: var(--green);
+		font-size: 0.85rem;
+		margin-bottom: 0.5rem;
+	}
+	.projects-page h1 {
+		margin-bottom: 0.75rem;
+	}
+	.intro {
+		max-width: 42rem;
+		color: var(--text-muted);
+		margin-bottom: 2rem;
+	}
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1rem;
+	}
+	.project-card {
+		display: block;
+		padding: 1.25rem;
+		border: 1px solid var(--border);
+		border-radius: 14px;
+		background: rgba(255,255,255,0.02);
+		text-decoration: none;
+		transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+	}
+	.project-card:hover {
+		transform: translateY(-2px);
+		border-color: var(--green);
+		background: rgba(255,255,255,0.04);
+	}
+	.project-card h2 {
+		font-size: 1.05rem;
+		margin-bottom: 0.65rem;
+	}
+	.project-card p {
+		margin: 0 0 0.8rem;
+		color: var(--text-muted);
+	}
+	.project-card .tech {
+		color: var(--text);
+		font-size: 0.92rem;
+	}
+	.project-card .highlight {
+		font-size: 0.95rem;
+	}
+	.card-link {
+		color: var(--green);
+		font-weight: 600;
+		font-size: 0.95rem;
+	}
+</style>
