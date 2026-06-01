@@ -1,77 +1,78 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import { SITE_TITLE } from '../consts';
+import { Icon } from 'astro-icon/components';
 
 const stack = [
 	{
 		category: 'Systems & Infrastructure',
 		items: [
-			{ name: 'C/C++', rating: 4 },
-			{ name: 'Rust', rating: 3 },
-			{ name: 'Distributed systems', rating: 3 },
-			{ name: 'Linux', rating: 4 },
-			{ name: 'Docker', rating: 3 },
-			{ name: 'Bash', rating: 3 },
-			{ name: 'Kubernetes', rating: 2 },
-			{ name: 'AWS', rating: 3 },
+			{ name: 'C/C++', rating: 4, icon: 'simple-icons:cplusplus' },
+			{ name: 'Rust', rating: 3, icon: 'simple-icons:rust' },
+			{ name: 'Distributed systems', rating: 3, icon: 'lucide:network' },
+			{ name: 'Linux', rating: 4, icon: 'simple-icons:linux' },
+			{ name: 'Docker', rating: 3, icon: 'simple-icons:docker' },
+			{ name: 'Bash', rating: 3, icon: 'simple-icons:gnubash' },
+			{ name: 'Kubernetes', rating: 2, icon: 'simple-icons:kubernetes' },
+			{ name: 'AWS', rating: 3, icon: 'simple-icons:amazonwebservices' },
 		]
 	},
 	{
 		category: 'Game Dev',
 		items: [
-			{ name: 'Game engine architecture', rating: 3 },
-			{ name: 'Graphics programming', rating: 3 },
-			{ name: 'OpenGL', rating: 1 },
-			{ name: 'SDL2', rating: 3 },
-			{ name: 'SDL3', rating: 3 },
-			{ name: 'GLM', rating: 3 },
-			{ name: 'Lua', rating: 3 },
-			{ name: 'Sol2', rating: 3 },
+			{ name: 'Game engine architecture', rating: 3, icon: 'lucide:cpu' },
+			{ name: 'Graphics programming', rating: 3, icon: 'lucide:monitor' },
+			{ name: 'OpenGL', rating: 1, icon: 'simple-icons:opengl' },
+			{ name: 'SDL2', rating: 3, icon: 'lucide:gamepad-2' },
+			{ name: 'SDL3', rating: 3, icon: 'lucide:gamepad-2' },
+			{ name: 'GLM', rating: 3, icon: 'lucide:box' },
+			{ name: 'Lua', rating: 3, icon: 'simple-icons:lua' },
+			{ name: 'Sol2', rating: 3, icon: 'lucide:link' },
 		]
 	},
 	{
 		category: 'Web & Backend',
 		items: [
-			{ name: 'HTML / CSS', rating: 4 },
-			{ name: 'JavaScript', rating: 3 },
-			{ name: 'Node.js / Express', rating: 3 },
-			{ name: 'Golang', rating: 2 },
-			{ name: 'Zod', rating: 2 },
+			{ name: 'HTML / CSS', rating: 4, icon: 'simple-icons:html5' },
+			{ name: 'JavaScript', rating: 3, icon: 'simple-icons:javascript' },
+			{ name: 'Node.js / Express', rating: 3, icon: 'simple-icons:nodedotjs' },
+			{ name: 'Golang', rating: 2, icon: 'simple-icons:go' },
+			{ name: 'Zod', rating: 2, icon: 'simple-icons:zod' },
 		]
 	},
 	{
 		category: 'Databases',
 		items: [
-			{ name: 'MongoDB', rating: 4 },
-			{ name: 'Redis', rating: 3 },
-			{ name: 'PostgreSQL', rating: 3 },
-			{ name: 'MariaDB', rating: 3 },
-			{ name: 'Neo4j', rating: 2 },
-			{ name: 'ChromaDB', rating: 2 },
-			{ name: 'Cassandra', rating: 2 },
+			{ name: 'MongoDB', rating: 4, icon: 'simple-icons:mongodb' },
+			{ name: 'Redis', rating: 3, icon: 'simple-icons:redis' },
+			{ name: 'PostgreSQL', rating: 3, icon: 'simple-icons:postgresql' },
+			{ name: 'MariaDB', rating: 3, icon: 'simple-icons:mariadb' },
+			{ name: 'Neo4j', rating: 2, icon: 'simple-icons:neo4j' },
+			{ name: 'ChromaDB', rating: 2, icon: 'lucide:database' },
+			{ name: 'Cassandra', rating: 2, icon: 'simple-icons:apachecassandra' },
 		]
 	},
 	{
 		category: 'Data & ML',
 		items: [
-			{ name: 'Python', rating: 4 },
-			{ name: 'Pandas / Matplotlib / Seaborn', rating: 4 },
-			{ name: 'Keras / TensorFlow', rating: 3 },
-			{ name: 'scikit-learn', rating: 3 },
-			{ name: 'Spark / Scala', rating: 3 },
-			{ name: 'Plotly / ipywidgets', rating: 3 },
-			{ name: 'BeautifulSoup / Selenium', rating: 2 },
+			{ name: 'Python', rating: 4, icon: 'simple-icons:python' },
+			{ name: 'Pandas / Matplotlib / Seaborn', rating: 4, icon: 'simple-icons:pandas' },
+			{ name: 'Keras / TensorFlow', rating: 3, icon: 'simple-icons:keras' },
+			{ name: 'scikit-learn', rating: 3, icon: 'simple-icons:scikitlearn' },
+			{ name: 'Spark / Scala', rating: 3, icon: 'simple-icons:apachespark' },
+			{ name: 'Plotly / ipywidgets', rating: 3, icon: 'simple-icons:plotly' },
+			{ name: 'BeautifulSoup / Selenium', rating: 2, icon: 'simple-icons:selenium' },
 		]
 	},
 	{
 		category: 'Tools & Workflow',
 		items: [
-			{ name: 'Git', rating: 4 },
-			{ name: 'LaTeX', rating: 4 },
-			{ name: 'Vim', rating: 3 },
-			{ name: 'CMake', rating: 3 },
-			{ name: 'DaVinci Resolve / After Effects', rating: 3 },
-			{ name: 'Figma', rating: 1 },
+			{ name: 'Git', rating: 4, icon: 'simple-icons:git' },
+			{ name: 'LaTeX', rating: 4, icon: 'simple-icons:latex' },
+			{ name: 'Vim', rating: 3, icon: 'simple-icons:vim' },
+			{ name: 'CMake', rating: 3, icon: 'simple-icons:cmake' },
+			{ name: 'DaVinci Resolve / After Effects', rating: 3, icon: 'simple-icons:davinciresolve' },
+			{ name: 'Figma', rating: 1, icon: 'simple-icons:figma' },
 		]
 	},
 ];
@@ -95,9 +96,12 @@ function stars(rating: number) {
 		<div class="category">
 			<h2>{category}</h2>
 			<ul class="skill-list">
-				{items.map(({ name, rating }) => (
+				{items.map(({ name, rating, icon }) => (
 					<li>
-						<span class="skill-name">{name}</span>
+						<span class="skill-name">
+							<Icon name={icon} class="skill-icon" />
+							{name}
+						</span>
 						<span class="stars" aria-label={`${rating} out of 5`}>
 							{stars(rating).split('').map((s) => (
 								<span class={s === '★' ? 'star filled' : 'star'}>{s}</span>
@@ -153,8 +157,17 @@ function stars(rating: number) {
 			padding-bottom: 0.35rem;
 		}
 		.skill-name {
+			display: flex;
+			align-items: center;
+			gap: 0.4em;
 			font-size: 0.9rem;
 			color: var(--text);
+		}
+		.skill-icon {
+			width: 1em;
+			height: 1em;
+			flex-shrink: 0;
+			color: var(--text-muted);
 		}
 		.stars {
 			display: flex;
