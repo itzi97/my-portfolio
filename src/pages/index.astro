@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE, GITHUB_URL, LINKEDIN_URL, EMAIL } from '../consts';
 ---
 
 <!doctype html>
@@ -13,36 +13,62 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero">
+				<h1>Itziar Morales</h1>
+				<p class="tagline">Software Engineering Student · Data Science & AI Minor · Madrid, Spain</p>
+				<p>
+					I build data pipelines, machine learning systems, and backend APIs.
+					Currently completing a B.S. in Software Engineering at U-tad, looking for a remote
+					data engineering or applied ML internship.
+				</p>
+				<nav class="links">
+					<a href={GITHUB_URL} target="_blank" rel="noopener">GitHub</a>
+					<a href={LINKEDIN_URL} target="_blank" rel="noopener">LinkedIn</a>
+					<a href={`mailto:${EMAIL}`}>Email</a>
+					<a href="/about">About</a>
+					<a href="/blog">Blog</a>
+				</nav>
+			</section>
+
+			<section class="projects">
+				<h2>Featured Projects</h2>
+
+				<div class="project-card">
+					<h3><a href="https://github.com/itzi97/AD-ODM" target="_blank" rel="noopener">AD-ODM</a></h3>
+					<p>Object-document mapper for MongoDB and Redis implemented in Python. Lightweight ODM with custom serialisation and common pattern examples.</p>
+					<p class="tech">Python · pymongo · redis-py</p>
+				</div>
+
+				<div class="project-card">
+					<h3><a href="https://github.com/itzi97/wpii-bildyapp" target="_blank" rel="noopener">BildyApp</a></h3>
+					<p>Backend REST API for a fictitious company managing clients, projects, and certifications. Role-based auth, CRUD endpoints, containerised with Docker.</p>
+					<p class="tech">Node.js · Express · JWT · Docker</p>
+				</div>
+
+				<div class="project-card">
+					<h3><a href="https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification" target="_blank" rel="noopener">Alphanumeric Classification</a></h3>
+					<p>ML pipeline for classifying alphanumeric characters with data augmentation. Full scikit-learn pipeline from preprocessing to evaluation.</p>
+					<p class="tech">Python · scikit-learn · Data Augmentation</p>
+				</div>
+
+				<div class="project-card">
+					<h3><a href="https://www.kaggle.com/code/itzi97/u-tad-dogs-vs-cats" target="_blank" rel="noopener">Dogs vs Cats</a></h3>
+					<p>Image classification using CNNs and transfer learning. Built and fine-tuned a Keras/TensorFlow model on the classic binary classification benchmark.</p>
+					<p class="tech">Python · TensorFlow · Keras · Transfer Learning</p>
+				</div>
+
+				<div class="project-card">
+					<h3><a href="https://github.com/itzi97/DVPython" target="_blank" rel="noopener">Fitness Tracking Visualisations</a></h3>
+					<p>Personal fitness data analysis with time-series visualisations and customisable performance dashboards built in Python.</p>
+					<p class="tech">Python · pandas · matplotlib · seaborn · plotly</p>
+				</div>
+
+				<div class="project-card">
+					<h3><a href="https://github.com/itzi97/DVTableau" target="_blank" rel="noopener">Firearm Homicides Dashboard</a></h3>
+					<p>Interactive Tableau dashboard analysing firearm homicides in the US, with regional and temporal trend breakdowns.</p>
+					<p class="tech">Tableau · CSV data processing · Data cleaning</p>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
