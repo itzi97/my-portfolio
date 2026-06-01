@@ -10,40 +10,57 @@ import PageLayout from '../layouts/PageLayout.astro';
 	<h1>About</h1>
 
 	<p>
-		Hi, I'm Itziar — a Software Engineering student at U-tad (Madrid) with a minor in Data Science & AI,
-		expected to graduate in June 2027. I'm bilingual in Spanish and English (CEFR C2), and I have an
-		intermediate level of French.
+		Hi, I'm Itziar, a Software Engineering student at <a href="https://www.u-tad.com" target="_blank" rel="noopener">U-tad</a> (Madrid)
+		with a minor in Data Science &amp; AI, expected to graduate in June 2027. I started programming at 18
+		by enrolling at <a href="https://www.digipen.es" target="_blank" rel="noopener">DigiPen Bilbao</a> for
+		a B.S. in Computer Science in Real Time Interactive Simulation, then pivoted to Computational Mathematics,
+		and eventually landed on Software Engineering. That path wasn't the most direct, but it gave me a genuinely
+		wide base to work from.
 	</p>
 
 	<p>
-		My work sits at the intersection of data engineering, applied machine learning, and backend development.
-		I'm comfortable across the full data stack — from writing Python ETL pipelines and Spark Scala jobs,
-		to building REST APIs with Node.js and containerising services with Docker. I also have hands-on
-		experience with ML libraries including TensorFlow, Keras, scikit-learn, and ChromaDB for RAG pipelines.
+		Because of it, I've touched a lot of different areas of programming. A rough breakdown by category:
+	</p>
+
+	<ul class="stack-list">
+		<li><strong>Low-level / systems:</strong> C/C++, game engine architecture, graphics programming, distributed systems</li>
+		<li><strong>Web &amp; backend:</strong> HTML, CSS, JavaScript, Node.js, Express, Golang, Zod</li>
+		<li><strong>Infrastructure:</strong> Linux, Docker, Kubernetes, AWS, Bash, service deployment</li>
+		<li><strong>Databases:</strong> MariaDB, PostgreSQL, MongoDB, Redis, Neo4j, ChromaDB, Cassandra</li>
+		<li><strong>Data &amp; ML:</strong> Python, Pandas, Matplotlib, Seaborn, Keras, TensorFlow, Plotly, BeautifulSoup, Selenium</li>
+	</ul>
+
+	<p>
+		I enjoy group projects and have naturally ended up leading a lot of them throughout college. I like
+		breaking down a problem into tasks, figuring out who's best placed to handle what, and keeping
+		everyone on the same page. Getting a team to actually ship something on time is satisfying in a
+		different way than solving a technical problem solo.
 	</p>
 
 	<p>
-		Outside of code, I hold ABRSM Grade 8 certificates in both piano and violoncello, and I spent time
-		as a video editor and content collaborator for Paradox Interactive. I believe that long-form
-		disciplined practice — whether in music or engineering — builds the kind of rigour that shows
-		in production-quality work.
+		Outside of code I have a vocational degree in music (violoncello) and ABRSM Grade 8 in both piano
+		and cello, which led to me composing the soundtrack for a college game project. I use Linux as my
+		daily driver and run a home server with Nextcloud, Navidrome, and Vaultwarden, and I tinker with
+		dotfiles for window managers and Vim more than I probably should. I also spent time as a video editor
+		and content collaborator for Paradox Interactive. I think long-term disciplined practice, whether in
+		music or engineering, builds the kind of rigour that shows up in production-quality work.
 	</p>
 
 	<p>
 		I'm currently looking for a remote, part-time data engineering or applied ML internship (~20 hrs/week),
 		with a view to converting it into a long-term remote role. I'm based in Madrid until September 2027,
-		when I'll be relocating to Canada to begin an M.Sc. in Management in AI & Analytics at DeGroote
+		when I'll be relocating to Canada to begin an M.Sc. in Management in AI &amp; Analytics at DeGroote
 		(McMaster University).
 	</p>
 
 	<p>
-		You can also <a href="/itziar-morales-cv.pdf" target="_blank" rel="noopener">download my CV</a>
-		for a concise overview of my background, projects, and technical skills.
+		You can <a href="/itziar-morales-cv.pdf" target="_blank" rel="noopener">download my CV</a> for a
+		concise overview of my background, projects, and technical skills.
 	</p>
 
 	<p>
-		If you're looking for someone who can write clean, tested, documented code and grow fast in a
-		data-heavy environment — <a href="mailto:itzimr@pm.me">get in touch</a>.
+		If you're looking for someone who writes clean, tested, documented code and grows fast in a
+		data-heavy environment, <a href="mailto:itzimr@pm.me">get in touch</a>.
 	</p>
 
 	<style>
@@ -53,6 +70,21 @@ import PageLayout from '../layouts/PageLayout.astro';
 			font-size: 0.85rem;
 			margin-bottom: 0.4rem;
 			margin-top: 0;
+		}
+		.stack-list {
+			margin: 0 0 1em;
+			padding-left: 1.25em;
+			display: flex;
+			flex-direction: column;
+			gap: 0.3em;
+		}
+		.stack-list li {
+			font-size: 0.9em;
+			color: var(--text);
+			line-height: 1.5;
+		}
+		.stack-list strong {
+			color: var(--accent);
 		}
 	</style>
 </PageLayout>
