@@ -177,8 +177,8 @@ const projects = [
 				<div class="projects-grid">
 					{projects.map((project) => (
 						<a class="proj-card" href={project.link} target="_blank" rel="noopener">
-							<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
 							<div class="tags">
+								<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
 								{project.tags.map(tag => (
 									<span class="tag">{tag}</span>
 								))}
@@ -253,6 +253,12 @@ const projects = [
 		margin-top: auto;
 		padding-top: 0.5rem;
 	}
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+		align-items: center;
+	}
 	.origin {
 		display: inline-block;
 		font-size: 0.7rem;
@@ -261,7 +267,6 @@ const projects = [
 		text-transform: uppercase;
 		padding: 0.1em 0.45em;
 		border-radius: 3px;
-		align-self: flex-start;
 	}
 	.origin-personal {
 		background: rgba(52, 211, 153, 0.1);
@@ -283,11 +288,6 @@ const projects = [
 		font-size: 0.82rem;
 		font-weight: 600;
 		margin-top: 0.5rem;
-	}
-	.tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem;
 	}
 	.tag {
 		font-size: 0.72rem;

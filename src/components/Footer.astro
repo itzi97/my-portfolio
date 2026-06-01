@@ -14,9 +14,7 @@ const today = new Date();
 			<a href={LINKEDIN_URL} target="_blank" rel="noopener" aria-label="LinkedIn">
 				<Icon name="simple-icons:linkedin" class="footer-icon" />
 			</a>
-			<a href={KAGGLE_URL} target="_blank" rel="noopener" aria-label="Kaggle">
-				<Icon name="simple-icons:kaggle" class="footer-icon" />
-			</a>
+			<a href={KAGGLE_URL} target="_blank" rel="noopener" class="kaggle-link">kg</a>
 			<a href={`mailto:${EMAIL}`} aria-label="Email">
 				<Icon name="lucide:mail" class="footer-icon" />
 			</a>
@@ -56,6 +54,18 @@ const today = new Date();
 		transition: color 0.15s ease;
 	}
 	.footer-icons a:hover .footer-icon {
+		color: var(--accent);
+	}
+	.kaggle-link {
+		font-family: var(--font-mono);
+		font-size: 0.78em;
+		font-weight: 600;
+		color: var(--text-muted);
+		text-decoration: none;
+		transition: color 0.15s ease;
+		letter-spacing: 0.02em;
+	}
+	.kaggle-link:hover {
 		color: var(--accent);
 	}
 </style>
