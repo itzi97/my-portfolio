@@ -6,74 +6,84 @@ import { SITE_TITLE } from '../consts';
 
 const projects = [
 	{
-		title: 'AD-ODM',
-		link: 'https://github.com/itzi97/AD-ODM',
-		summary: 'Object-document mapper for MongoDB and Redis implemented in Python.',
-		tech: 'Python · pymongo · redis-py · custom serialization',
-		highlight: 'Lightweight ODM features and examples for common patterns.'
-	},
-	{
-		title: 'wpii-bildyapp',
-		link: 'https://github.com/itzi97/wpii-bildyapp',
-		summary: 'Backend app for a fictitious company managing clients, projects, and certifications.',
-		tech: 'Node.js · Express · REST API · JWT/auth · database integration',
-		highlight: 'Role-based endpoints and CRUD for core business entities.'
-	},
-	{
-		title: 'DV_Tableau',
-		link: 'https://github.com/itzi97/DV_Tableau',
-		summary: 'Tableau dashboard analysing firearm homicides in the US.',
-		tech: 'Tableau · CSV data processing · data cleaning',
-		highlight: 'Interactive visualizations for regional and temporal trends.'
-	},
-	{
-		title: 'DV_Python',
-		link: 'https://github.com/itzi97/DV_Python',
-		summary: 'Personal fitness tracking visualizations built with Python.',
-		tech: 'Python · pandas · matplotlib · seaborn · plotly',
-		highlight: 'Time-series analysis and customizable performance dashboards.'
-	},
-	{
-		title: 'Distributed Systems Exercises',
-		link: 'https://github.com/itzi97/DS_exercise1_fm',
-		summary: 'C++ distributed systems exercises covering chat systems and database tutorials.',
-		tech: 'C++ · Docker · Kubernetes · networking fundamentals',
-		highlight: 'Hands-on exercises demonstrating concurrency, messaging, and containerized deployment.'
-	},
-	{
-		title: 'AM-apuntes',
-		link: 'https://github.com/itzi97/AM-apuntes',
-		summary: 'Real Analysis I & II class notes with linked exercise repositories.',
-		tech: 'LaTeX · Markdown',
-		highlight: 'Structured mathematical notes and worked problems.'
-	},
-	{
-		title: 'vacumcite',
-		link: 'https://github.com/itzi97/vacumcite',
-		summary: 'UX design project for a COVID vaccination website.',
-		tech: 'Figma · HTML · CSS prototyping',
-		highlight: 'User flows and accessibility-focused design decisions.'
+		title: 'Dogs vs Cats',
+		link: 'https://www.kaggle.com/code/itzi97/u-tad-dogs-vs-cats',
+		summary: 'Image classification using CNNs and transfer learning.',
+		tech: 'Keras · TensorFlow · Python · transfer learning',
+		highlight: 'Built and fine-tuned a deep learning image classifier.',
+		tags: ['Machine Learning', 'Deep Learning']
 	},
 	{
 		title: 'Alphanumeric Classification',
 		link: 'https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification',
 		summary: 'ML pipeline for classifying alphanumeric characters.',
 		tech: 'Python · scikit-learn · data augmentation',
-		highlight: 'Full workflow from preprocessing to evaluation.'
+		highlight: 'Full workflow from preprocessing to evaluation.',
+		tags: ['Machine Learning']
 	},
 	{
 		title: 'Spam Filtering',
 		link: 'https://www.kaggle.com/code/itzi97/u-tad-spam-not-spam',
 		summary: 'Text classification project for spam detection.',
 		tech: 'NLP preprocessing · sklearn · feature engineering',
-		highlight: 'Practical text classification pipeline for message filtering.'
+		highlight: 'Practical text classification pipeline for message filtering.',
+		tags: ['Machine Learning', 'NLP']
 	},
 	{
-		title: 'Dogs vs Cats',
-		link: 'https://www.kaggle.com/code/itzi97/u-tad-dogs-vs-cats',
-		summary: 'Image classification using CNNs and transfer learning.',
-		tech: 'Keras · TensorFlow · Python · transfer learning',
-		highlight: 'Built and fine-tuned a deep learning image classifier.'
+		title: 'DV_Tableau',
+		link: 'https://github.com/itzi97/DV_Tableau',
+		summary: 'Tableau dashboard analysing firearm homicides in the US.',
+		tech: 'Tableau · CSV data processing · data cleaning',
+		highlight: 'Interactive visualizations for regional and temporal trends.',
+		tags: ['Data Visualisation', 'Data Analysis']
+	},
+	{
+		title: 'DV_Python',
+		link: 'https://github.com/itzi97/DV_Python',
+		summary: 'Personal fitness tracking visualizations built with Python.',
+		tech: 'Python · pandas · matplotlib · seaborn · plotly',
+		highlight: 'Time-series analysis and customizable performance dashboards.',
+		tags: ['Data Visualisation', 'Data Analysis']
+	},
+	{
+		title: 'AD-ODM',
+		link: 'https://github.com/itzi97/AD-ODM',
+		summary: 'Object-document mapper for MongoDB and Redis implemented in Python.',
+		tech: 'Python · pymongo · redis-py · custom serialization',
+		highlight: 'Lightweight ODM features and examples for common patterns.',
+		tags: ['Backend', 'Data Engineering']
+	},
+	{
+		title: 'BildyApp',
+		link: 'https://github.com/itzi97/wpii-bildyapp',
+		summary: 'Backend REST API for a fictitious company managing clients, projects, and certifications.',
+		tech: 'Node.js · Express · REST API · JWT · Docker',
+		highlight: 'Role-based endpoints and CRUD for core business entities.',
+		tags: ['Backend']
+	},
+	{
+		title: 'Distributed Systems',
+		link: 'https://github.com/itzi97/DS_exercise1_fm',
+		summary: 'C++ distributed systems exercises covering chat systems and database tutorials.',
+		tech: 'C++ · Docker · Kubernetes · networking fundamentals',
+		highlight: 'Hands-on exercises demonstrating concurrency, messaging, and containerized deployment.',
+		tags: ['Backend', 'Systems']
+	},
+	{
+		title: 'AM-apuntes',
+		link: 'https://github.com/itzi97/AM-apuntes',
+		summary: 'Real Analysis I & II class notes with linked exercise repositories.',
+		tech: 'LaTeX · Markdown',
+		highlight: 'Structured mathematical notes and worked problems.',
+		tags: ['Academic']
+	},
+	{
+		title: 'vacumcite',
+		link: 'https://github.com/itzi97/vacumcite',
+		summary: 'UX design project for a COVID vaccination website.',
+		tech: 'Figma · HTML · CSS prototyping',
+		highlight: 'User flows and accessibility-focused design decisions.',
+		tags: ['UX / Design']
 	}
 ];
 ---
@@ -97,6 +107,11 @@ const projects = [
 				<div class="projects-grid">
 					{projects.map((project) => (
 						<a class="proj-card" href={project.link} target="_blank" rel="noopener">
+							<div class="tags">
+								{project.tags.map(tag => (
+									<span class="tag">{tag}</span>
+								))}
+							</div>
 							<h2>{project.title}</h2>
 							<p class="summary">{project.summary}</p>
 							<p class="highlight">{project.highlight}</p>
@@ -114,12 +129,6 @@ const projects = [
 <style>
 	.projects-page {
 		padding: 1rem 0 3rem;
-	}
-	.eyebrow {
-		font-family: var(--font-mono);
-		color: var(--accent);
-		font-size: 0.85rem;
-		margin-bottom: 0.4rem;
 	}
 	.projects-page h1 {
 		margin-bottom: 0.6rem;
@@ -178,5 +187,21 @@ const projects = [
 		font-size: 0.82rem;
 		font-weight: 600;
 		margin-top: 0.5rem;
+	}
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+		margin-bottom: 0.4rem;
+	}
+	.tag {
+		font-size: 0.72rem;
+		padding: 0.15em 0.55em;
+		border-radius: 3px;
+		background: rgba(167, 139, 250, 0.1);
+		color: var(--accent);
+		border: 1px solid rgba(167, 139, 250, 0.25);
+		letter-spacing: 0.02em;
+		font-weight: 500;
 	}
 </style>
