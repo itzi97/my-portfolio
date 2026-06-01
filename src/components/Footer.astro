@@ -1,15 +1,22 @@
 ---
 import { SITE_AUTHOR, GITHUB_URL, LINKEDIN_URL, EMAIL } from '../consts';
+import { Icon } from 'astro-icon/components';
 const today = new Date();
 ---
 
 <footer>
 	<div class="footer-inner">
 		<span class="muted">// {SITE_AUTHOR} &mdash; {today.getFullYear()}</span>
-		<div class="footer-links">
-			<a href={GITHUB_URL} target="_blank" rel="noopener">github</a>
-			<a href={LINKEDIN_URL} target="_blank" rel="noopener">linkedin</a>
-			<a href={`mailto:${EMAIL}`}>email</a>
+		<div class="footer-icons">
+			<a href={GITHUB_URL} target="_blank" rel="noopener" aria-label="GitHub">
+				<Icon name="simple-icons:github" class="footer-icon" />
+			</a>
+			<a href={LINKEDIN_URL} target="_blank" rel="noopener" aria-label="LinkedIn">
+				<Icon name="simple-icons:linkedin" class="footer-icon" />
+			</a>
+			<a href={`mailto:${EMAIL}`} aria-label="Email">
+				<Icon name="lucide:mail" class="footer-icon" />
+			</a>
 		</div>
 	</div>
 </footer>
@@ -33,17 +40,19 @@ const today = new Date();
 		font-size: 0.78em;
 		color: var(--text-muted);
 	}
-	.footer-links {
+	.footer-icons {
 		display: flex;
-		gap: 1.25em;
+		gap: 1.1em;
+		align-items: center;
 	}
-	.footer-links a {
-		font-size: 0.78em;
+	.footer-icon {
+		width: 1.1em;
+		height: 1.1em;
+		display: block;
 		color: var(--text-muted);
-		text-decoration: none;
 		transition: color 0.15s ease;
 	}
-	.footer-links a:hover {
-		color: var(--green);
+	.footer-icons a:hover .footer-icon {
+		color: var(--accent);
 	}
 </style>
