@@ -177,6 +177,7 @@ const projects = [
 				<div class="projects-grid">
 					{projects.map((project) => (
 						<a class="proj-card" href={project.link} target="_blank" rel="noopener">
+							<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
 							<div class="tags">
 								{project.tags.map(tag => (
 									<span class="tag">{tag}</span>
@@ -185,10 +186,7 @@ const projects = [
 							<h2>{project.title}</h2>
 							<p class="summary">{project.summary}</p>
 							<p class="highlight">{project.highlight}</p>
-							<p class="tech">
-								<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
-								{project.tech}
-							</p>
+							<p class="tech">{project.tech}</p>
 							<span class="card-cta">Open ↗</span>
 						</a>
 					))}
@@ -254,19 +252,16 @@ const projects = [
 		font-size: 0.78rem;
 		margin-top: auto;
 		padding-top: 0.5rem;
-		display: flex;
-		align-items: center;
-		gap: 0.4rem;
-		flex-wrap: wrap;
 	}
 	.origin {
+		display: inline-block;
 		font-size: 0.7rem;
 		font-weight: 600;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
 		padding: 0.1em 0.45em;
 		border-radius: 3px;
-		flex-shrink: 0;
+		align-self: flex-start;
 	}
 	.origin-personal {
 		background: rgba(52, 211, 153, 0.1);
@@ -293,7 +288,6 @@ const projects = [
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.35rem;
-		margin-bottom: 0.4rem;
 	}
 	.tag {
 		font-size: 0.72rem;
