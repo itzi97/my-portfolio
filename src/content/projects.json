@@ -41,7 +41,7 @@
 		"highlight": "Interactive visualizations for regional and temporal trends.",
 		"tags": ["Data Visualisation", "Data Analysis"],
 		"origin": "U-tad",
-		"featured": false,
+		"featured": true,
 		"blogSlug": "firearm-homicides",
 		"githubUrl": "https://github.com/itzi97/DV_Tableau"
 	},
