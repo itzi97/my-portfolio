@@ -95,6 +95,7 @@ const tocLabel = `~/blog/${slug}`;
 </html>
 
 <script>
+	// ── TOC ──────────────────────────────────────────────────────────────
 	const headings = Array.from(
 		document.querySelectorAll('.prose h2, .prose h3, .prose h4')
 	) as HTMLElement[];
@@ -102,7 +103,6 @@ const tocLabel = `~/blog/${slug}`;
 	const list = document.getElementById('toc-list');
 
 	if (list && headings.length > 0) {
-		// Build all li elements first
 		const items: { li: HTMLLIElement; level: number }[] = [];
 		headings.forEach((h) => {
 			const level = parseInt(h.tagName[1]);
@@ -115,12 +115,10 @@ const tocLabel = `~/blog/${slug}`;
 			items.push({ li, level });
 		});
 
-		// Mark last level-3 in each h2 group with level-3-last
 		for (let i = 0; i < items.length; i++) {
 			if (items[i].level === 3) {
-				const nextItem = items[i + 1];
-				// It's the last h3 in this group if next item is h2, h1, or end of list
-				if (!nextItem || nextItem.level <= 2) {
+				const next = items[i + 1];
+				if (!next || next.level <= 2) {
 					items[i].li.className = 'level-3-last';
 				}
 			}
@@ -147,4 +145,25 @@ const tocLabel = `~/blog/${slug}`;
 
 		headings.forEach((h) => observer.observe(h));
 	}
+
+	// ── Line numbers ─────────────────────────────────────────────────────
+	document.querySelectorAll('.prose pre').forEach((pre) => {
+		const lines = pre.querySelectorAll('code .line');
+		if (lines.length === 0) return;
+
+		const wrapper = document.createElement('div');
+		wrapper.className = 'code-block';
+
+		const gutter = document.createElement('div');
+		gutter.className = 'line-numbers';
+		lines.forEach((_, i) => {
+			const span = document.createElement('span');
+			span.textContent = String(i + 1);
+			gutter.appendChild(span);
+		});
+
+		pre.parentNode!.insertBefore(wrapper, pre);
+		wrapper.appendChild(gutter);
+		wrapper.appendChild(pre);
+	});
 </script>

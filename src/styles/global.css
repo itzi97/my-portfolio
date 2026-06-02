@@ -93,11 +93,10 @@ pre {
 	background-color: var(--surface) !important;
 	border: 1px solid var(--border);
 	border-left: 3px solid var(--accent);
-	/* extra left padding creates the gutter; code stays at the same visual position */
-	padding: 1.25em 1.5em 1.25em 3.5em;
+	padding: 1.25em 1.5em;
 	border-radius: 4px;
 	overflow-x: auto;
-	counter-reset: line;
+	margin: 0;
 }
 
 pre > code {
@@ -107,25 +106,35 @@ pre > code {
 	font-size: 0.88em;
 }
 
-/* line numbers via CSS counters on Shiki .line spans */
-pre code .line {
-	display: block;
-	position: relative;
-	counter-increment: line;
+/* code block wrapper with external line numbers */
+.code-block {
+	display: flex;
+	align-items: flex-start;
+	margin: 0 0 1.5em;
+	gap: 0.6em;
 }
 
-pre code .line::before {
-	content: counter(line);
-	position: absolute;
-	left: -2.8em;
-	width: 2em;
+.line-numbers {
+	flex-shrink: 0;
+	padding-top: 1.25em;
+	padding-bottom: 1.25em;
 	text-align: right;
 	color: var(--text-muted);
 	opacity: 0.35;
-	font-size: 0.8em;
-	line-height: inherit;
+	font-size: 0.78em;
+	line-height: 1.75;
+	font-family: var(--font-mono);
 	user-select: none;
 	pointer-events: none;
+}
+
+.line-numbers span {
+	display: block;
+}
+
+.code-block pre {
+	flex: 1;
+	min-width: 0;
 }
 
 blockquote {
@@ -407,6 +416,7 @@ input, textarea {
 	main { padding: 1.5em 1em 4em; }
 	.hero { padding: 0 0 1.5em; }
 	.links { gap: 1em; }
+	.line-numbers { display: none; }
 }
 
 .sr-only {
