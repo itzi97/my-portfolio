@@ -7,13 +7,13 @@ const stack = [
 	{
 		category: 'Systems & Infrastructure',
 		items: [
-			{ name: 'C/C++', rating: 4, icon: 'simple-icons:cplusplus' },
-			{ name: 'Linux', rating: 4, icon: 'simple-icons:linux' },
-			{ name: 'Bash', rating: 3, icon: 'simple-icons:gnubash' },
-			{ name: 'Docker', rating: 3, icon: 'simple-icons:docker' },
-			{ name: 'Rust', rating: 3, icon: 'simple-icons:rust' },
 			{ name: 'AWS', rating: 3, icon: 'simple-icons:amazonwebservices' },
+			{ name: 'Bash', rating: 3, icon: 'simple-icons:gnubash' },
+			{ name: 'C/C++', rating: 4, icon: 'simple-icons:cplusplus' },
+			{ name: 'Docker', rating: 3, icon: 'simple-icons:docker' },
 			{ name: 'Kubernetes', rating: 2, icon: 'simple-icons:kubernetes' },
+			{ name: 'Linux', rating: 4, icon: 'simple-icons:linux' },
+			{ name: 'Rust', rating: 3, icon: 'simple-icons:rust' },
 		]
 	},
 	{
@@ -22,55 +22,55 @@ const stack = [
 			{ name: 'Game engine architecture', rating: 3, icon: 'lucide:cpu' },
 			{ name: 'GLM', rating: 3, icon: 'lucide:box' },
 			{ name: 'Lua', rating: 3, icon: 'simple-icons:lua' },
+			{ name: 'OpenGL', rating: 1, icon: 'simple-icons:opengl' },
 			{ name: 'SDL2 / SDL3', rating: 3, icon: 'lucide:gamepad-2' },
 			{ name: 'Sol2', rating: 3, icon: 'lucide:link' },
-			{ name: 'OpenGL', rating: 1, icon: 'simple-icons:opengl' },
 		]
 	},
 	{
 		category: 'Web & Backend',
 		items: [
-			{ name: 'HTML / CSS', rating: 4, icon: 'simple-icons:html5' },
-			{ name: 'JavaScript', rating: 3, icon: 'simple-icons:javascript' },
-			{ name: 'Java / Kotlin', rating: 3, icon: 'simple-icons:kotlin' },
-			{ name: 'Node.js / Express', rating: 3, icon: 'simple-icons:nodedotjs' },
 			{ name: 'Golang', rating: 2, icon: 'simple-icons:go' },
+			{ name: 'HTML / CSS', rating: 4, icon: 'simple-icons:html5' },
+			{ name: 'Java / Kotlin', rating: 3, icon: 'simple-icons:kotlin' },
+			{ name: 'JavaScript', rating: 3, icon: 'simple-icons:javascript' },
+			{ name: 'Node.js / Express', rating: 3, icon: 'simple-icons:nodedotjs' },
 			{ name: 'Zod', rating: 2, icon: 'simple-icons:zod' },
 		]
 	},
 	{
 		category: 'Databases',
 		items: [
-			{ name: 'MongoDB', rating: 4, icon: 'simple-icons:mongodb' },
-			{ name: 'MariaDB', rating: 3, icon: 'simple-icons:mariadb' },
-			{ name: 'PostgreSQL', rating: 3, icon: 'simple-icons:postgresql' },
-			{ name: 'Redis', rating: 3, icon: 'simple-icons:redis' },
 			{ name: 'Cassandra', rating: 2, icon: 'simple-icons:apachecassandra' },
 			{ name: 'ChromaDB', rating: 2, icon: 'lucide:database' },
+			{ name: 'MariaDB', rating: 3, icon: 'simple-icons:mariadb' },
+			{ name: 'MongoDB', rating: 4, icon: 'simple-icons:mongodb' },
 			{ name: 'Neo4j', rating: 2, icon: 'simple-icons:neo4j' },
+			{ name: 'PostgreSQL', rating: 3, icon: 'simple-icons:postgresql' },
+			{ name: 'Redis', rating: 3, icon: 'simple-icons:redis' },
 		]
 	},
 	{
 		category: 'Data & ML',
 		items: [
-			{ name: 'Python', rating: 4, icon: 'simple-icons:python' },
-			{ name: 'Pandas', rating: 4, icon: 'simple-icons:pandas' },
-			{ name: 'Matplotlib / Seaborn / Plotly', rating: 4, icon: 'simple-icons:plotly' },
-			{ name: 'Tableau', rating: 4, icon: 'simple-icons:tableau' },
+			{ name: 'BeautifulSoup / Selenium', rating: 2, icon: 'simple-icons:selenium' },
 			{ name: 'Excel', rating: 4, icon: 'simple-icons:microsoftexcel' },
 			{ name: 'Keras / TensorFlow', rating: 3, icon: 'simple-icons:keras' },
+			{ name: 'Matplotlib / Seaborn / Plotly', rating: 4, icon: 'simple-icons:plotly' },
+			{ name: 'Pandas', rating: 4, icon: 'simple-icons:pandas' },
+			{ name: 'Python', rating: 4, icon: 'simple-icons:python' },
+			{ name: 'R', rating: 2, icon: 'simple-icons:r' },
 			{ name: 'scikit-learn', rating: 3, icon: 'simple-icons:scikitlearn' },
 			{ name: 'Spark / Scala', rating: 3, icon: 'simple-icons:apachespark' },
-			{ name: 'BeautifulSoup / Selenium', rating: 2, icon: 'simple-icons:selenium' },
-			{ name: 'R', rating: 2, icon: 'simple-icons:r' },
+			{ name: 'Tableau', rating: 4, icon: 'simple-icons:tableau' },
 		]
 	},
 	{
 		category: 'Tools & Workflow',
 		items: [
+			{ name: 'CMake', rating: 3, icon: 'simple-icons:cmake' },
 			{ name: 'Git', rating: 4, icon: 'simple-icons:git' },
 			{ name: 'LaTeX', rating: 4, icon: 'simple-icons:latex' },
-			{ name: 'CMake', rating: 3, icon: 'simple-icons:cmake' },
 			{ name: 'NixOS / Nix', rating: 3, icon: 'simple-icons:nixos' },
 			{ name: 'Vim', rating: 3, icon: 'simple-icons:vim' },
 		]
@@ -78,9 +78,9 @@ const stack = [
 ];
 
 const languages = [
-	{ name: 'English', level: 'C2 / Native', flag: '🇬🇧' },
-	{ name: 'Spanish', level: 'Native', flag: '🇪🇸' },
+	{ name: 'English', level: 'C2 / Bilingual', flag: '🇬🇧' },
 	{ name: 'French', level: 'B1 Intermediate', flag: '🇫🇷' },
+	{ name: 'Spanish', level: 'Native', flag: '🇪🇸' },
 ];
 
 function stars(rating: number) {
