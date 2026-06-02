@@ -308,9 +308,13 @@ input, textarea {
 		margin: 0;
 		position: relative;
 	}
+
+	/* h2: top level, no connector */
 	#toc li.level-2 a {
 		padding-left: 0.5rem;
 	}
+
+	/* h3: middle child — ├─ */
 	#toc li.level-3::before {
 		content: '\251C\2500';
 		position: absolute;
@@ -324,6 +328,23 @@ input, textarea {
 	#toc li.level-3 a {
 		padding-left: 1.6rem;
 	}
+
+	/* h3 last in group — └─ */
+	#toc li.level-3-last::before {
+		content: '\2514\2500';
+		position: absolute;
+		left: 0.5rem;
+		color: var(--text-muted);
+		opacity: 0.4;
+		font-size: 0.7rem;
+		line-height: 1.9;
+		pointer-events: none;
+	}
+	#toc li.level-3-last a {
+		padding-left: 1.6rem;
+	}
+
+	/* h4: deepest level — └─ under level-3 */
 	#toc li.level-4::before {
 		content: '\2514\2500';
 		position: absolute;
@@ -337,6 +358,8 @@ input, textarea {
 	#toc li.level-4 a {
 		padding-left: 2.8rem;
 	}
+
+	/* all links default to muted */
 	#toc a {
 		display: block;
 		padding-top: 0.18rem;

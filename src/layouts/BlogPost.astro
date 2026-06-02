@@ -10,7 +10,6 @@ type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
-// Build ~/blog/<slug> label from URL at build time
 const slug = Astro.url.pathname.replace(/\/$/, '').split('/').pop();
 const tocLabel = `~/blog/${slug}`;
 ---
@@ -103,6 +102,8 @@ const tocLabel = `~/blog/${slug}`;
 	const list = document.getElementById('toc-list');
 
 	if (list && headings.length > 0) {
+		// Build all li elements first
+		const items: { li: HTMLLIElement; level: number }[] = [];
 		headings.forEach((h) => {
 			const level = parseInt(h.tagName[1]);
 			const li = document.createElement('li');
@@ -111,8 +112,21 @@ const tocLabel = `~/blog/${slug}`;
 			a.href = `#${h.id}`;
 			a.textContent = h.textContent!.trim();
 			li.appendChild(a);
-			list.appendChild(li);
+			items.push({ li, level });
 		});
+
+		// Mark last level-3 in each h2 group with level-3-last
+		for (let i = 0; i < items.length; i++) {
+			if (items[i].level === 3) {
+				const nextItem = items[i + 1];
+				// It's the last h3 in this group if next item is h2, h1, or end of list
+				if (!nextItem || nextItem.level <= 2) {
+					items[i].li.className = 'level-3-last';
+				}
+			}
+		}
+
+		items.forEach(({ li }) => list.appendChild(li));
 
 		const links = Array.from(list.querySelectorAll('a')) as HTMLAnchorElement[];
 
