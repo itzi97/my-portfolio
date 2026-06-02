@@ -68,14 +68,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					overflow-y: auto;
 					font-size: 0.78rem;
 					line-height: 1.5;
-				}
-				#toc p {
 					font-family: var(--font-mono);
-					color: var(--accent);
+				}
+				#toc-label {
+					color: var(--text-muted);
 					font-size: 0.72rem;
 					margin: 0 0 0.5rem 0;
 					text-transform: uppercase;
-					letter-spacing: 0.05em;
+					letter-spacing: 0.08em;
 				}
 				#toc ol {
 					list-style: none;
@@ -84,26 +84,60 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				}
 				#toc li {
 					margin: 0;
+					position: relative;
 				}
+
+				/* h2 — top level */
+				#toc li.h2 a {
+					padding-left: 0.5rem;
+				}
+
+				/* h3 — one level in, tree connector */
+				#toc li.h3 a {
+					padding-left: 1.5rem;
+				}
+				#toc li.h3::before {
+					content: '├─';
+					position: absolute;
+					left: 0.5rem;
+					color: var(--border);
+					font-size: 0.7rem;
+					line-height: 1.9;
+					pointer-events: none;
+				}
+
+				/* h4 — two levels in */
+				#toc li.h4 a {
+					padding-left: 2.6rem;
+				}
+				#toc li.h4::before {
+					content: '└─';
+					position: absolute;
+					left: 1.5rem;
+					color: var(--border);
+					font-size: 0.7rem;
+					line-height: 1.9;
+					pointer-events: none;
+				}
+
+				/* all links default to muted */
 				#toc a {
 					display: block;
-					padding: 0.2rem 0;
-					color: rgb(var(--gray));
+					padding-top: 0.18rem;
+					padding-bottom: 0.18rem;
+					color: var(--text-muted);
 					text-decoration: none;
 					transition: color 0.15s ease;
-					border-left: 2px solid transparent;
-					padding-left: 0.6rem;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
 				}
 				#toc a:hover {
-					color: rgb(var(--gray-dark));
+					color: var(--text);
 				}
+				/* active heading — lavender accent */
 				#toc a.active {
 					color: var(--accent);
-					border-left-color: var(--accent);
-				}
-				#toc li.h3 a {
-					padding-left: 1.2rem;
-					font-size: 0.73rem;
 				}
 			}
 		</style>
@@ -114,7 +148,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<main>
 			<div class="layout">
 				<nav id="toc" aria-label="Table of contents">
-					<p>On this page</p>
+					<p id="toc-label">On this page</p>
 					<ol id="toc-list"></ol>
 				</nav>
 				<article>
@@ -147,19 +181,19 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 <script>
 	const headings = Array.from(
-		document.querySelectorAll('.prose h2, .prose h3')
+		document.querySelectorAll('.prose h2, .prose h3, .prose h4')
 	) as HTMLElement[];
 
 	const list = document.getElementById('toc-list');
 
 	if (list && headings.length > 0) {
 		headings.forEach((h) => {
-			// Auto-generate id if missing
 			if (!h.id) {
 				h.id = h.textContent!.trim().toLowerCase().replace(/[^\w]+/g, '-');
 			}
+			const level = h.tagName.toLowerCase(); // h2 | h3 | h4
 			const li = document.createElement('li');
-			if (h.tagName === 'H3') li.className = 'h3';
+			li.className = level;
 			const a = document.createElement('a');
 			a.href = `#${h.id}`;
 			a.textContent = h.textContent!.trim();
@@ -167,7 +201,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			list.appendChild(li);
 		});
 
-		// Highlight active section on scroll
 		const links = Array.from(list.querySelectorAll('a')) as HTMLAnchorElement[];
 
 		const observer = new IntersectionObserver(
@@ -175,7 +208,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
 						links.forEach((a) => a.classList.remove('active'));
-						const active = links.find((a) => a.getAttribute('href') === `#${entry.target.id}`);
+						const active = links.find(
+							(a) => a.getAttribute('href') === `#${entry.target.id}`
+						);
 						if (active) active.classList.add('active');
 					}
 				});
