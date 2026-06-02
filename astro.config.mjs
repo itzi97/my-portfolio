@@ -11,13 +11,11 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://itziar.dev',
-  integrations: [
-    mdx({
-      rehypePlugins: [rehypeSlug],
-    }),
-    sitemap(),
-    icon(),
-  ],
+  integrations: [mdx(), sitemap(), icon()],
+
+  markdown: {
+    rehypePlugins: [rehypeSlug],
+  },
 
   fonts: [
       {
