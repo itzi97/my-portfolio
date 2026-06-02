@@ -45,10 +45,10 @@ function onUpdate(dt)
 end
 ```
 
-The separation is genuinely useful. Someone without C++ knowledge could write game behaviour against the engine's Lua API without touching the engine source. It also forces you to think carefully about what the engine *exposes* versus what it keeps internal, a design discipline I've carried into every project since.
+The separation is genuinely useful. Someone without C++ knowledge could write game behavior against the engine's Lua API without touching the engine source. It also forces you to think carefully about what the engine *exposes* versus what it keeps internal, a design discipline I've carried into every project since.
 
 ## What I'd do differently
 
-The engine never produced a finished game, and I eventually archived it in favour of a [cleaner rewrite](https://github.com/itzi97/engine2d). The singletons would be the first thing to go — dependency injection makes systems easier to test and reason about in isolation, and the convenience of a global isn't worth the coupling. The template component approach also works but a proper component registry with compile-time checks would be safer. The bigger lesson though was about scope: I kept adding systems (audio, scene manager, font rendering) before the core was solid. Finish the foundation before building upward.
+The engine never produced a finished game, and I eventually archived it in favor of a [cleaner rewrite](https://github.com/itzi97/engine2d). The singletons would be the first thing to go — dependency injection makes systems easier to test and reason about in isolation, and the convenience of a global isn't worth the coupling. The template component approach also works but a proper component registry with compile-time checks would be safer. The bigger lesson though was about scope: I kept adding systems (audio, scene manager, font rendering) before the core was solid. Finish the foundation before building upward.
 
 The engine still sits on GitHub, archived. It's not impressive by any professional standard, but it's an honest record of where I was at the time and probably the clearest way I know to measure how much ground I've covered since. The [rewrite](https://github.com/itzi97/engine2d) is the active version.

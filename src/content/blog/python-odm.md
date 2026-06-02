@@ -11,7 +11,7 @@ Most tutorials reach for [Mongoengine](https://mongoengine.org/) or [Beanie](htt
 
 The project required storing users, posts, and relationships across both MongoDB (documents) and Redis (caching and session data). The obvious move was to grab an existing ODM and a Redis client and wire them together. But I wanted to understand what an ODM actually *does* under the hood — and a university project is exactly the right place to make that trade.
 
-The core job of an ODM is simple: map between Python objects and the raw dictionaries a database driver gives you. The interesting part is everything that surrounds that mapping — validation, serialisation, relationships, and knowing when *not* to hit the database.
+The core job of an ODM is simple: map between Python objects and the raw dictionaries a database driver gives you. The interesting part is everything that surrounds that mapping — validation, serialization, relationships, and knowing when *not* to hit the database.
 
 ## The design
 

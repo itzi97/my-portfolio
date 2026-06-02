@@ -11,7 +11,7 @@ The team was four people: Jorge, Jaime, Raul, and me. We each did individual low
 
 ## The user flow
 
-Before touching any screens, we mapped out the full user journey. The path goes: log in, enter date of birth (which determines which vaccine you'll receive), confirm consent, select a medical centre, pick a time slot, pick a date, fill in health insurance details, declare any relevant conditions, review a summary, then confirm or cancel.
+Before touching any screens, we mapped out the full user journey. The path goes: log in, enter date of birth (which determines which vaccine you'll receive), confirm consent, select a medical center, pick a time slot, pick a date, fill in health insurance details, declare any relevant conditions, review a summary, then confirm or cancel.
 
 ![User flow diagram for Vacumcite](https://raw.githubusercontent.com/itzi97/vacumcite/main/assets/imgs/diagrama-flujo.png)
 
@@ -19,7 +19,7 @@ A few decisions came out of the group discussion that shaped the flow in ways th
 
 ## Wireframes
 
-Each of us built individual low-fidelity wireframes before the group session and they turned out fairly similar in structure, which made merging straightforward. Jorge brought the login layout with the remember-me checkbox, the health centre list with name, address and minimap, and the appointment summary. I added the dynamic vaccine information box that updates as you type your date of birth, and the idea of a persistent vaccination stats bar across all pages. Raul contributed the no-conditions shortcut on the pathologies screen. Jaime brought the calendar component with unavailable days greyed out, and the idea of splitting time and date selection into two steps.
+Each of us built individual low-fidelity wireframes before the group session and they turned out fairly similar in structure, which made merging straightforward. Jorge brought the login layout with the remember-me checkbox, the health center list with name, address and minimap, and the appointment summary. I added the dynamic vaccine information box that updates as you type your date of birth, and the idea of a persistent vaccination stats bar across all pages. Raul contributed the no-conditions shortcut on the pathologies screen. Jaime brought the calendar component with unavailable days grayed out, and the idea of splitting time and date selection into two steps.
 
 ![Calendar wireframe showing available and unavailable dates](https://raw.githubusercontent.com/itzi97/vacumcite/main/assets/imgs/wire-calendar.png)
 
@@ -27,14 +27,14 @@ The pathologies screen was the one where the individual wireframes diverged most
 
 ## From wireframes to mockups
 
-Blue for the header bar, because users already associate blue with medical contexts. Red and green for action buttons so the intent is obvious without reading the label. The rest of the page stays near-white with minimal colour to keep the focus on the content.
+Blue for the header bar, because users already associate blue with medical contexts. Red and green for action buttons so the intent is obvious without reading the label. The rest of the page stays near-white with minimal color to keep the focus on the content.
 
 A few specific things changed between the wireframe and mockup stages:
 
 - Login: enlarged the remember-me checkbox and brought the username and password fields closer together
 - Date of birth: split into three separate day, month, year fields to reduce errors, as Jorge suggested
-- Medical centre: replaced a generic map icon with a Google Maps style pin so clicking it obviously opens a map
-- Appointment time: consolidated the time options into a centred block instead of spreading them across the page
+- Medical center: replaced a generic map icon with a Google Maps style pin so clicking it obviously opens a map
+- Appointment time: consolidated the time options into a centered block instead of spreading them across the page
 - Calendar: changed to show only the calendar grid, with available times appearing in a dropdown when you click a day
 - Health insurance: changed the public/private selection from checkboxes to radio buttons since only one can be chosen
 - Appointment summary: replaced a shopping cart icon next to the conditions section with something less e-commerce looking
@@ -42,7 +42,7 @@ A few specific things changed between the wireframe and mockup stages:
 
 ## Usability testing
 
-We ran a usability study with 22 participants using the System Usability Scale, a standardised 10-question questionnaire scored from 1 to 5. The participants were mostly middle-aged adults, median age 50 with a range of 18 to 60, roughly half men and half women.
+We ran a usability study with 22 participants using the System Usability Scale, a standardized 10-question questionnaire scored from 1 to 5. The participants were mostly middle-aged adults, median age 50 with a range of 18 to 60, roughly half men and half women.
 
 The final SUS score was **89.66 out of 100**, which sits well into the excellent range. Most questions came back strongly positive: 17 of 22 found it easy to use, 19 of 22 said it wasn't difficult, 16 of 22 said it wasn't complex.
 

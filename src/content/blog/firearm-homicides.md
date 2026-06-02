@@ -1,15 +1,15 @@
 ---
 title: "Firearm Homicides vs Legislation"
-description: "A Tableau data visualisation project exploring the relationship between firearm laws and homicide rates across U.S. states from 1976 to 2023."
+description: "A Tableau data visualization project exploring the relationship between firearm laws and homicide rates across U.S. states from 1976 to 2023."
 pubDate: 2026-06-02
-tags: ["Data Visualisation", "Tableau", "Data Analysis"]
+tags: ["Data Visualization", "Tableau", "Data Analysis"]
 ---
 
 For the Data Visualization course at U-tad we had to build a Tableau project using exactly two datasets, and they had to come from two different file formats. That constraint shaped everything. I ended up with a CSV on estimated gun ownership by state and year, and an Excel file tracking 72 binary firearm law indicators per state per year. The natural question those two datasets point at is: do states with more or stronger laws have lower firearm homicide rates?
 
 The choice wasn't random. I've been following the debate around firearm legislation in the US for a long time, and one thing that keeps coming up is that nobody seems to agree on whether legislation actually helps, what kinds of laws have any real effect, or even where the problem actually comes from. I wanted to use the data I had to try to get at least part of that question into a more concrete shape.
 
-That said, I want to be upfront about what the constraint ruled out. With a third dataset covering things like poverty rates, urbanisation, mental health access, or policing levels, I could have done a much more complete analysis of what actually drives firearm violence. What I have is a picture of the relationship between legislation and homicides specifically, which is meaningful but not the whole story.
+That said, I want to be upfront about what the constraint ruled out. With a third dataset covering things like poverty rates, urbanization, mental health access, or policing levels, I could have done a much more complete analysis of what actually drives firearm violence. What I have is a picture of the relationship between legislation and homicides specifically, which is meaningful but not the whole story.
 
 ## The data
 
@@ -22,9 +22,9 @@ The two were joined in Tableau on state and year, many-to-many with "some record
 
 I defined the questions after exploring the data rather than before, so they'd be grounded in what the datasets could actually answer. The starting point was the obvious cross-sectional one: do states with more or stronger laws have lower homicide rates right now? From there I added time, grouping states by their law profile and seeing how those groups have diverged since 1976. Then I zoomed into individual states to see whether legislative growth in a specific place corresponds to an improvement in its national ranking over time. Each question builds on the previous one rather than standing alone.
 
-## Law categorisation
+## Law categorization
 
-With 72 laws tracked across 50 states over nearly five decades, the data can turn into a mess very fast if you try to look at everything at once. Grouping laws into categories was the way to make it legible. But I also wanted the grouping to measure two different things, because they're actually different questions: does it matter how many laws a state has passed, or does it matter what *type* of laws they passed? To test both, I built two categorisation schemes and wired them to a shared parameter so you can switch between them across every chart.
+With 72 laws tracked across 50 states over nearly five decades, the data can turn into a mess very fast if you try to look at everything at once. Grouping laws into categories was the way to make it legible. But I also wanted the grouping to measure two different things, because they're actually different questions: does it matter how many laws a state has passed, or does it matter what *type* of laws they passed? To test both, I built two categorization schemes and wired them to a shared parameter so you can switch between them across every chart.
 
 **By quantity:** Low (10 or fewer laws), Medium (11 to 25), High (more than 25). Simple tiers based on total law count.
 
@@ -32,7 +32,7 @@ With 72 laws tracked across 50 states over nearly five decades, the data can tur
 
 This way the same charts can answer both questions, and you can see whether the type of law or the sheer number of laws is the stronger signal.
 
-## The visualisations
+## The visualizations
 
 ### Q1: The starting picture
 
@@ -40,9 +40,9 @@ The first chart is a choropleth map showing firearm homicide rate by state for a
 
 ![Choropleth map of firearm homicide rate by state](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q1Chart1.png)
 
-The second is a scatter plot with law count on one axis and estimated ownership (FSS) on the other, coloured by law profile. The same categorisation parameter from the map applies here too.
+The second is a scatter plot with law count on one axis and estimated ownership (FSS) on the other, colored by law profile. The same categorization parameter from the map applies here too.
 
-![Scatter plot of law count vs estimated gun ownership, coloured by law profile](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q1Chart2.png)
+![Scatter plot of law count vs estimated gun ownership, colored by law profile](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q1Chart2.png)
 
 ### Q2: Adding time
 
