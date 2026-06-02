@@ -295,11 +295,9 @@ input, textarea {
 		font-family: var(--font-mono);
 	}
 	#toc-label {
-		color: var(--text-muted);
+		color: var(--accent);
 		font-size: 0.72rem;
 		margin: 0 0 0.5rem 0;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
 	}
 	#toc ol {
 		list-style: none;
