@@ -20,11 +20,7 @@ The two were joined in Tableau on state and year, many-to-many with "some record
 
 ## The research questions
 
-I defined three questions after exploring the data rather than before, which meant they were grounded in what the datasets could actually answer:
-
-1. Is a state's firearm homicide rate associated with the number and type of laws it has?
-2. How have those rates changed over time across states with different law profiles?
-3. For a specific state, does legislative growth correspond to a better ranking relative to other states?
+I defined the questions after exploring the data rather than before, so they'd be grounded in what the datasets could actually answer. The starting point was the obvious cross-sectional one: do states with more or stronger laws have lower homicide rates right now? From there I added time, grouping states by their law profile and seeing how those groups have diverged since 1976. Then I zoomed into individual states to see whether legislative growth in a specific place corresponds to an improvement in its national ranking over time. Each question builds on the previous one rather than standing alone.
 
 ## Law categorisation
 
@@ -38,7 +34,7 @@ This way the same charts can answer both questions, and you can see whether the 
 
 ## The visualisations
 
-### Q1: Cross-sectional picture
+### Q1: The starting picture
 
 The first chart is a choropleth map showing firearm homicide rate by state for a chosen year. Darker orange means higher rate. State abbreviations are shown on each mark via a calculated field (all 50 CASE clauses, which I generated with AI since it's pure typing with no analytical value).
 
@@ -84,9 +80,9 @@ All five laws are followed by a decline, but evidence-based ones drop faster and
 
 The two-dataset constraint meant I could only look at one outcome: homicide rates. I couldn't fold in suicide rates, non-fatal injuries, or broader social indicators that likely interact with both legislation and violence. That's the honest limitation of the project.
 
-Within what the data can show, the picture is consistent across every view: states with fewer or weaker laws tend to sit at the higher end of the homicide distribution. The gap between high-law and low-law groups has grown since the 1990s. And when you look at individual states, periods of sustained legislative growth tend to align with a better position in the national ranking, even if isolating the effect of any single law is difficult once you're looking at cumulative counts.
+Within what the data can show, the picture is consistent across every view: states with fewer or weaker laws tend to sit at the higher end of the homicide distribution, and the gap between high-law and low-law groups has grown since the 1990s.
 
-The type of law seems to matter more than just having laws. Evidence-based laws outperform popular ones in the event study. FSS (ownership proxy) adds context but isn't the dominant signal; the policy profile is.
+The more interesting finding is the type-versus-quantity question. The popular laws, the ones that get passed most often, are probably popular precisely because they're politically easier to push through. But the event study suggests they're not where the effect actually lives. Evidence-based laws show a steeper and more sustained post-adoption decline, which implies that the political difficulty of passing stronger legislation might be exactly correlated with how much it would actually help. That's not a comfortable conclusion for anyone who thinks incremental progress is enough.
 
 None of this is causal. There's no confounder control, no regression, no instrument. But across multiple groupings, chart types, and time periods, the direction is the same. How a state regulates firearms is closely tied to how often guns are used to kill.
 
