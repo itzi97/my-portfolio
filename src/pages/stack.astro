@@ -56,6 +56,8 @@ const stack = [
 			{ name: 'Python', rating: 4, icon: 'simple-icons:python' },
 			{ name: 'Pandas', rating: 4, icon: 'simple-icons:pandas' },
 			{ name: 'Matplotlib / Seaborn / Plotly', rating: 4, icon: 'simple-icons:plotly' },
+			{ name: 'Tableau', rating: 4, icon: 'simple-icons:tableau' },
+			{ name: 'Excel', rating: 4, icon: 'simple-icons:microsoftexcel' },
 			{ name: 'Keras / TensorFlow', rating: 3, icon: 'simple-icons:keras' },
 			{ name: 'scikit-learn', rating: 3, icon: 'simple-icons:scikitlearn' },
 			{ name: 'Spark / Scala', rating: 3, icon: 'simple-icons:apachespark' },
@@ -68,13 +70,17 @@ const stack = [
 		items: [
 			{ name: 'Git', rating: 4, icon: 'simple-icons:git' },
 			{ name: 'LaTeX', rating: 4, icon: 'simple-icons:latex' },
-			{ name: 'Tableau', rating: 4, icon: 'simple-icons:tableau' },
-			{ name: 'Excel', rating: 4, icon: 'simple-icons:microsoftexcel' },
 			{ name: 'CMake', rating: 3, icon: 'simple-icons:cmake' },
 			{ name: 'NixOS / Nix', rating: 3, icon: 'simple-icons:nixos' },
 			{ name: 'Vim', rating: 3, icon: 'simple-icons:vim' },
 		]
 	},
+];
+
+const languages = [
+	{ name: 'English', level: 'C2 / Native', flag: '🇬🇧' },
+	{ name: 'Spanish', level: 'Native', flag: '🇪🇸' },
+	{ name: 'French', level: 'B1 Intermediate', flag: '🇫🇷' },
 ];
 
 function stars(rating: number) {
@@ -112,6 +118,21 @@ function stars(rating: number) {
 			</ul>
 		</div>
 	))}
+
+	<div class="category">
+		<h2>Languages</h2>
+		<ul class="lang-list">
+			{languages.map(({ name, level, flag }) => (
+				<li class="lang-item">
+					<span class="lang-name">
+						<span class="flag" aria-hidden="true">{flag}</span>
+						{name}
+					</span>
+					<span class="lang-level">{level}</span>
+				</li>
+			))}
+		</ul>
+	</div>
 
 	<style>
 		.eyebrow {
@@ -179,6 +200,38 @@ function stars(rating: number) {
 			color: var(--border);
 		}
 		.star.filled {
+			color: var(--accent);
+		}
+		.lang-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 0.45rem;
+			max-width: 24rem;
+		}
+		.lang-item {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: 1px solid var(--border);
+			padding-bottom: 0.35rem;
+		}
+		.lang-name {
+			display: flex;
+			align-items: center;
+			gap: 0.5em;
+			font-size: 0.9rem;
+			color: var(--text);
+		}
+		.flag {
+			font-size: 1.1rem;
+			line-height: 1;
+		}
+		.lang-level {
+			font-family: var(--font-mono);
+			font-size: 0.78rem;
 			color: var(--accent);
 		}
 		@media (max-width: 520px) {
