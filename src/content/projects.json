@@ -57,13 +57,15 @@
 	{
 		"id": "social-media-odm",
 		"title": "Social Media Site ODM",
-		"link": "https://github.com/itzi97/AD-ODM",
+		"link": "/blog/python-odm",
 		"summary": "Object-document mapper for MongoDB and Redis implemented in Python.",
 		"tech": "Python · pymongo · redis-py · custom serialization",
 		"highlight": "Lightweight ODM features and examples for common patterns.",
 		"tags": ["Backend", "Database"],
 		"origin": "U-tad",
-		"featured": true
+		"featured": true,
+		"blogSlug": "python-odm",
+		"githubUrl": "https://github.com/itzi97/AD-ODM"
 	},
 	{
 		"id": "bildyapp",

@@ -17,13 +17,15 @@ const projects = defineCollection({
 	loader: file('./src/content/projects.json'),
 	schema: z.object({
 		title: z.string(),
-		link: z.string().url(),
+		link: z.string(),
 		summary: z.string(),
 		tech: z.string(),
 		highlight: z.string(),
 		tags: z.array(z.string()),
 		origin: z.enum(['U-tad', 'DigiPen', 'Personal']),
 		featured: z.boolean().default(false),
+		blogSlug: z.string().optional(),
+		githubUrl: z.string().url().optional(),
 	}),
 });
 

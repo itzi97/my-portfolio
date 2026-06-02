@@ -27,19 +27,34 @@ const projects = allProjects.map(p => p.data);
 
 				<div class="projects-grid">
 					{projects.map((project) => (
-						<a class="proj-card" href={project.link} target="_blank" rel="noopener">
-							<div class="tags">
-								<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
-								{project.tags.map(tag => (
-									<span class="tag">{tag}</span>
-								))}
-							</div>
-							<h2>{project.title}</h2>
-							<p class="summary">{project.summary}</p>
-							<p class="highlight">{project.highlight}</p>
-							<p class="tech">{project.tech}</p>
-							<span class="card-cta">Open ↗</span>
-						</a>
+						<div class="proj-card">
+							<a
+								class="proj-card-inner"
+								href={project.blogSlug ? `/blog/${project.blogSlug}` : project.link}
+								target={project.blogSlug ? '_self' : '_blank'}
+								rel={project.blogSlug ? undefined : 'noopener'}
+							>
+								<div class="tags">
+									<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
+									{project.tags.map(tag => (
+										<span class="tag">{tag}</span>
+									))}
+									{project.blogSlug && <span class="tag tag-post">Post ✏️</span>}
+								</div>
+								<h2>{project.title}</h2>
+								<p class="summary">{project.summary}</p>
+								<p class="highlight">{project.highlight}</p>
+								<p class="tech">{project.tech}</p>
+								<span class="card-cta">
+									{project.blogSlug ? 'Read post →' : 'Open ↗'}
+								</span>
+							</a>
+							{project.githubUrl && (
+								<a class="github-link" href={project.githubUrl} target="_blank" rel="noopener">
+									GitHub ↗
+								</a>
+							)}
+						</div>
 					))}
 				</div>
 			</section>
@@ -68,19 +83,24 @@ const projects = allProjects.map(p => p.data);
 	.proj-card {
 		display: flex;
 		flex-direction: column;
-		padding: 1.25rem;
 		border: 1px solid var(--border);
 		border-left: 3px solid var(--accent);
 		border-radius: 6px;
 		background: var(--surface);
-		text-decoration: none;
 		transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-		gap: 0.4rem;
 	}
 	.proj-card:hover {
 		border-color: var(--accent);
 		box-shadow: 0 0 14px rgba(167, 139, 250, 0.1);
 		transform: translateY(-2px);
+	}
+	.proj-card-inner {
+		display: flex;
+		flex-direction: column;
+		padding: 1.25rem 1.25rem 0.75rem;
+		text-decoration: none;
+		gap: 0.4rem;
+		flex: 1;
 	}
 	.proj-card h2 {
 		font-size: 1rem;
@@ -149,5 +169,22 @@ const projects = allProjects.map(p => p.data);
 		border: 1px solid rgba(167, 139, 250, 0.25);
 		letter-spacing: 0.02em;
 		font-weight: 500;
+	}
+	.tag-post {
+		background: rgba(52, 211, 153, 0.08);
+		color: #34d399;
+		border-color: rgba(52, 211, 153, 0.25);
+	}
+	.github-link {
+		display: block;
+		padding: 0.5rem 1.25rem;
+		border-top: 1px solid var(--border);
+		color: var(--text-muted);
+		font-size: 0.78rem;
+		text-decoration: none;
+		transition: color 0.15s ease;
+	}
+	.github-link:hover {
+		color: var(--accent);
 	}
 </style>
