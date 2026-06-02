@@ -1,0 +1,162 @@
+[
+	{
+		"id": "dogs-vs-cats",
+		"title": "Dogs vs Cats",
+		"link": "https://www.kaggle.com/code/itzi97/u-tad-dogs-vs-cats",
+		"summary": "Image classification using CNNs and transfer learning.",
+		"tech": "Python · Keras · TensorFlow · transfer learning",
+		"highlight": "Built and fine-tuned a deep learning image classifier.",
+		"tags": ["Machine Learning", "Deep Learning"],
+		"origin": "U-tad"
+	},
+	{
+		"id": "alphanumeric-classification",
+		"title": "Alphanumeric Classification",
+		"link": "https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification",
+		"summary": "ML pipeline for classifying alphanumeric characters.",
+		"tech": "Python · scikit-learn · data augmentation",
+		"highlight": "Full workflow from preprocessing to evaluation.",
+		"tags": ["Machine Learning"],
+		"origin": "U-tad"
+	},
+	{
+		"id": "spam-filtering",
+		"title": "Spam Filtering",
+		"link": "https://www.kaggle.com/code/itzi97/u-tad-spam-not-spam",
+		"summary": "Text classification project for spam detection.",
+		"tech": "Python · NLP preprocessing · sklearn · feature engineering",
+		"highlight": "Practical text classification pipeline for message filtering.",
+		"tags": ["Machine Learning", "NLP"],
+		"origin": "U-tad"
+	},
+	{
+		"id": "firearm-homicides",
+		"title": "Firearm Homicides vs Legislation",
+		"link": "https://github.com/itzi97/DV_Tableau",
+		"summary": "Tableau dashboard analysing firearm homicides in the US.",
+		"tech": "Tableau · CSV & Excel data processing · data cleaning",
+		"highlight": "Interactive visualizations for regional and temporal trends.",
+		"tags": ["Data Visualisation", "Data Analysis"],
+		"origin": "U-tad"
+	},
+	{
+		"id": "fitness-tracking",
+		"title": "Fitness Tracking Visualization",
+		"link": "https://github.com/itzi97/DV_Python",
+		"summary": "Personal fitness tracking visualizations built with Python.",
+		"tech": "Python · pandas · matplotlib · seaborn · plotly · ipywidgets",
+		"highlight": "Time-series analysis and customizable performance dashboards.",
+		"tags": ["Data Visualisation", "Data Analysis"],
+		"origin": "U-tad"
+	},
+	{
+		"id": "social-media-odm",
+		"title": "Social Media Site ODM",
+		"link": "https://github.com/itzi97/AD-ODM",
+		"summary": "Object-document mapper for MongoDB and Redis implemented in Python.",
+		"tech": "Python · pymongo · redis-py · custom serialization",
+		"highlight": "Lightweight ODM features and examples for common patterns.",
+		"tags": ["Backend", "Database"],
+		"origin": "U-tad"
+	},
+	{
+		"id": "bildyapp",
+		"title": "BildyApp",
+		"link": "https://github.com/itzi97/wpii-bildyapp",
+		"summary": "Backend JavaScript app for a fictitious company managing clients, projects, and certifications.",
+		"tech": "Node.js · Express · REST API · JWT · database integration",
+		"highlight": "Role-based endpoints and CRUD for core business entities.",
+		"tags": ["Backend"],
+		"origin": "U-tad"
+	},
+	{
+		"id": "distributed-systems",
+		"title": "Distributed Systems Exercises",
+		"link": "https://github.com/itzi97/DS_exercise1_fm",
+		"summary": "C++ distributed systems exercises covering chat systems and database tutorials.",
+		"tech": "C++ · Docker · Kubernetes · networking fundamentals",
+		"highlight": "Hands-on exercises demonstrating concurrency, messaging, and containerized deployment.",
+		"tags": ["Backend", "Systems"],
+		"origin": "U-tad"
+	},
+	{
+		"id": "engine2d",
+		"title": "2D Game Engine",
+		"link": "https://github.com/itzi97/engine2d",
+		"summary": "Personal ongoing 2D game engine built from scratch.",
+		"tech": "C++ · Lua · Sol2 · SDL3 · GLM · CMake · Tiled JSON",
+		"highlight": "Writing a game engine from scratch as a personal hobby.",
+		"tags": ["Game Dev", "Systems"],
+		"origin": "Personal"
+	},
+	{
+		"id": "engine2d-old",
+		"title": "2D Game Engine (archived)",
+		"link": "https://github.com/itzi97/engine2d-old",
+		"summary": "Archived iteration of the 2D game engine — currently has more features than the active rewrite.",
+		"tech": "C++ · Lua · Sol2 · SDL2 · GLM",
+		"highlight": "Earlier version preserved as a reference; active development continues in engine2d.",
+		"tags": ["Game Dev", "Systems"],
+		"origin": "Personal"
+	},
+	{
+		"id": "world-of-traps",
+		"title": "World of Traps",
+		"link": "https://gitlab.com/asielorz/world-of-traps-speedrun-edition",
+		"summary": "Speedrun edition of a DigiPen game, built by two college classmates on an engine made from scratch.",
+		"tech": "C++ · CMake · Milkytracker",
+		"highlight": "Contributed to a game built on a custom engine (freshman year project) including a basic soundtrack.",
+		"tags": ["Game Dev"],
+		"origin": "DigiPen"
+	},
+	{
+		"id": "dev-ost",
+		"title": "DEV — OST",
+		"link": "https://soundcloud.com/zesher/sets/dev-ost",
+		"summary": "Original soundtrack for DEV, a DigiPen student game.",
+		"tech": "Milkytracker",
+		"highlight": "Layered soundtrack designed to mirror the game's progression — each track introduces a new element, culminating in the full arrangement.",
+		"tags": ["Game Dev", "Audio"],
+		"origin": "DigiPen"
+	},
+	{
+		"id": "gateway-technologies",
+		"title": "Gateway Technologies",
+		"link": "https://youtu.be/97gPVvl1paQ?si=dHPNczPRvvbmhAbH",
+		"summary": "Stellaris video guide for Paradox Interactive.",
+		"tech": "DaVinci Resolve · Adobe After Effects · Audacity · Adobe Photoshop",
+		"highlight": "Presenting a videogame guide in an entertaining and infographic manner.",
+		"tags": ["Video Production"],
+		"origin": "Personal"
+	},
+	{
+		"id": "portfolio-website",
+		"title": "Portfolio Website",
+		"link": "https://github.com/itzi97/my-portfolio",
+		"summary": "This portfolio and blog website.",
+		"tech": "Astro · JavaScript · CSS · Cloudflare",
+		"highlight": "Designed and built from scratch.",
+		"tags": ["Web"],
+		"origin": "Personal"
+	},
+	{
+		"id": "am-apuntes",
+		"title": "AM-apuntes",
+		"link": "https://github.com/itzi97/AM-apuntes",
+		"summary": "Real Analysis I & II class notes with linked exercise repositories.",
+		"tech": "LaTeX · Markdown",
+		"highlight": "Structured mathematical notes and worked problems.",
+		"tags": ["Mathematics"],
+		"origin": "U-tad"
+	},
+	{
+		"id": "vacumcite",
+		"title": "Vacumcite",
+		"link": "https://github.com/itzi97/vacumcite",
+		"summary": "UX design project for a COVID vaccination website.",
+		"tech": "Figma · HTML · CSS prototyping",
+		"highlight": "User flows and accessibility-focused design decisions.",
+		"tags": ["UX / Design"],
+		"origin": "U-tad"
+	}
+]
