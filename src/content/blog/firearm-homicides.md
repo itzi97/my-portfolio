@@ -7,6 +7,8 @@ tags: ["Data Visualisation", "Tableau", "Data Analysis"]
 
 For the Data Visualization course at U-tad we had to build a Tableau project using exactly two datasets, and they had to come from two different file formats. That constraint shaped everything. I ended up with a CSV on estimated gun ownership by state and year, and an Excel file tracking 72 binary firearm law indicators per state per year. The natural question those two datasets point at is: do states with more or stronger laws have lower firearm homicide rates?
 
+The choice wasn't random. I've been following the debate around firearm legislation in the US for a long time, and one thing that keeps coming up is that nobody seems to agree on whether legislation actually helps, what kinds of laws have any real effect, or even where the problem actually comes from. I wanted to use the data I had to try to get at least part of that question into a more concrete shape.
+
 That said, I want to be upfront about what the constraint ruled out. With a third dataset covering things like poverty rates, urbanisation, mental health access, or policing levels, I could have done a much more complete analysis of what actually drives firearm violence. What I have is a picture of the relationship between legislation and homicides specifically, which is meaningful but not the whole story.
 
 ## The data
