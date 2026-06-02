@@ -35,13 +35,15 @@
 	{
 		"id": "firearm-homicides",
 		"title": "Firearm Homicides vs Legislation",
-		"link": "https://github.com/itzi97/DV_Tableau",
+		"link": "/blog/firearm-homicides",
 		"summary": "Tableau dashboard analysing firearm homicides in the US.",
 		"tech": "Tableau · CSV & Excel data processing · data cleaning",
 		"highlight": "Interactive visualizations for regional and temporal trends.",
 		"tags": ["Data Visualisation", "Data Analysis"],
 		"origin": "U-tad",
-		"featured": false
+		"featured": false,
+		"blogSlug": "firearm-homicides",
+		"githubUrl": "https://github.com/itzi97/DV_Tableau"
 	},
 	{
 		"id": "fitness-tracking",
