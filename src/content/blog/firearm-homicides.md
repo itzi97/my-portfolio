@@ -28,11 +28,13 @@ I defined three questions after exploring the data rather than before, which mea
 
 ## Law categorisation
 
-Rather than treating all 72 laws as equal, I built two grouping schemes and wired them to a shared parameter so you can switch between them across every chart.
+With 72 laws tracked across 50 states over nearly five decades, the data can turn into a mess very fast if you try to look at everything at once. Grouping laws into categories was the way to make it legible. But I also wanted the grouping to measure two different things, because they're actually different questions: does it matter how many laws a state has passed, or does it matter what *type* of laws they passed? To test both, I built two categorisation schemes and wired them to a shared parameter so you can switch between them across every chart.
 
-**By quantity:** Low (10 or fewer laws), Medium (11 to 25), High (more than 25).
+**By quantity:** Low (10 or fewer laws), Medium (11 to 25), High (more than 25). Simple tiers based on total law count.
 
-**By type:** I picked two subsets based on research rather than just frequency. The three most commonly adopted laws I called Popular: concealed-carry permit, waiting period, state background check. The three with the strongest evidence base in the literature I called Evidence-Based: universal background checks, gun-violence restraining orders, assault weapon restrictions. States then fall into Weak, Popular, Evidence, or Both depending on how many from each group they've passed.
+**By type:** Rather than using all 72, I picked two subsets based on research. The three most commonly adopted laws I called Popular: concealed-carry permit, waiting period, state background check. The three with the strongest evidence base in the literature I called Evidence-Based: universal background checks, gun-violence restraining orders, assault weapon restrictions. States then fall into Weak, Popular, Evidence, or Both depending on how many from each group they've passed.
+
+This way the same charts can answer both questions, and you can see whether the type of law or the sheer number of laws is the stronger signal.
 
 ## The visualisations
 
