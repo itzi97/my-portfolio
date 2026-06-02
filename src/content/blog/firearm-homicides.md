@@ -34,19 +34,49 @@ Two grouping schemes run through every chart, controlled by a shared parameter t
 
 ## The visualisations
 
-**Q1** uses two charts. A choropleth map shows firearm homicide rate by state for any chosen year, with an orange severity gradient where darker means higher. A scatter plot places each state by law count on one axis and estimated ownership (FSS) on the other, coloured by law profile. These give the cross-sectional picture before introducing time.
+### Q1: Homicide rates and the law landscape
 
-**Q2** is a line chart covering the full 1976–2023 period. Each line is a group of states. A vertical reference line marks the currently selected year, which is linked to the year parameter from the map in Q1. The gap between groups becomes one of the clearest signals in the whole project.
+The choropleth map shows firearm homicide rate by state for any chosen year, with an orange severity gradient where darker means higher. A year parameter controls the view, and two-letter state abbreviations are shown on each mark via a calculated field.
 
-**Q3** brings the analysis down to a single state. A line chart shows how that state's total law count has grown over time. A bar chart ranks all states by firearm homicide rate for a chosen year, with the selected state highlighted using a Tableau set and a national average reference line overlaid. The two charts are linked by a shared state parameter, so clicking a state on the map updates both views at once.
+![Choropleth map of firearm homicide rate by state](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q1Chart1.png)
 
-The two dashboards tie everything together. Dashboard 1 combines the map, scatter, and Q2 line chart, with a filter action that propagates map selections to the scatter. Dashboard 2 focuses on Q3, with the map kept as a geographic anchor and the bar and law history charts updating together whenever a state is selected.
+A scatter plot places each state by law count on one axis and estimated ownership (FSS) on the other, coloured by law profile. The same law categorisation parameter used throughout the project switches between the quantity and type groupings.
+
+![Scatter plot of law count vs estimated gun ownership, coloured by law profile](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q1Chart2.png)
+
+### Q2: Homicide trends over time
+
+A line chart covers the full 1976–2023 period. Each line is a group of states. A vertical reference line marks the currently selected year, linked to the year parameter from the map. The gap between groups becomes one of the clearest signals in the whole project.
+
+![Line chart of firearm homicide rate over time by law profile](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q2Chart.png)
+
+### Q3: State-level law history and homicide standing
+
+A line chart shows how a selected state's total law count has grown over time.
+
+![Line chart of firearm laws in effect over time for a selected state](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q3Chart1.png)
+
+A bar chart ranks all states by firearm homicide rate for a chosen year, with the selected state highlighted using a Tableau set and a national average reference line overlaid. The two charts are linked by a shared state parameter, so clicking a state on the map updates both views at once.
+
+![Bar chart of firearm homicide rate by state with selected state highlighted](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q3Chart2.png)
+
+### Dashboards
+
+The two dashboards tie everything together. Dashboard 1 combines the map, scatter, and Q2 line chart, with a filter action that propagates map selections to the scatter. The year parameter drops a reference line in the trend chart simultaneously.
+
+![Dashboard 1: geographic overview, law-homicide scatter, and law profile trends](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Dashboard1.png)
+
+Dashboard 2 focuses on Q3, with the map kept as a geographic anchor and the bar and law history charts updating together whenever a state is selected.
+
+![Dashboard 2: geographic map, state homicide ranking, and selected state law history](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Dashboard2.png)
 
 ## A supplementary event study
 
 To complement the Tableau work, I also ran an event-study style analysis in Python using the same two datasets. The idea was to compare how firearm homicide rates evolve in the years around the adoption of popular laws versus evidence-based ones, averaging across all adopting states.
 
 The chart plots each law's average homicide rate trajectory from five years before adoption to ten years after. All five laws show a post-adoption decline, but the steepness and persistence differ. Evidence-based laws, especially Universal Background Checks and GVRO, show a noticeably sharper and more sustained drop. Popular laws show improvement too, but more gradually.
+
+![Event study: average firearm homicide rate from 5 years before to 10 years after law adoption](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/LawAdoptionChart.png)
 
 ## What the data says
 
