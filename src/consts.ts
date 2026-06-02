@@ -7,5 +7,6 @@ export const SITE_AUTHOR = 'Itziar Morales Rodríguez';
 export const GITHUB_URL = 'https://github.com/itzi97';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/itzi97';
 export const KAGGLE_URL = 'https://www.kaggle.com/itzi97';
-export const EMAIL = 'itzimr@pm.me';
+export const EMAIL = 'itzimr97@pm.me';
+export const PHONE = '+34 669 076 611';
 export const CV_URL = '/itziar-morales-cv.pdf';
