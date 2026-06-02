@@ -4,6 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 import icon from 'astro-icon';
+import rehypeSlug from 'rehype-slug';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -11,6 +12,10 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://itziar.dev',
   integrations: [mdx(), sitemap(), icon()],
+
+  markdown: {
+    rehypePlugins: [rehypeSlug],
+  },
 
   fonts: [
       {

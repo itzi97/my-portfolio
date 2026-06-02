@@ -87,37 +87,39 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					position: relative;
 				}
 
-				/* h2 — top level */
-				#toc li.h2 a {
+				/* level-2: top level, no connector */
+				#toc li.level-2 a {
 					padding-left: 0.5rem;
 				}
 
-				/* h3 — one level in, tree connector */
-				#toc li.h3 a {
-					padding-left: 1.5rem;
-				}
-				#toc li.h3::before {
-					content: '├─';
+				/* level-3: one indent + tree connector */
+				#toc li.level-3::before {
+					content: '\251C\2500';
 					position: absolute;
 					left: 0.5rem;
-					color: var(--border);
+					color: var(--text-muted);
+					opacity: 0.4;
 					font-size: 0.7rem;
 					line-height: 1.9;
 					pointer-events: none;
+				}
+				#toc li.level-3 a {
+					padding-left: 1.6rem;
 				}
 
-				/* h4 — two levels in */
-				#toc li.h4 a {
-					padding-left: 2.6rem;
-				}
-				#toc li.h4::before {
-					content: '└─';
+				/* level-4: two indents + tree connector */
+				#toc li.level-4::before {
+					content: '\2514\2500';
 					position: absolute;
-					left: 1.5rem;
-					color: var(--border);
+					left: 1.6rem;
+					color: var(--text-muted);
+					opacity: 0.4;
 					font-size: 0.7rem;
 					line-height: 1.9;
 					pointer-events: none;
+				}
+				#toc li.level-4 a {
+					padding-left: 2.8rem;
 				}
 
 				/* all links default to muted */
@@ -135,7 +137,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				#toc a:hover {
 					color: var(--text);
 				}
-				/* active heading — lavender accent */
 				#toc a.active {
 					color: var(--accent);
 				}
@@ -188,12 +189,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 	if (list && headings.length > 0) {
 		headings.forEach((h) => {
-			if (!h.id) {
-				h.id = h.textContent!.trim().toLowerCase().replace(/[^\w]+/g, '-');
-			}
-			const level = h.tagName.toLowerCase(); // h2 | h3 | h4
+			const level = parseInt(h.tagName[1]); // 2, 3, or 4
 			const li = document.createElement('li');
-			li.className = level;
+			li.className = `level-${level}`;
 			const a = document.createElement('a');
 			a.href = `#${h.id}`;
 			a.textContent = h.textContent!.trim();
@@ -203,6 +201,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 		const links = Array.from(list.querySelectorAll('a')) as HTMLAnchorElement[];
 
+		// No active class on load — wait for scroll
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
@@ -215,7 +214,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					}
 				});
 			},
-			{ rootMargin: '0px 0px -80% 0px', threshold: 0 }
+			{ rootMargin: '-10% 0px -80% 0px', threshold: 0 }
 		);
 
 		headings.forEach((h) => observer.observe(h));
