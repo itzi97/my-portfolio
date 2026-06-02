@@ -9,6 +9,10 @@ import Header from '../components/Header.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
+// Build ~/blog/<slug> label from URL at build time
+const slug = Astro.url.pathname.replace(/\/$/, '').split('/').pop();
+const tocLabel = `~/blog/${slug}`;
 ---
 
 <html lang="en">
@@ -60,7 +64,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<main>
 			<div class="layout">
 				<nav id="toc" aria-label="Table of contents">
-					<p id="toc-label">On this page</p>
+					<p id="toc-label">{tocLabel}</p>
 					<ol id="toc-list"></ol>
 				</nav>
 				<article>
