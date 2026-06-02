@@ -173,12 +173,14 @@
 	{
 		"id": "vacumcite",
 		"title": "Vacumcite",
-		"link": "https://github.com/itzi97/vacumcite",
+		"link": "/blog/vacumcite",
 		"summary": "UX design project for a COVID vaccination website.",
 		"tech": "Figma · HTML · CSS prototyping",
 		"highlight": "User flows and accessibility-focused design decisions.",
 		"tags": ["UX / Design"],
 		"origin": "U-tad",
-		"featured": false
+		"featured": false,
+		"blogSlug": "vacumcite",
+		"githubUrl": "https://github.com/itzi97/vacumcite"
 	}
 ]
