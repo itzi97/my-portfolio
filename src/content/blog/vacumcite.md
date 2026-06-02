@@ -19,12 +19,7 @@ A few decisions came out of the group discussion that shaped the flow in ways th
 
 ## Wireframes
 
-Each of us built individual low-fidelity wireframes before the group session. They turned out to be fairly similar in structure, which made merging straightforward. The main contributions each person brought:
-
-- **Jorge:** the login layout with the remember-me checkbox; the health centre list with name, address, and minimap; the appointment summary layout
-- **Itziar:** the dynamic vaccine information box that updates as you type your date of birth; the persistent vaccination stats bar across all pages
-- **Raul:** the no-conditions shortcut on the pathologies screen
-- **Jaime:** the calendar component with unavailable days greyed out; splitting time and date selection into two steps
+Each of us built individual low-fidelity wireframes before the group session and they turned out fairly similar in structure, which made merging straightforward. Jorge brought the login layout with the remember-me checkbox, the health centre list with name, address and minimap, and the appointment summary. I added the dynamic vaccine information box that updates as you type your date of birth, and the idea of a persistent vaccination stats bar across all pages. Raul contributed the no-conditions shortcut on the pathologies screen. Jaime brought the calendar component with unavailable days greyed out, and the idea of splitting time and date selection into two steps.
 
 ![Calendar wireframe showing available and unavailable dates](https://raw.githubusercontent.com/itzi97/vacumcite/main/assets/imgs/wire-calendar.png)
 
@@ -32,12 +27,12 @@ The pathologies screen was the one where the individual wireframes diverged most
 
 ## From wireframes to mockups
 
-The colour decisions were deliberate. Blue for the header bar because users already associate blue with medical contexts. Red and green for action buttons so the intent is obvious without reading the label. The rest of the page stays near-white with minimal colour to keep the focus on the content.
+Blue for the header bar, because users already associate blue with medical contexts. Red and green for action buttons so the intent is obvious without reading the label. The rest of the page stays near-white with minimal colour to keep the focus on the content.
 
 A few specific things changed between the wireframe and mockup stages:
 
 - Login: enlarged the remember-me checkbox and brought the username and password fields closer together
-- Date of birth: split the input into three separate day, month, year fields to reduce errors, as Jorge suggested
+- Date of birth: split into three separate day, month, year fields to reduce errors, as Jorge suggested
 - Medical centre: replaced a generic map icon with a Google Maps style pin so clicking it obviously opens a map
 - Appointment time: consolidated the time options into a centred block instead of spreading them across the page
 - Calendar: changed to show only the calendar grid, with available times appearing in a dropdown when you click a day
@@ -51,8 +46,6 @@ We ran a usability study with 22 participants using the System Usability Scale, 
 
 The final SUS score was **89.66 out of 100**, which sits well into the excellent range. Most questions came back strongly positive: 17 of 22 found it easy to use, 19 of 22 said it wasn't difficult, 16 of 22 said it wasn't complex.
 
-Two questions gave weaker results worth noting. The first was "I would use VacumCite frequently", which still scored well but is a slightly awkward question for a one-time service. People booking a vaccination appointment aren't going to come back weekly, so high scores here reflect general satisfaction rather than literal intent to return.
-
-The second was "The functions of VacumCite are well integrated", which was the most split response. One participant commented that showing the national vaccination counter on every page felt out of place. That's probably right. The persistent stats bar was my suggestion and the intention was to give users a sense of the broader rollout context. But once you're mid-flow trying to book an appointment that information is irrelevant and just adds visual noise. Scoping it to the login screen only would have been the cleaner call.
+Two questions gave weaker results. "I would use VacumCite frequently" still scored well but is a slightly awkward question for a one-time service — high scores here probably reflect general satisfaction rather than literal intent to return. The more telling one was "The functions of VacumCite are well integrated", which was the most split response. One participant commented that showing the national vaccination counter on every page felt out of place. That's probably right. It was my suggestion and the intention was to give users a sense of the broader rollout context, but once you're mid-flow trying to book an appointment that information is irrelevant and just adds visual noise. Scoping it to the login screen only would have been the cleaner call.
 
 Full repo and wireframes on [GitHub](https://github.com/itzi97/vacumcite).

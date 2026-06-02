@@ -1,5 +1,5 @@
 ---
-title: "Building a Lightweight ODM in Python: When You Don't Need Mongoose"
+title: "Building a Lightweight ODM in Python"
 description: "How I built a custom Object-Document Mapper for MongoDB and Redis in Python — the design decisions, the tradeoffs, and what I'd do differently."
 pubDate: 2026-06-02
 tags: ["Python", "MongoDB", "Redis", "Backend"]
@@ -75,14 +75,12 @@ The `_id` ↔ `id` translation was worth doing early. Every layer above the ODM 
 
 ## What I'd change
 
-**Validation.** The hand-rolled descriptors were fine for five fields per model. They'd become a maintenance problem at scale. I'd use [Pydantic](https://docs.pydantic.dev/) models as the data layer and keep the ODM purely responsible for persistence.
+The hand-rolled descriptors were fine for five fields per model but would become a maintenance problem at scale. I'd use [Pydantic](https://docs.pydantic.dev/) models as the data layer and keep the ODM purely responsible for persistence.
 
-**Async.** `pymongo`'s synchronous driver blocks the thread on every database call. For a real API this matters — [Motor](https://motor.readthedocs.io/) (the async MongoDB driver) and `redis.asyncio` would be the right swap, especially combined with FastAPI.
+`pymongo`'s synchronous driver also blocks the thread on every database call. For a real API this matters — [Motor](https://motor.readthedocs.io/) and `redis.asyncio` would be the right swap, especially combined with FastAPI.
 
-**No migrations.** MongoDB's schemaless nature means you can ship a new field and old documents just won't have it. That's convenient until it isn't. A lightweight migration log (even just a versioned script collection) would have saved time when the schema evolved mid-project.
+The one I didn't think about at the time was migrations. MongoDB's schemaless nature means you can ship a new field and old documents just won't have it. That's convenient until it isn't. A lightweight migration log, even just a versioned script collection, would have saved time when the schema evolved mid-project.
 
-## The takeaway
+Building your own ODM for production is almost never the right call — Beanie with Pydantic v2 is excellent and well-maintained. But building one once, at small scale, gives you a much clearer mental model of what any ODM is actually doing when you use it. The caching layer in particular is something I now think about explicitly every time I design a data access pattern.
 
-Building your own ODM for production is almost never the right call — Beanie with Pydantic v2 is excellent and well-maintained. But building one once, small, gives you a much clearer mental model of what any ODM is actually doing when you use it. The caching layer in particular is something I now think about explicitly every time I design a data access pattern.
-
-The full source is on [GitHub](https://github.com/itzi97/AD-ODM).
+Full source on [GitHub](https://github.com/itzi97/AD-ODM).

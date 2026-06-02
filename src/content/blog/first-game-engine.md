@@ -7,18 +7,11 @@ tags: ["C++", "Game Dev", "Systems"]
 
 When most people think of game engines they think of Unity or Unreal: full editors, asset pipelines, visual scripting, the works. What I built is nothing like that. I'd just finished my first year at DigiPen and had enough C++ and game architecture knowledge to be dangerous, so I sat down and built [engine2d-old](https://github.com/itzi97/engine2d-old) from scratch.
 
-## The goals
-
-I wasn't trying to ship a game. The goal was to understand what a game engine actually *is* underneath the abstraction, and to separate the parts I already knew (game logic) from the parts I wanted to learn (architecture, scripting, engine/game boundaries). I settled on four design targets:
-
-- **ECS architecture:** entities, components, systems, no inheritance hell
-- **C++:** the only language I knew well enough at the time
-- **SDL2** for rendering and input, deliberately chosen to avoid graphics programming swallowing the project
-- **Lua scripting:** game logic separated from engine code
+I wasn't trying to ship a game. The goal was to understand what a game engine actually *is* underneath the abstraction, and to separate the parts I already knew (game logic) from the parts I wanted to learn (architecture, scripting, the boundary between engine and game). ECS felt like the right architecture coming out of DigiPen — entities, components, systems, no inheritance hell. SDL2 handled windowing and rendering so that graphics programming wouldn't swallow the whole project. And Lua scripting was the thing I was most curious about: could I build a clean enough boundary that game logic never needed to touch engine source?
 
 ## ECS and the template problem
 
-ECS felt natural coming from DigiPen. The tricky part was writing an `addComponent` method that could accept *any* component type without a massive if/else chain. I ended up using C++ templates with variadic parameters:
+The tricky part of ECS was writing an `addComponent` method that could accept *any* component type without a massive if/else chain. I ended up using C++ templates with variadic parameters:
 
 ```cpp
 template <typename T, typename... Args>
@@ -36,7 +29,7 @@ I also leaned on design patterns from class: singletons for the engine core, obs
 
 ## SDL2 was the right call
 
-Choosing SDL2 was deliberate. It handles windowing, input, texture loading, font rendering, and audio, basically everything that would have turned this into a graphics programming project instead of an architecture one. That was the point: I wanted to build the *structure* of an engine, not reinvent OpenGL.
+Choosing SDL2 was deliberate. It handles windowing, input, texture loading, font rendering, and audio — basically everything that would have turned this into a graphics programming project instead of an architecture one. That was the point: I wanted to build the *structure* of an engine, not reinvent OpenGL.
 
 The tradeoff is that SDL2 abstracts away things you'd eventually want control over, like custom render pipelines, draw call batching, and GPU resource management. That's a problem for a later engine. For a first one, removing that complexity was the right call.
 
@@ -56,10 +49,6 @@ The separation is genuinely useful. Someone without C++ knowledge could write ga
 
 ## What I'd do differently
 
-The engine never produced a finished game, and I eventually archived it in favour of a [cleaner rewrite](https://github.com/itzi97/engine2d). A few things I'd change:
+The engine never produced a finished game, and I eventually archived it in favour of a [cleaner rewrite](https://github.com/itzi97/engine2d). The singletons would be the first thing to go — dependency injection makes systems easier to test and reason about in isolation, and the convenience of a global isn't worth the coupling. The template component approach also works but a proper component registry with compile-time checks would be safer. The bigger lesson though was about scope: I kept adding systems (audio, scene manager, font rendering) before the core was solid. Finish the foundation before building upward.
 
-- **Ditch the singletons.** Dependency injection makes systems easier to test and reason about independently.
-- **Stricter component typing.** The template approach works but a proper component registry with compile-time checks would be safer.
-- **Earlier scope discipline.** I kept adding systems (audio, scene manager, font rendering) before the core was solid. Finish the foundation before building upward.
-
-The engine still sits on GitHub, archived. It's not impressive by any professional standard, but it's an honest record of where I was technically at the time and the clearest way I know to measure how much ground I've covered since.
+The engine still sits on GitHub, archived. It's not impressive by any professional standard, but it's an honest record of where I was at the time and probably the clearest way I know to measure how much ground I've covered since. The [rewrite](https://github.com/itzi97/engine2d) is the active version.
