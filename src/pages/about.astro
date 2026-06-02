@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import { CV_URL } from '../consts';
 ---
 
 <PageLayout
@@ -62,7 +63,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 	</p>
 
 	<p>
-		You can <a href="/itziar-morales-cv.pdf" target="_blank" rel="noopener">download my CV</a> for a
+		You can <a href={CV_URL} target="_blank" rel="noopener">download my CV</a> for a
 		concise overview of my background, projects, and technical skills.
 	</p>
 
