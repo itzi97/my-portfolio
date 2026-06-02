@@ -1,24 +1,65 @@
-# My First Game Engine
+---
+title: "Building My First Game Engine"
+description: "What I learned building a C++ 2D game engine with ECS, SDL2, and Lua scripting — the decisions that worked, the ones that didn't, and why I'd do it again."
+pubDate: 2026-06-02
+tags: ["C++", "Game Dev", "Systems"]
+---
 
-https://github.com/itzi97/engine2d-old
+When most people think of game engines they think of Unity or Unreal — full editors, asset pipelines, visual scripting, the works. What I built is nothing like that. I'd just finished my first year at DigiPen and had enough C++ and game architecture knowledge to be dangerous, so I sat down and built [engine2d-old](https://github.com/itzi97/engine2d-old) from scratch.
 
-Many people think of game engines such as Unity or Unreal as being very complete, feature rich with their own editor included, but when I started my first game engine, I barely finished freshman year at DigiPen and didn't have much experience in programming game engine architecture other than for the games I've worked during that college year.
+## The goals
 
-So starting from scratch, I bundled up all the knowledge I had from those years, and thought of the following ideas for my game engine:
+I wasn't trying to ship a game. The goal was to understand what a game engine actually *is* underneath the abstraction — and to separate the parts I already knew (game logic) from the parts I wanted to learn (architecture, scripting, engine/game boundaries). I settled on four design targets:
 
-- Having an ECS
-- Made in C++
-- Lua scripting aside
-- Using SDL2 for graphics
-- Components having logic within them
-- Using design patterns for the game engine
+- **ECS architecture** — entities, components, systems, no inheritance hell
+- **C++** — the only language I knew well enough at the time
+- **SDL2** for rendering and input — deliberate, to avoid graphics programming swallowing the project
+- **Lua scripting** — game logic separated from engine code
 
-Using C++ is a choice I made mostly because I wanted to make it easy on myself. I understand that unpropper use of C++ can result in your engine having many memory leaks or not very optimized, but at the time it was the only thing I programmed in, so it just felt the most natural fit.
+## ECS and the template problem
 
-ECS just felt like second hand nature to me, since it's what I was used to using and I really like using ECS architecture because of how easy it is to graph out. The only issue with the ECS system that I found was having a function to add components that could add any component no matter what kind of component it was to each entity, and i struggled a bit but ended up utilizing the template feature from C++ alongside the variadic parameter functionality to be able to do this. It looks hella ugly not gonna lie but at least it works you know? Probably not very safe though to be honest. i also used many other design patterns that I learnt from either design patterns class or algorithms class at U-tad and added these to my engine such as the singleton.
+ECS felt natural coming from DigiPen. The tricky part was writing an `addComponent` method that could accept *any* component type without a massive if/else chain. I ended up using C++ templates with variadic parameters:
 
-Using SDL2 was also a simple choice, honestly, it made everything so much easier, since having SDL2 made it to the point where I didn't have to worry about graphics programming at all, or asset management, or font managing, etc, there were so amny things that SDL2 made easier, and I think that is the whole point of this engine. It is merely a project where I work on having the architecture done from scratch as a learning experience without learning some other details like graphics bog me out.
+```cpp
+template <typename T, typename... Args>
+T& addComponent(Args&&... args) {
+    auto component = std::make_unique<T>(std::forward<Args>(args)...);
+    T& ref = *component;
+    components[typeid(T)].emplace_back(std::move(component));
+    return ref;
+}
+```
 
-The one new thing that i added that I didn't do before in a game engine was lua scripting. I learnt this from a course I took in Udemy and oh my god it is so nice to have game logic and game engine code separated this way, why haven't I done this before? I could have given this engine to someone with not much technical programming knowledge and have them program the game without having to touch C++ could with my engine? that is so cool, and honestly, it made adding game logic a super nice thing.
+It's not the prettiest solution and I wouldn't call it bulletproof — there's no compile-time enforcement that `T` is actually a valid component type. But it works, and writing it taught me more about templates, perfect forwarding, and `typeid` than any course chapter did.
 
-All in all, I ended up dropping the engine at a certain point and dind't really make any functioning games with it, but it was a super nice learning experience that I value a lot since it got me to really learn how to implement ECS architecture properly and separate game engine code with game logic code better, which is somethig that I haven't done before.
+I also leaned on design patterns from class — singletons for the engine core, observers for events, a basic state machine for scene management. Looking back, the singleton usage was probably excessive, but at the time it made the architecture feel clean.
+
+## SDL2 was the right call
+
+Choosing SDL2 was deliberate. It handles windowing, input, texture loading, font rendering, and audio — basically everything that would have turned this into a graphics programming project instead of an architecture project. That was the point: I wanted to build the *structure* of an engine, not reinvent OpenGL.
+
+The tradeoff is that SDL2 abstracts away things you'd eventually want control over — custom render pipelines, draw call batching, GPU resource management. That's a problem for a later engine. For a first one, removing that complexity was the right call.
+
+## Lua scripting changed how I think about architecture
+
+The biggest new addition — and the one I'm most glad I made — was Lua scripting via [Sol2](https://github.com/ThePhD/sol2). Game logic lives in `.lua` files, the engine exposes an API, and the two never touch each other's source code:
+
+```lua
+function onUpdate(dt)
+    if Input.isKeyDown("RIGHT") then
+        transform.x = transform.x + 200 * dt
+    end
+end
+```
+
+The separation is genuinely useful. Someone without C++ knowledge could write game behaviour against the engine's Lua API without touching the engine source. It also forces you to think carefully about what the engine *exposes* versus what it keeps internal — a design discipline I've carried into every project since.
+
+## What I'd do differently
+
+The engine never produced a finished game, and I eventually archived it in favour of a [cleaner rewrite](https://github.com/itzi97/engine2d). A few things I'd change:
+
+- **Ditch the singletons.** Dependency injection makes systems easier to test and reason about independently.
+- **Stricter component typing.** The template approach works but a proper component registry with compile-time checks would be safer.
+- **Earlier scope discipline.** I kept adding systems (audio, scene manager, font rendering) before the core was solid. Finish the foundation before building upward.
+
+The engine still sits on GitHub, archived. It's not impressive by any professional standard, but it's an honest record of where I was technically at the time — and the clearest way I know to measure how much ground I've covered since.
