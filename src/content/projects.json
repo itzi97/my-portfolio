@@ -7,7 +7,8 @@
 		"tech": "Python · Keras · TensorFlow · transfer learning",
 		"highlight": "Built and fine-tuned a deep learning image classifier.",
 		"tags": ["Machine Learning", "Deep Learning"],
-		"origin": "U-tad"
+		"origin": "U-tad",
+		"featured": false
 	},
 	{
 		"id": "alphanumeric-classification",
@@ -17,7 +18,8 @@
 		"tech": "Python · scikit-learn · data augmentation",
 		"highlight": "Full workflow from preprocessing to evaluation.",
 		"tags": ["Machine Learning"],
-		"origin": "U-tad"
+		"origin": "U-tad",
+		"featured": true
 	},
 	{
 		"id": "spam-filtering",
@@ -27,7 +29,8 @@
 		"tech": "Python · NLP preprocessing · sklearn · feature engineering",
 		"highlight": "Practical text classification pipeline for message filtering.",
 		"tags": ["Machine Learning", "NLP"],
-		"origin": "U-tad"
+		"origin": "U-tad",
+		"featured": false
 	},
 	{
 		"id": "firearm-homicides",
@@ -37,7 +40,8 @@
 		"tech": "Tableau · CSV & Excel data processing · data cleaning",
 		"highlight": "Interactive visualizations for regional and temporal trends.",
 		"tags": ["Data Visualisation", "Data Analysis"],
-		"origin": "U-tad"
+		"origin": "U-tad",
+		"featured": false
 	},
 	{
 		"id": "fitness-tracking",
@@ -47,7 +51,8 @@
 		"tech": "Python · pandas · matplotlib · seaborn · plotly · ipywidgets",
 		"highlight": "Time-series analysis and customizable performance dashboards.",
 		"tags": ["Data Visualisation", "Data Analysis"],
-		"origin": "U-tad"
+		"origin": "U-tad",
+		"featured": false
 	},
 	{
 		"id": "social-media-odm",
@@ -57,7 +62,8 @@
 		"tech": "Python · pymongo · redis-py · custom serialization",
 		"highlight": "Lightweight ODM features and examples for common patterns.",
 		"tags": ["Backend", "Database"],
-		"origin": "U-tad"
+		"origin": "U-tad",
+		"featured": true
 	},
 	{
 		"id": "bildyapp",
@@ -67,7 +73,8 @@
 		"tech": "Node.js · Express · REST API · JWT · database integration",
 		"highlight": "Role-based endpoints and CRUD for core business entities.",
 		"tags": ["Backend"],
-		"origin": "U-tad"
+		"origin": "U-tad",
+		"featured": false
 	},
 	{
 		"id": "distributed-systems",
@@ -77,7 +84,8 @@
 		"tech": "C++ · Docker · Kubernetes · networking fundamentals",
 		"highlight": "Hands-on exercises demonstrating concurrency, messaging, and containerized deployment.",
 		"tags": ["Backend", "Systems"],
-		"origin": "U-tad"
+		"origin": "U-tad",
+		"featured": false
 	},
 	{
 		"id": "engine2d",
@@ -87,7 +95,8 @@
 		"tech": "C++ · Lua · Sol2 · SDL3 · GLM · CMake · Tiled JSON",
 		"highlight": "Writing a game engine from scratch as a personal hobby.",
 		"tags": ["Game Dev", "Systems"],
-		"origin": "Personal"
+		"origin": "Personal",
+		"featured": true
 	},
 	{
 		"id": "engine2d-old",
@@ -97,7 +106,8 @@
 		"tech": "C++ · Lua · Sol2 · SDL2 · GLM",
 		"highlight": "Earlier version preserved as a reference; active development continues in engine2d.",
 		"tags": ["Game Dev", "Systems"],
-		"origin": "Personal"
+		"origin": "Personal",
+		"featured": false
 	},
 	{
 		"id": "world-of-traps",
@@ -107,7 +117,8 @@
 		"tech": "C++ · CMake · Milkytracker",
 		"highlight": "Contributed to a game built on a custom engine (freshman year project) including a basic soundtrack.",
 		"tags": ["Game Dev"],
-		"origin": "DigiPen"
+		"origin": "DigiPen",
+		"featured": false
 	},
 	{
 		"id": "dev-ost",
@@ -117,7 +128,8 @@
 		"tech": "Milkytracker",
 		"highlight": "Layered soundtrack designed to mirror the game's progression — each track introduces a new element, culminating in the full arrangement.",
 		"tags": ["Game Dev", "Audio"],
-		"origin": "DigiPen"
+		"origin": "DigiPen",
+		"featured": false
 	},
 	{
 		"id": "gateway-technologies",
@@ -127,7 +139,8 @@
 		"tech": "DaVinci Resolve · Adobe After Effects · Audacity · Adobe Photoshop",
 		"highlight": "Presenting a videogame guide in an entertaining and infographic manner.",
 		"tags": ["Video Production"],
-		"origin": "Personal"
+		"origin": "Personal",
+		"featured": false
 	},
 	{
 		"id": "portfolio-website",
@@ -137,7 +150,8 @@
 		"tech": "Astro · JavaScript · CSS · Cloudflare",
 		"highlight": "Designed and built from scratch.",
 		"tags": ["Web"],
-		"origin": "Personal"
+		"origin": "Personal",
+		"featured": false
 	},
 	{
 		"id": "am-apuntes",
@@ -147,7 +161,8 @@
 		"tech": "LaTeX · Markdown",
 		"highlight": "Structured mathematical notes and worked problems.",
 		"tags": ["Mathematics"],
-		"origin": "U-tad"
+		"origin": "U-tad",
+		"featured": false
 	},
 	{
 		"id": "vacumcite",
@@ -157,6 +172,7 @@
 		"tech": "Figma · HTML · CSS prototyping",
 		"highlight": "User flows and accessibility-focused design decisions.",
 		"tags": ["UX / Design"],
-		"origin": "U-tad"
+		"origin": "U-tad",
+		"featured": false
 	}
 ]

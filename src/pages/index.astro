@@ -3,6 +3,11 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE, GITHUB_URL, LINKEDIN_URL, EMAIL } from '../consts';
+import { getCollection } from 'astro:content';
+
+const featuredProjects = (await getCollection('projects'))
+	.filter(p => p.data.featured)
+	.map(p => p.data);
 ---
 
 <!doctype html>
@@ -36,28 +41,18 @@ import { SITE_DESCRIPTION, SITE_TITLE, GITHUB_URL, LINKEDIN_URL, EMAIL } from '.
 				<div class="section-heading">
 					<div>
 						<h2>Featured Projects</h2>
-						<p>Three selected projects below. Browse the full collection on the dedicated projects page.</p>
+						<p>Selected projects below. Browse the full collection on the dedicated projects page.</p>
 					</div>
 					<a class="view-all" href="/projects">See all projects →</a>
 				</div>
 
-				<div class="project-card">
-					<h3><a href="https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification" target="_blank" rel="noopener">Alphanumeric Classification</a></h3>
-					<p>Full ML pipeline for classifying handwritten and printed alphanumeric characters, with detailed walkthrough of preprocessing, feature engineering, and model evaluation.</p>
-					<p class="tech">Python · scikit-learn · data augmentation</p>
-				</div>
-
-				<div class="project-card">
-					<h3><a href="https://github.com/itzi97/AD-ODM" target="_blank" rel="noopener">MongoDB/Redis ODM</a></h3>
-					<p>Object-document mapper for MongoDB and Redis implemented in Python. Lightweight ODM with custom serialisation and common pattern examples.</p>
-					<p class="tech">Python · pymongo · redis-py</p>
-				</div>
-
-				<div class="project-card">
-					<h3><a href="https://github.com/itzi97/engine2d" target="_blank" rel="noopener">2D Game Engine</a></h3>
-					<p>Personal ongoing 2D game engine built from scratch with a Lua scripting layer. Demonstrates low-level systems programming and engine architecture outside of coursework.</p>
-					<p class="tech">C++ · Lua · Sol2 · SDL3 · GLM · CMake</p>
-				</div>
+				{featuredProjects.map((project) => (
+					<div class="project-card">
+						<h3><a href={project.link} target="_blank" rel="noopener">{project.title}</a></h3>
+						<p>{project.summary}</p>
+						<p class="tech">{project.tech}</p>
+					</div>
+				))}
 			</section>
 		</main>
 		<Footer />

@@ -23,6 +23,7 @@ const projects = defineCollection({
 		highlight: z.string(),
 		tags: z.array(z.string()),
 		origin: z.enum(['U-tad', 'DigiPen', 'Personal']),
+		featured: z.boolean().default(false),
 	}),
 });
 
