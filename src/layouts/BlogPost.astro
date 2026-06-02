@@ -95,7 +95,6 @@ const tocLabel = `~/blog/${slug}`;
 </html>
 
 <script>
-	// ── TOC ──────────────────────────────────────────────────────────────
 	const headings = Array.from(
 		document.querySelectorAll('.prose h2, .prose h3, .prose h4')
 	) as HTMLElement[];
@@ -145,25 +144,4 @@ const tocLabel = `~/blog/${slug}`;
 
 		headings.forEach((h) => observer.observe(h));
 	}
-
-	// ── Line numbers ─────────────────────────────────────────────────────
-	document.querySelectorAll('.prose pre').forEach((pre) => {
-		const lines = pre.querySelectorAll('code .line');
-		if (lines.length === 0) return;
-
-		const wrapper = document.createElement('div');
-		wrapper.className = 'code-block';
-
-		const gutter = document.createElement('div');
-		gutter.className = 'line-numbers';
-		lines.forEach((_, i) => {
-			const span = document.createElement('span');
-			span.textContent = String(i + 1);
-			gutter.appendChild(span);
-		});
-
-		pre.parentNode!.insertBefore(wrapper, pre);
-		wrapper.appendChild(gutter);
-		wrapper.appendChild(pre);
-	});
 </script>
