@@ -276,6 +276,88 @@ input, textarea {
 	color: var(--accent);
 }
 
+/* TOC — must be global because li elements are created by JS at runtime */
+#toc {
+	display: none;
+}
+
+@media (min-width: 1280px) {
+	#toc {
+		display: block;
+		position: fixed;
+		top: 6rem;
+		left: max(1.5rem, calc(50% - 360px - 220px));
+		width: 200px;
+		max-height: calc(100vh - 8rem);
+		overflow-y: auto;
+		font-size: 0.78rem;
+		line-height: 1.5;
+		font-family: var(--font-mono);
+	}
+	#toc-label {
+		color: var(--text-muted);
+		font-size: 0.72rem;
+		margin: 0 0 0.5rem 0;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+	}
+	#toc ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	#toc li {
+		margin: 0;
+		position: relative;
+	}
+	#toc li.level-2 a {
+		padding-left: 0.5rem;
+	}
+	#toc li.level-3::before {
+		content: '\251C\2500';
+		position: absolute;
+		left: 0.5rem;
+		color: var(--text-muted);
+		opacity: 0.4;
+		font-size: 0.7rem;
+		line-height: 1.9;
+		pointer-events: none;
+	}
+	#toc li.level-3 a {
+		padding-left: 1.6rem;
+	}
+	#toc li.level-4::before {
+		content: '\2514\2500';
+		position: absolute;
+		left: 1.6rem;
+		color: var(--text-muted);
+		opacity: 0.4;
+		font-size: 0.7rem;
+		line-height: 1.9;
+		pointer-events: none;
+	}
+	#toc li.level-4 a {
+		padding-left: 2.8rem;
+	}
+	#toc a {
+		display: block;
+		padding-top: 0.18rem;
+		padding-bottom: 0.18rem;
+		color: var(--text-muted);
+		text-decoration: none;
+		transition: color 0.15s ease;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	#toc a:hover {
+		color: var(--text);
+	}
+	#toc a.active {
+		color: var(--accent);
+	}
+}
+
 @media (max-width: 720px) {
 	body { font-size: 13px; }
 	main { padding: 1.5em 1em 4em; }
