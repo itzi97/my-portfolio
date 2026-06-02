@@ -5,89 +5,85 @@ pubDate: 2026-06-02
 tags: ["Data Visualisation", "Tableau", "Data Analysis"]
 ---
 
-This was a data visualisation project for the Data Visualization course at U-tad. The central question: is there a relationship between the type and strength of firearm laws a U.S. state has in place and its firearm homicide rate? The answer that emerged from the data across multiple views and groupings was consistent, but more on that at the end.
+For the Data Visualization course at U-tad we had to build a Tableau project using exactly two datasets, and they had to come from two different file formats. That constraint shaped everything. I ended up with a CSV on estimated gun ownership by state and year, and an Excel file tracking 72 binary firearm law indicators per state per year. The natural question those two datasets point at is: do states with more or stronger laws have lower firearm homicide rates?
+
+That said, I want to be upfront about what the constraint ruled out. With a third dataset covering things like poverty rates, urbanisation, mental health access, or policing levels, I could have done a much more complete analysis of what actually drives firearm violence. What I have is a picture of the relationship between legislation and homicides specifically, which is meaningful but not the whole story.
 
 ## The data
 
-Two public datasets were combined, joined on state and year in Tableau:
+- **Kang et al. (Harvard Dataverse):** state-year data from 1949 to 2023. It uses the firearm suicide proxy (FSS) to estimate household gun ownership, since direct ownership figures aren't publicly available at state level. FSS is the share of suicides committed with a firearm, a proxy with a solid track record in public health research. The column I actually used as the outcome variable was firearm homicide rate, not FSS itself.
+- **Tufts CTSI State Firearm Law Database:** 72 binary law indicators per state per year from 1976 to 2024. Things like permit requirements, waiting periods, background check rules, assault weapon restrictions, gun-violence restraining orders.
 
-- **Kang et al. (Harvard Dataverse):** a state-year dataset covering 1949–2023 that uses the firearm suicide proxy (FSS) to estimate household gun ownership. FSS is the share of suicides committed with a firearm, a method with a long track record in public health research. The key outcome column used here is firearm homicide rate.
-- **Tufts CTSI State Firearm Law Database:** 72 binary law indicators per state per year from 1976 to 2024, tracking whether each provision (permit requirements, waiting periods, background checks, assault weapon restrictions, and so on) was in effect.
+The two were joined in Tableau on state and year, many-to-many with "some records match" on both sides. That setting matters: it keeps rows even when a key only exists in one table, rather than silently dropping them. The overlapping range gives a final analysis window of 1976 to 2023. Washington D.C. was excluded since it only appears in one of the datasets.
 
-The join was configured as many-to-many with "some records match" on both sides, which keeps rows even when a key exists in only one table. The analysis window is 1976–2023, the overlapping range, with Washington D.C. excluded since it only appears in one of the datasets.
+## The research questions
 
-## Three research questions
+I defined three questions after exploring the data rather than before, which meant they were grounded in what the datasets could actually answer:
 
-After exploring the data I settled on three questions, each adding a layer of complexity to the one before:
-
-1. Is a state's firearm homicide rate associated with the number and type of firearm laws it has?
-2. How have homicide rates changed over time across states grouped by their law profile?
-3. For a specific state, does an increase in firearm laws correspond to a better ranking relative to other states?
+1. Is a state's firearm homicide rate associated with the number and type of laws it has?
+2. How have those rates changed over time across states with different law profiles?
+3. For a specific state, does legislative growth correspond to a better ranking relative to other states?
 
 ## Law categorisation
 
-Two grouping schemes run through every chart, controlled by a shared parameter that lets the viewer switch between them.
+Rather than treating all 72 laws as equal, I built two grouping schemes and wired them to a shared parameter so you can switch between them across every chart.
 
-**By quantity**, states fall into three tiers based on total law count: Low (10 or fewer), Medium (11–25), High (more than 25).
+**By quantity:** Low (10 or fewer laws), Medium (11 to 25), High (more than 25).
 
-**By type**, rather than using all 72 laws, I picked two subsets. The three most commonly adopted laws (Popular): concealed-carry permit requirement, waiting period, state-level background check. The three with the strongest evidence base in the research literature (Evidence-Based): universal background checks, gun-violence restraining orders, assault weapon restrictions. States are then placed in one of four categories depending on how many laws from each group they have adopted: Weak, Popular, Evidence, or Both.
+**By type:** I picked two subsets based on research rather than just frequency. The three most commonly adopted laws I called Popular: concealed-carry permit, waiting period, state background check. The three with the strongest evidence base in the literature I called Evidence-Based: universal background checks, gun-violence restraining orders, assault weapon restrictions. States then fall into Weak, Popular, Evidence, or Both depending on how many from each group they've passed.
 
 ## The visualisations
 
-### Q1: Homicide rates and the law landscape
+### Q1: Cross-sectional picture
 
-The choropleth map shows firearm homicide rate by state for any chosen year, with an orange severity gradient where darker means higher. A year parameter controls the view, and two-letter state abbreviations are shown on each mark via a calculated field.
+The first chart is a choropleth map showing firearm homicide rate by state for a chosen year. Darker orange means higher rate. State abbreviations are shown on each mark via a calculated field (all 50 CASE clauses, which I generated with AI since it's pure typing with no analytical value).
 
 ![Choropleth map of firearm homicide rate by state](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q1Chart1.png)
 
-A scatter plot places each state by law count on one axis and estimated ownership (FSS) on the other, coloured by law profile. The same law categorisation parameter used throughout the project switches between the quantity and type groupings.
+The second is a scatter plot with law count on one axis and estimated ownership (FSS) on the other, coloured by law profile. The same categorisation parameter from the map applies here too.
 
 ![Scatter plot of law count vs estimated gun ownership, coloured by law profile](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q1Chart2.png)
 
-### Q2: Homicide trends over time
+### Q2: Adding time
 
-A line chart covers the full 1976–2023 period. Each line is a group of states. A vertical reference line marks the currently selected year, linked to the year parameter from the map. The gap between groups becomes one of the clearest signals in the whole project.
+A line chart running from 1976 to 2023, one line per group of states. A vertical reference line marks whatever year is selected on the map, linking the two charts. The gap between the high-law and low-law groups is probably the most visually striking thing in the whole project.
 
 ![Line chart of firearm homicide rate over time by law profile](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q2Chart.png)
 
-### Q3: State-level law history and homicide standing
+### Q3: Single-state deep dive
 
-A line chart shows how a selected state's total law count has grown over time.
+A line chart showing how a selected state's law count has grown over time, alongside a bar chart that ranks all states by homicide rate for a chosen year with the selected state highlighted. Both are linked by a shared state parameter, so you can pick any state and the two charts update together.
 
 ![Line chart of firearm laws in effect over time for a selected state](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q3Chart1.png)
-
-A bar chart ranks all states by firearm homicide rate for a chosen year, with the selected state highlighted using a Tableau set and a national average reference line overlaid. The two charts are linked by a shared state parameter, so clicking a state on the map updates both views at once.
 
 ![Bar chart of firearm homicide rate by state with selected state highlighted](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Q3Chart2.png)
 
 ### Dashboards
 
-The two dashboards tie everything together. Dashboard 1 combines the map, scatter, and Q2 line chart, with a filter action that propagates map selections to the scatter. The year parameter drops a reference line in the trend chart simultaneously.
+Dashboard 1 puts the map, scatter, and Q2 line chart together. Clicking a state on the map highlights it in the scatter, and the year parameter drops a reference line in the trend chart at the same time.
 
 ![Dashboard 1: geographic overview, law-homicide scatter, and law profile trends](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Dashboard1.png)
 
-Dashboard 2 focuses on Q3, with the map kept as a geographic anchor and the bar and law history charts updating together whenever a state is selected.
+Dashboard 2 is the Q3 view with the map kept as a geographic anchor. Clicking any state on the map updates both the ranking bar chart and the law history line simultaneously.
 
 ![Dashboard 2: geographic map, state homicide ranking, and selected state law history](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/Dashboard2.png)
 
-## A supplementary event study
+## Supplementary event study
 
-To complement the Tableau work, I also ran an event-study style analysis in Python using the same two datasets. The idea was to compare how firearm homicide rates evolve in the years around the adoption of popular laws versus evidence-based ones, averaging across all adopting states.
+On top of the Tableau work I ran an event-study style chart in Python to compare how homicide rates move around the moment a state adopts a popular law versus an evidence-based one. The idea is to average across all states that adopted each law and plot the trajectory from five years before to ten years after adoption.
 
-The chart plots each law's average homicide rate trajectory from five years before adoption to ten years after. All five laws show a post-adoption decline, but the steepness and persistence differ. Evidence-based laws, especially Universal Background Checks and GVRO, show a noticeably sharper and more sustained drop. Popular laws show improvement too, but more gradually.
+All five laws are followed by a decline, but evidence-based ones drop faster and hold lower for longer. Universal Background Checks shows the sharpest improvement. Popular laws do improve things, just more gradually.
 
 ![Event study: average firearm homicide rate from 5 years before to 10 years after law adoption](https://raw.githubusercontent.com/itzi97/DV_Tableau/main/figures/LawAdoptionChart.png)
 
-## What the data says
+## What I took away from it
 
-Across every view and grouping, the same story comes through:
+The two-dataset constraint meant I could only look at one outcome: homicide rates. I couldn't fold in suicide rates, non-fatal injuries, or broader social indicators that likely interact with both legislation and violence. That's the honest limitation of the project.
 
-- States with fewer or weaker laws sit at the higher end of the homicide rate distribution.
-- The gap between high-law and low-law groups has widened since the 1990s, not narrowed.
-- For many individual states, sustained legislative growth aligns with an improving ranking relative to other states.
-- Evidence-based laws appear to be associated with steeper post-adoption declines than the more widely adopted but weaker popular laws.
-- FSS (estimated ownership) adds context, but the policy profile of a state is a stronger signal than ownership levels alone.
+Within what the data can show, the picture is consistent across every view: states with fewer or weaker laws tend to sit at the higher end of the homicide distribution. The gap between high-law and low-law groups has grown since the 1990s. And when you look at individual states, periods of sustained legislative growth tend to align with a better position in the national ranking, even if isolating the effect of any single law is difficult once you're looking at cumulative counts.
 
-This project doesn't prove causality and doesn't control for every confounding variable. But it consistently points in the same direction: how a state chooses to regulate firearms is closely linked to how often guns are used to kill. The type of law matters, not just whether laws exist.
+The type of law seems to matter more than just having laws. Evidence-based laws outperform popular ones in the event study. FSS (ownership proxy) adds context but isn't the dominant signal; the policy profile is.
 
-The full Tableau workbook and data are [on GitHub](https://github.com/itzi97/DV_Tableau).
+None of this is causal. There's no confounder control, no regression, no instrument. But across multiple groupings, chart types, and time periods, the direction is the same. How a state regulates firearms is closely tied to how often guns are used to kill.
+
+Full workbook and data on [GitHub](https://github.com/itzi97/DV_Tableau).
