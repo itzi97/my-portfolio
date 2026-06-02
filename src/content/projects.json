@@ -103,13 +103,15 @@
 	{
 		"id": "engine2d-old",
 		"title": "2D Game Engine (archived)",
-		"link": "https://github.com/itzi97/engine2d-old",
-		"summary": "Archived iteration of the 2D game engine — currently has more features than the active rewrite.",
+		"link": "/blog/first-game-engine",
+		"summary": "Archived iteration of the 2D game engine, currently has more features than the active rewrite.",
 		"tech": "C++ · Lua · Sol2 · SDL2 · GLM",
 		"highlight": "Earlier version preserved as a reference; active development continues in engine2d.",
 		"tags": ["Game Dev", "Systems"],
 		"origin": "Personal",
-		"featured": false
+		"featured": false,
+		"blogSlug": "first-game-engine",
+		"githubUrl": "https://github.com/itzi97/engine2d-old"
 	},
 	{
 		"id": "world-of-traps",
@@ -128,7 +130,7 @@
 		"link": "https://soundcloud.com/zesher/sets/dev-ost",
 		"summary": "Original soundtrack for DEV, a DigiPen student game.",
 		"tech": "Milkytracker",
-		"highlight": "Layered soundtrack designed to mirror the game's progression — each track introduces a new element, culminating in the full arrangement.",
+		"highlight": "Layered soundtrack designed to mirror the game's progression, each track introduces a new element, culminating in the full arrangement.",
 		"tags": ["Game Dev", "Audio"],
 		"origin": "DigiPen",
 		"featured": false
