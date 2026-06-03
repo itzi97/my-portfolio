@@ -65,11 +65,14 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 										{project.blogSlug ? 'Read post →' : 'Open ↗'}
 									</span>
 								</a>
-								{project.githubUrl && (
-									<a class="github-link" href={project.githubUrl} target="_blank" rel="noopener">
-										GitHub ↗
-									</a>
-								)}
+								<div class="card-footer">
+									{project.githubUrl && (
+										<a class="footer-link" href={project.githubUrl} target="_blank" rel="noopener">GitHub ↗</a>
+									)}
+									{project.externalUrl && (
+										<a class="footer-link" href={project.externalUrl} target="_blank" rel="noopener">{project.externalLabel ?? 'Open ↗'}</a>
+									)}
+								</div>
 							</div>
 						))}
 					</div>
@@ -100,11 +103,14 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 									{project.blogSlug ? 'Read post →' : 'Open ↗'}
 								</span>
 							</a>
-							{project.githubUrl && (
-								<a class="github-link" href={project.githubUrl} target="_blank" rel="noopener">
-									GitHub ↗
-								</a>
-							)}
+							<div class="card-footer">
+								{project.githubUrl && (
+									<a class="footer-link" href={project.githubUrl} target="_blank" rel="noopener">GitHub ↗</a>
+								)}
+								{project.externalUrl && (
+									<a class="footer-link" href={project.externalUrl} target="_blank" rel="noopener">{project.externalLabel ?? 'Open ↗'}</a>
+								)}
+							</div>
 						</div>
 					))}
 				</div>
@@ -119,13 +125,11 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 	const featuredSection = document.getElementById('featured-section');
 	const regularGrid = document.getElementById('projects-grid');
 
-	// Keep track of each featured card's original home
 	const featuredCards = featuredSection
 		? Array.from(featuredSection.querySelectorAll<HTMLElement>('.proj-card--featured'))
 		: [];
 
 	function applyFilter(tag: string) {
-		// First pass: decide visibility for every card everywhere
 		const allCards = document.querySelectorAll<HTMLElement>('.proj-card');
 		allCards.forEach(card => {
 			const cardTags = card.dataset.tags ?? '';
@@ -133,12 +137,10 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 			card.dataset.visible = visible ? 'true' : 'false';
 		});
 
-		// Count how many featured cards are visible
 		const visibleFeatured = featuredCards.filter(c => c.dataset.visible === 'true');
 		const useFeaturedLayout = visibleFeatured.length >= 2;
 
 		if (useFeaturedLayout) {
-			// Restore featured cards to their section
 			featuredCards.forEach(card => {
 				if (featuredSection && card.parentElement !== featuredSection) {
 					featuredSection.appendChild(card);
@@ -148,7 +150,6 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 			});
 			if (featuredSection) featuredSection.style.display = '';
 		} else {
-			// Move all featured cards into the regular grid
 			if (featuredSection) featuredSection.style.display = 'none';
 			featuredCards.forEach(card => {
 				if (regularGrid && card.parentElement !== regularGrid) {
@@ -159,7 +160,6 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 			});
 		}
 
-		// Show/hide regular grid cards
 		if (regularGrid) {
 			Array.from(regularGrid.querySelectorAll<HTMLElement>('.proj-card')).forEach(card => {
 				card.style.display = card.dataset.visible === 'true' ? '' : 'none';
@@ -356,16 +356,27 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 		color: #34d399;
 		border-color: rgba(52, 211, 153, 0.25);
 	}
-	.github-link {
-		display: block;
-		padding: 0.5rem 1.25rem;
+	/* Card footer — holds github + external links */
+	.card-footer {
+		display: flex;
 		border-top: 1px solid var(--border);
+	}
+	.card-footer:empty {
+		display: none;
+	}
+	.footer-link {
+		flex: 1;
+		padding: 0.5rem 1.25rem;
 		color: var(--text-muted);
 		font-size: 0.78rem;
 		text-decoration: none;
 		transition: color 0.15s ease;
+		text-align: center;
 	}
-	.github-link:hover {
+	.footer-link + .footer-link {
+		border-left: 1px solid var(--border);
+	}
+	.footer-link:hover {
 		color: var(--accent);
 	}
 </style>

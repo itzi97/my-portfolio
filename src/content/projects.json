@@ -20,7 +20,9 @@
 		"tags": ["Machine Learning"],
 		"origin": "U-tad",
 		"featured": true,
-		"blogSlug": "alphanumeric-classification"
+		"blogSlug": "alphanumeric-classification",
+		"externalUrl": "https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification",
+		"externalLabel": "Kaggle ↗"
 	},
 	{
 		"id": "spam-filtering",
@@ -123,7 +125,7 @@
 		"summary": "Speedrun edition of a DigiPen game, built by two college classmates on an engine made from scratch.",
 		"tech": "C++ · CMake · Milkytracker",
 		"highlight": "Contributed to a game built on a custom engine (freshman year project) including a basic soundtrack.",
-		"tags": ["Game Dev"],
+		"tags": ["Game Dev", "Media"],
 		"origin": "DigiPen",
 		"featured": false
 	},
@@ -134,7 +136,7 @@
 		"summary": "Original soundtrack for DEV, a DigiPen student game.",
 		"tech": "Milkytracker",
 		"highlight": "Layered soundtrack designed to mirror the game's progression, each track introduces a new element, culminating in the full arrangement.",
-		"tags": ["Creative"],
+		"tags": ["Media"],
 		"origin": "DigiPen",
 		"featured": false
 	},
@@ -145,7 +147,7 @@
 		"summary": "Stellaris video guide for Paradox Interactive.",
 		"tech": "DaVinci Resolve · Adobe After Effects · Audacity · Adobe Photoshop",
 		"highlight": "Presenting a videogame guide in an entertaining and infographic manner.",
-		"tags": ["Creative"],
+		"tags": ["Media"],
 		"origin": "Personal",
 		"featured": false
 	},
