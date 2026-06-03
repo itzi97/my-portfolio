@@ -7,6 +7,11 @@ import { getCollection } from 'astro:content';
 
 const allProjects = await getCollection('projects');
 const projects = allProjects.map(p => p.data);
+
+const featured = projects.filter(p => p.featured);
+const rest = projects.filter(p => !p.featured);
+
+const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 ---
 
 <!doctype html>
@@ -25,9 +30,55 @@ const projects = allProjects.map(p => p.data);
 					Each card links directly to the repository, notebook, or demo.
 				</p>
 
-				<div class="projects-grid">
-					{projects.map((project) => (
-						<div class="proj-card">
+				<!-- Tag filter bar -->
+				<div class="filter-bar">
+					<button class="filter-pill active" data-tag="all">All</button>
+					{allTags.map(tag => (
+						<button class="filter-pill" data-tag={tag}>{tag}</button>
+					))}
+				</div>
+
+				<!-- Featured projects -->
+				{featured.length > 0 && (
+					<div class="featured-grid" id="featured-section">
+						{featured.map((project) => (
+							<div class="proj-card proj-card--featured" data-tags={project.tags.join(',').toLowerCase()}>
+								<a
+									class="proj-card-inner"
+									href={project.blogSlug ? `/blog/${project.blogSlug}` : project.link}
+									target={project.blogSlug ? '_self' : '_blank'}
+									rel={project.blogSlug ? undefined : 'noopener'}
+								>
+									<div class="tags">
+										<span class="featured-badge">Featured</span>
+										<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
+										{project.tags.map(tag => (
+											<span class="tag">{tag}</span>
+										))}
+										{project.blogSlug && <span class="tag tag-post">Post ✏️</span>}
+									</div>
+									<h2>{project.title}</h2>
+									<p class="summary">{project.summary}</p>
+									<p class="highlight">{project.highlight}</p>
+									<p class="tech">{project.tech}</p>
+									<span class="card-cta">
+										{project.blogSlug ? 'Read post →' : 'Open ↗'}
+									</span>
+								</a>
+								{project.githubUrl && (
+									<a class="github-link" href={project.githubUrl} target="_blank" rel="noopener">
+										GitHub ↗
+									</a>
+								)}
+							</div>
+						))}
+					</div>
+				)}
+
+				<!-- Rest of projects -->
+				<div class="projects-grid" id="projects-grid">
+					{rest.map((project) => (
+						<div class="proj-card" data-tags={project.tags.join(',').toLowerCase()}>
 							<a
 								class="proj-card-inner"
 								href={project.blogSlug ? `/blog/${project.blogSlug}` : project.link}
@@ -63,6 +114,36 @@ const projects = allProjects.map(p => p.data);
 	</body>
 </html>
 
+<script>
+	const pills = document.querySelectorAll<HTMLButtonElement>('.filter-pill');
+	const cards = document.querySelectorAll<HTMLElement>('.proj-card');
+	const featuredSection = document.getElementById('featured-section');
+
+	pills.forEach(pill => {
+		pill.addEventListener('click', () => {
+			const tag = pill.dataset.tag!;
+
+			pills.forEach(p => p.classList.remove('active'));
+			pill.classList.add('active');
+
+			let anyFeaturedVisible = false;
+
+			cards.forEach(card => {
+				const cardTags = card.dataset.tags ?? '';
+				const visible = tag === 'all' || cardTags.split(',').includes(tag.toLowerCase());
+				card.style.display = visible ? '' : 'none';
+				if (visible && card.classList.contains('proj-card--featured')) {
+					anyFeaturedVisible = true;
+				}
+			});
+
+			if (featuredSection) {
+				featuredSection.style.display = anyFeaturedVisible ? '' : 'none';
+			}
+		});
+	});
+</script>
+
 <style>
 	.projects-page {
 		padding: 0 0 3rem;
@@ -73,13 +154,59 @@ const projects = allProjects.map(p => p.data);
 	.intro {
 		color: var(--text-muted);
 		max-width: 42rem;
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
 	}
+
+	/* Filter bar */
+	.filter-bar {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin-bottom: 1.75rem;
+	}
+	.filter-pill {
+		font-size: 0.78rem;
+		font-weight: 500;
+		padding: 0.3em 0.85em;
+		border-radius: 999px;
+		border: 1px solid var(--border);
+		background: transparent;
+		color: var(--text-muted);
+		cursor: pointer;
+		transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+		font-family: inherit;
+	}
+	.filter-pill:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+	.filter-pill.active {
+		background: rgba(167, 139, 250, 0.12);
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+	/* Featured grid — 2-col */
+	.featured-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+	@media (max-width: 640px) {
+		.featured-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* Regular grid */
 	.projects-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 		gap: 1rem;
 	}
+
+	/* Cards */
 	.proj-card {
 		display: flex;
 		flex-direction: column;
@@ -94,6 +221,9 @@ const projects = allProjects.map(p => p.data);
 		box-shadow: 0 0 14px rgba(167, 139, 250, 0.1);
 		transform: translateY(-2px);
 	}
+	.proj-card--featured {
+		border-left-width: 4px;
+	}
 	.proj-card-inner {
 		display: flex;
 		flex-direction: column;
@@ -102,10 +232,16 @@ const projects = allProjects.map(p => p.data);
 		gap: 0.4rem;
 		flex: 1;
 	}
+	.proj-card--featured .proj-card-inner {
+		padding: 1.5rem 1.75rem 1rem;
+	}
 	.proj-card h2 {
 		font-size: 1rem;
 		margin: 0;
 		color: var(--accent);
+	}
+	.proj-card--featured h2 {
+		font-size: 1.2rem;
 	}
 	.proj-card p {
 		margin: 0;
@@ -129,6 +265,18 @@ const projects = allProjects.map(p => p.data);
 		flex-wrap: wrap;
 		gap: 0.35rem;
 		align-items: center;
+	}
+	.featured-badge {
+		display: inline-block;
+		font-size: 0.7rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		padding: 0.1em 0.45em;
+		border-radius: 3px;
+		background: rgba(167, 139, 250, 0.15);
+		color: var(--accent);
+		border: 1px solid rgba(167, 139, 250, 0.35);
 	}
 	.origin {
 		display: inline-block;
