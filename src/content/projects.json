@@ -65,7 +65,7 @@
 		"highlight": "Lightweight ODM features and examples for common patterns.",
 		"tags": ["Backend", "Database"],
 		"origin": "U-tad",
-		"featured": true,
+		"featured": false,
 		"blogSlug": "python-odm",
 		"githubUrl": "https://github.com/itzi97/AD-ODM"
 	},
@@ -100,7 +100,7 @@
 		"highlight": "Writing a game engine from scratch as a personal hobby.",
 		"tags": ["Game Dev", "Systems"],
 		"origin": "Personal",
-		"featured": true
+		"featured": false
 	},
 	{
 		"id": "engine2d-old",
