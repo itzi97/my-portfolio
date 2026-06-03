@@ -19,13 +19,13 @@ const featuredProjects = (await getCollection('projects'))
 		<Header />
 		<main>
 			<section class="hero">
+				<p class="eyebrow">~/home</p>
 				<pre class="ascii-art" aria-hidden="true">┌─────────────────────────────────────┐
 │  itziar@portfolio:~$ whoami         │
 │  > software engineer                │
 │  > data science minor               │
 │  > git commit -m "still learning"   │
 └─────────────────────────────────────┘</pre>
-				<p class="eyebrow">~/home</p>
 				<h1>Itziar Morales Rodríguez</h1>
 				<p class="tagline">Software Engineering Student · Data Science & AI Minor · Madrid, Spain</p>
 				<p class="personality">I write C++ game engines for fun, train neural nets for class, and run a home server I definitely don't tinker with too much. Currently looking for a remote ML or data engineering internship.</p>
@@ -87,26 +87,27 @@ const featuredProjects = (await getCollection('projects'))
 </html>
 
 <style>
-	/* ASCII art block */
-	.ascii-art {
-		font-family: var(--font-mono);
-		font-size: 0.78rem;
-		line-height: 1.6;
-		color: var(--text-muted);
-		background: none;
-		border: none;
-		padding: 0;
-		margin: 0 0 1.5rem 0;
-		white-space: pre;
-		pointer-events: none;
-	}
-
 	.eyebrow {
 		font-family: var(--font-mono);
 		color: var(--accent);
 		font-size: 0.85rem;
 		margin-bottom: 0.4rem;
 		margin-top: 0;
+	}
+
+	/* ASCII art block */
+	.ascii-art {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		line-height: 1.6;
+		color: var(--text-muted);
+		background: transparent;
+		border: none;
+		padding: 0;
+		margin: 0 auto 1.5rem auto;
+		white-space: pre;
+		pointer-events: none;
+		display: table;
 	}
 
 	.personality {
