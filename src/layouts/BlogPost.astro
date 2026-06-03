@@ -127,10 +127,33 @@ const tocLabel = `~/blog/${slug}`;
 
 		const links = Array.from(list.querySelectorAll('a')) as HTMLAnchorElement[];
 
+		// Track whether a click just happened so the observer doesn't
+		// immediately override the active state before the scroll settles.
+		let clickedId: string | null = null;
+		let clickTimeout: ReturnType<typeof setTimeout> | null = null;
+
+		links.forEach((a) => {
+			a.addEventListener('click', () => {
+				const targetId = a.getAttribute('href')?.slice(1) ?? null;
+				clickedId = targetId;
+
+				// Immediately highlight the clicked link
+				links.forEach((l) => l.classList.remove('active'));
+				a.classList.add('active');
+
+				// Release control back to the observer after scroll settles
+				if (clickTimeout) clearTimeout(clickTimeout);
+				clickTimeout = setTimeout(() => { clickedId = null; }, 1000);
+			});
+		});
+
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
+						// If a click is in flight and this isn't the target, ignore
+						if (clickedId && entry.target.id !== clickedId) return;
+						clickedId = null;
 						links.forEach((a) => a.classList.remove('active'));
 						const active = links.find(
 							(a) => a.getAttribute('href') === `#${entry.target.id}`
