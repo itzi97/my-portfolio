@@ -1,10 +1,16 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+
+function readTime(body: string): string {
+	const words = body.trim().split(/\s+/).length;
+	const mins = Math.max(1, Math.round(words / 200));
+	return `${mins} min read`;
+}
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -40,6 +46,7 @@ const [featured, ...rest] = posts;
 							<span class="post-date">
 								<FormattedDate date={featured.data.pubDate} />
 							</span>
+							<span class="read-time">{readTime(featured.body ?? '')}</span>
 						</div>
 						<h2 class="featured-title">{featured.data.title}</h2>
 						<p class="featured-description">{featured.data.description}</p>
@@ -56,6 +63,7 @@ const [featured, ...rest] = posts;
 										<span class="post-date">
 											<FormattedDate date={post.data.pubDate} />
 										</span>
+										<span class="read-time">{readTime(post.body ?? '')}</span>
 									</div>
 									<h2 class="post-title">{post.data.title}</h2>
 									<p class="post-description">{post.data.description}</p>
@@ -180,6 +188,16 @@ const [featured, ...rest] = posts;
 		font-family: var(--font-mono);
 		font-size: 0.78rem;
 		color: var(--text-muted);
+	}
+	.read-time {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		color: var(--text-muted);
+		opacity: 0.7;
+	}
+	.read-time::before {
+		content: '·';
+		margin-right: 0.75rem;
 	}
 	.post-title {
 		font-size: 1.05rem;
