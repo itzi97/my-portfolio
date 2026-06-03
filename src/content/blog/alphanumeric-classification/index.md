@@ -81,7 +81,7 @@ The trouble spots are the visually ambiguous pairs that any alphanumeric classif
 
 The model misclassifies within these groups more than anywhere else. Most other errors are random and low-frequency.
 
-## 90.65% is a floor, not a ceiling
+### 90.65% is a floor, not a ceiling
 
 Here is the part that the headline number doesn't show. The vast majority of the remaining 9.35% of errors are not random. They cluster almost entirely within those four confusable groups above. That means the model is effectively near-perfect on 32 of the 36 characters and only genuinely uncertain on a small, well-defined set of pairs.
 
