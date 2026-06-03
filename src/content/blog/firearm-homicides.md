@@ -96,4 +96,6 @@ None of this is causal. There's no confounder control, no regression, no instrum
 | Evidence-based laws post-adoption | Steeper, sustained decline | Strongest for Universal Background Checks |
 | Causal claim | Not made | No confounder control |
 
+<br>
+
 Full workbook and data on [GitHub](https://github.com/itzi97/DV_Tableau).

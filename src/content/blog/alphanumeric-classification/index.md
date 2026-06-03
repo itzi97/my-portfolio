@@ -68,6 +68,8 @@ I tuned three variables in sequence, keeping the others fixed while moving one a
 | Starting values | 0.2 | 36 | 0.2 | 0.9048 |
 | Final values | 0.2 | 48 | 0.4 | 0.9068 |
 
+<br>
+
 The gain is marginal, which is typical of hyperparameter search on a well-specified problem. The architecture was already reasonable; tuning is about removing small inefficiencies, not finding magic numbers.
 
 **Final test accuracy: 90.65% / MCC: 0.907**
