@@ -20,12 +20,6 @@ const featuredProjects = (await getCollection('projects'))
 		<main>
 			<section class="hero">
 				<p class="eyebrow">~/home</p>
-				<pre class="ascii-art" aria-hidden="true">┌─────────────────────────────────────┐
-│  itziar@portfolio:~$ whoami         │
-│  > software engineer                │
-│  > data science minor               │
-│  > git commit -m "still learning"   │
-└─────────────────────────────────────┘</pre>
 				<h1>Itziar Morales Rodríguez</h1>
 				<p class="tagline">Software Engineering Student · Data Science & AI Minor · Madrid, Spain</p>
 				<p class="personality">I write C++ game engines for fun, train neural nets for class, and run a home server I definitely don't tinker with too much. Currently looking for a remote ML or data engineering internship.</p>
@@ -81,6 +75,16 @@ const featuredProjects = (await getCollection('projects'))
 					</div>
 				))}
 			</section>
+
+			<div class="easter-egg" aria-hidden="true">
+				<pre class="ascii-art">┌─────────────────────────────────────┐
+│  itziar@portfolio:~$ whoami         │
+│  > software engineer                │
+│  > data science minor               │
+│  > git commit -m "still learning"   │
+└─────────────────────────────────────┘</pre>
+				<p class="easter-label">// you found the easter egg 🎉</p>
+			</div>
 		</main>
 		<Footer />
 	</body>
@@ -103,10 +107,28 @@ const featuredProjects = (await getCollection('projects'))
 		background: transparent;
 		border: none;
 		padding: 0;
-		margin: 0 auto 1.5rem auto;
+		margin: 0 auto 0.5rem auto;
 		white-space: pre;
 		pointer-events: none;
 		display: table;
+	}
+
+	.easter-egg {
+		margin-top: 4rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		opacity: 0.45;
+		transition: opacity 0.3s ease;
+	}
+	.easter-egg:hover {
+		opacity: 1;
+	}
+	.easter-label {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		color: var(--text-muted);
+		margin: 0;
 	}
 
 	.personality {
