@@ -9,6 +9,8 @@ import { SITE_TITLE } from '../../consts';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const [featured, ...rest] = posts;
 ---
 
 <!doctype html>
@@ -31,22 +33,38 @@ const posts = (await getCollection('blog')).sort(
 					<p class="empty">No posts yet. Check back soon.</p>
 				)}
 
-				<ul class="post-list">
-					{posts.map((post) => (
-						<li>
-							<a href={`/blog/${post.id}/`} class="post-link">
-								<div class="post-meta">
-									<span class="post-date">
-										<FormattedDate date={post.data.pubDate} />
-									</span>
-								</div>
-								<h2 class="post-title">{post.data.title}</h2>
-								<p class="post-description">{post.data.description}</p>
-								<span class="post-cta">Read post →</span>
-							</a>
-						</li>
-					))}
-				</ul>
+				{featured && (
+					<a href={`/blog/${featured.id}/`} class="featured-post">
+						<div class="featured-label">Latest post</div>
+						<div class="featured-meta">
+							<span class="post-date">
+								<FormattedDate date={featured.data.pubDate} />
+							</span>
+						</div>
+						<h2 class="featured-title">{featured.data.title}</h2>
+						<p class="featured-description">{featured.data.description}</p>
+						<span class="post-cta">Read post →</span>
+					</a>
+				)}
+
+				{rest.length > 0 && (
+					<ul class="post-grid">
+						{rest.map((post) => (
+							<li>
+								<a href={`/blog/${post.id}/`} class="post-link">
+									<div class="post-meta">
+										<span class="post-date">
+											<FormattedDate date={post.data.pubDate} />
+										</span>
+									</div>
+									<h2 class="post-title">{post.data.title}</h2>
+									<p class="post-description">{post.data.description}</p>
+									<span class="post-cta">Read post →</span>
+								</a>
+							</li>
+						))}
+					</ul>
+				)}
 			</section>
 		</main>
 		<Footer />
@@ -73,13 +91,67 @@ const posts = (await getCollection('blog')).sort(
 		color: var(--text-muted);
 		font-style: italic;
 	}
-	.post-list {
+
+	/* ── Featured post ── */
+	.featured-post {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		padding: 1.75rem 2rem;
+		border: 1px solid var(--border);
+		border-left: 4px solid var(--accent);
+		border-radius: 8px;
+		background: var(--surface);
+		text-decoration: none;
+		margin-bottom: 1.5rem;
+		transition: box-shadow 0.15s ease, transform 0.15s ease;
+	}
+	.featured-post:hover {
+		box-shadow: 0 0 20px rgba(167, 139, 250, 0.12);
+		transform: translateY(-2px);
+	}
+	.featured-label {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		color: var(--accent);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		margin-bottom: 0.2rem;
+	}
+	.featured-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+	.featured-title {
+		font-size: 1.4rem;
+		margin: 0;
+		color: var(--accent);
+		line-height: 1.25;
+	}
+	.featured-description {
+		margin: 0;
+		font-size: 0.92rem;
+		color: var(--text-muted);
+		max-width: 72rem;
+	}
+
+	/* ── Grid ── */
+	.post-grid {
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
 		gap: 1rem;
+	}
+	@media (max-width: 640px) {
+		.post-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+	.post-grid li {
+		display: flex;
 	}
 	.post-link {
 		display: flex;
@@ -91,7 +163,8 @@ const posts = (await getCollection('blog')).sort(
 		border-radius: 6px;
 		background: var(--surface);
 		text-decoration: none;
-		transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+		width: 100%;
+		transition: box-shadow 0.15s ease, transform 0.15s ease;
 	}
 	.post-link:hover {
 		border-color: var(--accent);
@@ -109,16 +182,15 @@ const posts = (await getCollection('blog')).sort(
 		color: var(--text-muted);
 	}
 	.post-title {
-		font-size: 1.1rem;
+		font-size: 1.05rem;
 		margin: 0;
 		color: var(--accent);
 		line-height: 1.3;
 	}
 	.post-description {
 		margin: 0;
-		font-size: 0.88rem;
+		font-size: 0.85rem;
 		color: var(--text-muted);
-		max-width: 60rem;
 	}
 	.post-cta {
 		color: var(--accent);
