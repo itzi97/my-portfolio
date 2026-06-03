@@ -29,6 +29,8 @@ I stripped the lowercase classes out entirely, leaving **36 classes**: digits `0
 
 ## The architecture
 
+### Network design
+
 I built a modest CNN in Keras:
 
 ```
@@ -43,9 +45,13 @@ Input (28×28 grayscale)
 
 The filter counts mirror the number of classes: 36 in the first conv layer and 72 in the second as the network learns more complex feature combinations. The two dense hidden layers taper from 144 down to 72, with dropout after each one to prevent neurons from co-adapting.
 
+### Regularisation and stopping
+
 Batch normalisation after each convolutional block stabilises training and lets a higher learning rate work without diverging. Early stopping with a patience of 5 epochs on validation loss meant the model stopped as soon as it stopped improving, so there was no need to guess a fixed epoch count upfront.
 
 ## Hyperparameter search
+
+### What I tuned
 
 I tuned three variables in sequence, keeping the others fixed while moving one at a time.
 
@@ -54,6 +60,8 @@ I tuned three variables in sequence, keeping the others fixed while moving one a
 **Batch size:** starting from 36, I tested 8, 16, 32, 48, and 64. Batch size 48 gave the best MCC of 0.9072. Smaller batches added too much noise to the gradient updates and larger ones smoothed things out too much.
 
 **Dropout rate:** tested 0.1 through 0.5 in steps. Rate 0.4 came out on top at MCC 0.9068. Going higher hurt accuracy and going lower let the model drift toward overfitting.
+
+### Results
 
 | | `validation_split` | `batch_size` | `dropout` | MCC |
 |---|---|---|---|---|
@@ -83,13 +91,17 @@ The model misclassifies within these groups more than anywhere else. Most other 
 
 ### 90.65% is a floor, not a ceiling
 
-Here is the part that the headline number doesn't show. The vast majority of the remaining 9.35% of errors are not random. They cluster almost entirely within those four confusable groups above. That means the model is effectively near-perfect on 32 of the 36 characters and only genuinely uncertain on a small, well-defined set of pairs.
+> Almost all of the remaining errors cluster in four well-known confusable pairs. The model is effectively near-perfect on 32 of the 36 characters.
+
+Here is the part that the headline number doesn't show. The vast majority of the remaining 9.35% of errors are not random. They cluster almost entirely within those four confusable groups above, which means the model is only genuinely uncertain on a small, well-defined set of pairs.
 
 In practice this is much better than 90.65% sounds. If you know in advance which characters the model will confuse, you can handle them explicitly in code rather than treating them as unpredictable failures. The error is predictable, which makes it manageable.
 
 ## Handling these errors in a real system
 
 A deployed licence plate reader doesn't have to rely solely on the classifier's top-1 prediction. You can encode the known confusable pairs directly into post-processing logic.
+
+### Candidate expansion
 
 One practical pattern is a candidate expansion step. Instead of taking the argmax output, you keep the top-k predictions and flag characters where a known confusable pair appears in the top 2:
 
@@ -113,6 +125,8 @@ def expand_candidates(probs: list[tuple[str, float]], top_k: int = 2):
             return sorted_preds, True  # flagged as ambiguous
     return sorted_preds[:1], False
 ```
+
+### Resolving flagged slots
 
 A flagged slot doesn't mean the plate is unreadable. It means that particular character has two plausible candidates and downstream logic can resolve it in a few ways:
 

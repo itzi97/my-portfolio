@@ -86,4 +86,14 @@ The more interesting finding is the type-versus-quantity question. The popular l
 
 None of this is causal. There's no confounder control, no regression, no instrument. But across multiple groupings, chart types, and time periods, the direction is the same. How a state regulates firearms is closely tied to how often guns are used to kill.
 
+### Key findings at a glance
+
+| Finding | Direction | Confidence |
+|---|---|---|
+| High-law states vs low-law states | Lower homicide rates | Consistent across all views |
+| Gap between groups since 1990s | Widening | Visible in Q2 trend chart |
+| Popular laws post-adoption | Gradual decline | All 3 popular laws |
+| Evidence-based laws post-adoption | Steeper, sustained decline | Strongest for Universal Background Checks |
+| Causal claim | Not made | No confounder control |
+
 Full workbook and data on [GitHub](https://github.com/itzi97/DV_Tableau).
