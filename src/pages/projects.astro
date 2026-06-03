@@ -43,26 +43,38 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 					<div class="featured-grid" id="featured-section">
 						{featured.map((project) => (
 							<div class="proj-card proj-card--featured" data-tags={project.tags.join(',').toLowerCase()}>
-								<a
-									class="proj-card-inner"
-									href={project.link}
-									target="_blank"
-									rel="noopener"
-								>
-									<div class="tags">
-										<span class="featured-badge">Featured</span>
-										<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
-										{project.tags.map(tag => (
-											<span class="tag">{tag}</span>
-										))}
-										{project.blogSlug && <span class="tag tag-post">Post ✏️</span>}
-									</div>
-									<h2>{project.title}</h2>
-									<p class="summary">{project.summary}</p>
-									<p class="highlight">{project.highlight}</p>
-									<p class="tech">{project.tech}</p>
-									<span class="card-cta">Open ↗</span>
-								</a>
+								{project.link
+									? (
+										<a class="proj-card-inner" href={project.link} target="_blank" rel="noopener">
+											<div class="tags">
+												<span class="featured-badge">Featured</span>
+												<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
+												{project.tags.map(tag => <span class="tag">{tag}</span>)}
+												{project.blogSlug && <span class="tag tag-post">Post ✏️</span>}
+											</div>
+											<h2>{project.title}</h2>
+											<p class="summary">{project.summary}</p>
+											<p class="highlight">{project.highlight}</p>
+											<p class="tech">{project.tech}</p>
+											<span class="card-cta">Open ↗</span>
+										</a>
+									)
+									: (
+										<div class="proj-card-inner proj-card-inner--no-link">
+											<div class="tags">
+												<span class="featured-badge">Featured</span>
+												<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
+												{project.tags.map(tag => <span class="tag">{tag}</span>)}
+												{project.blogSlug && <span class="tag tag-post">Post ✏️</span>}
+											</div>
+											<h2>{project.title}</h2>
+											<p class="summary">{project.summary}</p>
+											<p class="highlight">{project.highlight}</p>
+											<p class="tech">{project.tech}</p>
+											<span class="card-cta no-link">Coming soon</span>
+										</div>
+									)
+								}
 								<div class="card-footer">
 									{project.githubUrl && (
 										<a class="footer-link" href={project.githubUrl} target="_blank" rel="noopener">GitHub ↗</a>
@@ -83,25 +95,36 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 				<div class="projects-grid" id="projects-grid">
 					{rest.map((project) => (
 						<div class="proj-card" data-tags={project.tags.join(',').toLowerCase()}>
-							<a
-								class="proj-card-inner"
-								href={project.link}
-								target="_blank"
-								rel="noopener"
-							>
-								<div class="tags">
-									<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
-									{project.tags.map(tag => (
-										<span class="tag">{tag}</span>
-									))}
-									{project.blogSlug && <span class="tag tag-post">Post ✏️</span>}
-								</div>
-								<h2>{project.title}</h2>
-								<p class="summary">{project.summary}</p>
-								<p class="highlight">{project.highlight}</p>
-								<p class="tech">{project.tech}</p>
-								<span class="card-cta">Open ↗</span>
-							</a>
+							{project.link
+								? (
+									<a class="proj-card-inner" href={project.link} target="_blank" rel="noopener">
+										<div class="tags">
+											<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
+											{project.tags.map(tag => <span class="tag">{tag}</span>)}
+											{project.blogSlug && <span class="tag tag-post">Post ✏️</span>}
+										</div>
+										<h2>{project.title}</h2>
+										<p class="summary">{project.summary}</p>
+										<p class="highlight">{project.highlight}</p>
+										<p class="tech">{project.tech}</p>
+										<span class="card-cta">Open ↗</span>
+									</a>
+								)
+								: (
+									<div class="proj-card-inner proj-card-inner--no-link">
+										<div class="tags">
+											<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
+											{project.tags.map(tag => <span class="tag">{tag}</span>)}
+											{project.blogSlug && <span class="tag tag-post">Post ✏️</span>}
+										</div>
+										<h2>{project.title}</h2>
+										<p class="summary">{project.summary}</p>
+										<p class="highlight">{project.highlight}</p>
+										<p class="tech">{project.tech}</p>
+										<span class="card-cta no-link">Coming soon</span>
+									</div>
+								)
+							}
 							<div class="card-footer">
 								{project.githubUrl && (
 									<a class="footer-link" href={project.githubUrl} target="_blank" rel="noopener">GitHub ↗</a>
@@ -267,6 +290,9 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 		gap: 0.4rem;
 		flex: 1;
 	}
+	.proj-card-inner--no-link {
+		cursor: default;
+	}
 	.proj-card--featured .proj-card-inner {
 		padding: 1.5rem 1.75rem 1rem;
 	}
@@ -343,6 +369,10 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 		font-weight: 600;
 		margin-top: 0.5rem;
 	}
+	.card-cta.no-link {
+		color: var(--text-muted);
+		opacity: 0.5;
+	}
 	.tag {
 		font-size: 0.72rem;
 		padding: 0.15em 0.55em;
@@ -358,7 +388,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 		color: #34d399;
 		border-color: rgba(52, 211, 153, 0.25);
 	}
-	/* Card footer — holds github + external + blog post links */
+	/* Card footer */
 	.card-footer {
 		display: flex;
 		border-top: 1px solid var(--border);

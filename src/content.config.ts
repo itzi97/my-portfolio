@@ -17,7 +17,7 @@ const projects = defineCollection({
 	loader: file('./src/content/projects.json'),
 	schema: z.object({
 		title: z.string(),
-		link: z.string(),
+		link: z.string().optional().nullable(),
 		summary: z.string(),
 		tech: z.string(),
 		highlight: z.string(),

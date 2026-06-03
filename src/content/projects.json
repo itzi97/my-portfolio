@@ -116,7 +116,6 @@
 	{
 		"id": "world-of-traps",
 		"title": "World of Traps",
-		"link": "https://gitlab.com/asielorz/world-of-traps-speedrun-edition",
 		"summary": "Speedrun edition of a DigiPen game, built by two college classmates on an engine made from scratch.",
 		"tech": "C++ · CMake · Milkytracker",
 		"highlight": "Contributed to a game built on a custom engine (freshman year project) including a basic soundtrack.",
