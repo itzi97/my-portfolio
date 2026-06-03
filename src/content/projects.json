@@ -13,16 +13,14 @@
 	{
 		"id": "alphanumeric-classification",
 		"title": "Alphanumeric Classification",
-		"link": "/blog/alphanumeric-classification",
+		"link": "https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification",
 		"summary": "CNN that classifies 36 alphanumeric characters for licence plate OCR.",
 		"tech": "Python · Keras · TensorFlow · NumPy · pandas · matplotlib",
 		"highlight": "90.65% accuracy (MCC 0.907) after tuning batch size, dropout, and validation split on a cleaned EMNIST subset.",
 		"tags": ["Machine Learning"],
 		"origin": "U-tad",
 		"featured": true,
-		"blogSlug": "alphanumeric-classification",
-		"externalUrl": "https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification",
-		"externalLabel": "Kaggle ↗"
+		"blogSlug": "alphanumeric-classification"
 	},
 	{
 		"id": "spam-filtering",
@@ -38,7 +36,7 @@
 	{
 		"id": "firearm-homicides",
 		"title": "Firearm Homicides vs Legislation",
-		"link": "/blog/firearm-homicides",
+		"link": "https://github.com/itzi97/DV_Tableau",
 		"summary": "Tableau dashboard analysing firearm homicides in the US.",
 		"tech": "Tableau · CSV & Excel data processing · data cleaning",
 		"highlight": "Interactive visualizations for regional and temporal trends.",
@@ -62,7 +60,7 @@
 	{
 		"id": "social-media-odm",
 		"title": "Social Media Site ODM",
-		"link": "/blog/python-odm",
+		"link": "https://github.com/itzi97/AD-ODM",
 		"summary": "Object-document mapper for MongoDB and Redis implemented in Python.",
 		"tech": "Python · pymongo · redis-py · custom serialization",
 		"highlight": "Lightweight ODM features and examples for common patterns.",
@@ -108,7 +106,7 @@
 	{
 		"id": "engine2d-old",
 		"title": "2D Game Engine (archived)",
-		"link": "/blog/first-game-engine",
+		"link": "https://github.com/itzi97/engine2d-old",
 		"summary": "Archived iteration of the 2D game engine, currently has more features than the active rewrite.",
 		"tech": "C++ · Lua · Sol2 · SDL2 · GLM",
 		"highlight": "Earlier version preserved as a reference; active development continues in engine2d.",
@@ -176,7 +174,7 @@
 	{
 		"id": "vacumcite",
 		"title": "Vacumcite",
-		"link": "/blog/vacumcite",
+		"link": "https://github.com/itzi97/vacumcite",
 		"summary": "UX design project for a COVID vaccination website.",
 		"tech": "Figma · HTML · CSS prototyping",
 		"highlight": "User flows and accessibility-focused design decisions.",

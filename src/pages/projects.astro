@@ -45,9 +45,9 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 							<div class="proj-card proj-card--featured" data-tags={project.tags.join(',').toLowerCase()}>
 								<a
 									class="proj-card-inner"
-									href={project.blogSlug ? `/blog/${project.blogSlug}` : project.link}
-									target={project.blogSlug ? '_self' : '_blank'}
-									rel={project.blogSlug ? undefined : 'noopener'}
+									href={project.link}
+									target="_blank"
+									rel="noopener"
 								>
 									<div class="tags">
 										<span class="featured-badge">Featured</span>
@@ -61,9 +61,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 									<p class="summary">{project.summary}</p>
 									<p class="highlight">{project.highlight}</p>
 									<p class="tech">{project.tech}</p>
-									<span class="card-cta">
-										{project.blogSlug ? 'Read post →' : 'Open ↗'}
-									</span>
+									<span class="card-cta">Open ↗</span>
 								</a>
 								<div class="card-footer">
 									{project.githubUrl && (
@@ -71,6 +69,9 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 									)}
 									{project.externalUrl && (
 										<a class="footer-link" href={project.externalUrl} target="_blank" rel="noopener">{project.externalLabel ?? 'Open ↗'}</a>
+									)}
+									{project.blogSlug && (
+										<a class="footer-link" href={`/blog/${project.blogSlug}`}>Read post →</a>
 									)}
 								</div>
 							</div>
@@ -84,9 +85,9 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 						<div class="proj-card" data-tags={project.tags.join(',').toLowerCase()}>
 							<a
 								class="proj-card-inner"
-								href={project.blogSlug ? `/blog/${project.blogSlug}` : project.link}
-								target={project.blogSlug ? '_self' : '_blank'}
-								rel={project.blogSlug ? undefined : 'noopener'}
+								href={project.link}
+								target="_blank"
+								rel="noopener"
 							>
 								<div class="tags">
 									<span class={`origin origin-${project.origin.toLowerCase().replace(/[^a-z]/g, '')}`}>{project.origin}</span>
@@ -99,9 +100,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 								<p class="summary">{project.summary}</p>
 								<p class="highlight">{project.highlight}</p>
 								<p class="tech">{project.tech}</p>
-								<span class="card-cta">
-									{project.blogSlug ? 'Read post →' : 'Open ↗'}
-								</span>
+								<span class="card-cta">Open ↗</span>
 							</a>
 							<div class="card-footer">
 								{project.githubUrl && (
@@ -109,6 +108,9 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 								)}
 								{project.externalUrl && (
 									<a class="footer-link" href={project.externalUrl} target="_blank" rel="noopener">{project.externalLabel ?? 'Open ↗'}</a>
+								)}
+								{project.blogSlug && (
+									<a class="footer-link" href={`/blog/${project.blogSlug}`}>Read post →</a>
 								)}
 							</div>
 						</div>
@@ -356,7 +358,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 		color: #34d399;
 		border-color: rgba(52, 211, 153, 0.25);
 	}
-	/* Card footer — holds github + external links */
+	/* Card footer — holds github + external + blog post links */
 	.card-footer {
 		display: flex;
 		border-top: 1px solid var(--border);
