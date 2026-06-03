@@ -35,16 +35,17 @@ I built a modest CNN in Keras:
 
 ```
 Input (28×28 grayscale)
-  → Conv2D(32, 3×3) + BatchNorm + ReLU + MaxPool
-  → Conv2D(64, 3×3) + BatchNorm + ReLU + MaxPool
+  → Conv2D(36, 3×3) + BatchNorm + ReLU + MaxPool
+  → Conv2D(72, 3×3) + BatchNorm + ReLU + MaxPool
   → Flatten
-  → Dense(128) + Dropout(0.4)
+  → Dense(144) + Dropout(0.4)
+  → Dense(72)  + Dropout(0.4)
   → Dense(36, softmax)
 ```
 
-Batch normalisation after each convolutional block stabilises training and lets a higher learning rate work without diverging. Dropout at 0.4 was the main regularisation lever against overfitting on the relatively small image size (28×28 leaves little room for the model to memorise texture details, but the class count is high enough that it still matters).
+The filter counts in the conv blocks mirror the number of classes — 36 in the first layer, 72 (double) in the second as the network learns more complex combinations. The two dense hidden layers (144 → 72) taper down toward the output, with dropout after each to prevent co-adaptation between neurons.
 
-Early stopping with a patience of 5 epochs on validation loss meant the model stopped as soon as it stopped improving — no need to guess a fixed epoch count.
+Batch normalisation after each convolutional block stabilises training and lets a higher learning rate work without diverging. Early stopping with a patience of 5 epochs on validation loss meant the model stopped as soon as it stopped improving — no need to guess a fixed epoch count.
 
 ## Hyperparameter search
 
@@ -67,9 +68,13 @@ A marginal gain — but that's typical of hyperparameter search on a well-specif
 
 **Final test accuracy: 90.65% — MCC: 0.907**
 
+![Training and validation accuracy and loss over epochs](./training_curve.png)
+
 ## What the confusion matrix reveals
 
 Accuracy and MCC tell you how well the model performs on average. The confusion matrix tells you *where* it fails, which is what you actually care about in a production context.
+
+![Confusion matrix across all 36 classes](./confusion_matrix.png)
 
 The predictable trouble spots for alphanumeric classifiers are the visually ambiguous pairs:
 
