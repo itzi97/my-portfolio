@@ -9,6 +9,9 @@ import Header from '../components/Header.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
+const slug = Astro.url.pathname.replace(/\/$/, '').split('/').pop();
+const tocLabel = `~/blog/${slug}`;
 ---
 
 <html lang="en">
@@ -52,95 +55,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
-
-			/* TOC */
-			#toc {
-				display: none;
-			}
-			@media (min-width: 1280px) {
-				#toc {
-					display: block;
-					position: fixed;
-					top: 6rem;
-					left: max(1.5rem, calc(50% - 360px - 220px));
-					width: 200px;
-					max-height: calc(100vh - 8rem);
-					overflow-y: auto;
-					font-size: 0.78rem;
-					line-height: 1.5;
-					font-family: var(--font-mono);
-				}
-				#toc-label {
-					color: var(--text-muted);
-					font-size: 0.72rem;
-					margin: 0 0 0.5rem 0;
-					text-transform: uppercase;
-					letter-spacing: 0.08em;
-				}
-				#toc ol {
-					list-style: none;
-					margin: 0;
-					padding: 0;
-				}
-				#toc li {
-					margin: 0;
-					position: relative;
-				}
-
-				/* level-2: top level, no connector */
-				#toc li.level-2 a {
-					padding-left: 0.5rem;
-				}
-
-				/* level-3: one indent + tree connector */
-				#toc li.level-3::before {
-					content: '\251C\2500';
-					position: absolute;
-					left: 0.5rem;
-					color: var(--text-muted);
-					opacity: 0.4;
-					font-size: 0.7rem;
-					line-height: 1.9;
-					pointer-events: none;
-				}
-				#toc li.level-3 a {
-					padding-left: 1.6rem;
-				}
-
-				/* level-4: two indents + tree connector */
-				#toc li.level-4::before {
-					content: '\2514\2500';
-					position: absolute;
-					left: 1.6rem;
-					color: var(--text-muted);
-					opacity: 0.4;
-					font-size: 0.7rem;
-					line-height: 1.9;
-					pointer-events: none;
-				}
-				#toc li.level-4 a {
-					padding-left: 2.8rem;
-				}
-
-				/* all links default to muted */
-				#toc a {
-					display: block;
-					padding-top: 0.18rem;
-					padding-bottom: 0.18rem;
-					color: var(--text-muted);
-					text-decoration: none;
-					transition: color 0.15s ease;
-					white-space: nowrap;
-					overflow: hidden;
-					text-overflow: ellipsis;
-				}
-				#toc a:hover {
-					color: var(--text);
-				}
-				#toc a.active {
-					color: var(--accent);
-				}
-			}
 		</style>
 	</head>
 
@@ -149,7 +63,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<main>
 			<div class="layout">
 				<nav id="toc" aria-label="Table of contents">
-					<p id="toc-label">On this page</p>
+					<p id="toc-label">{tocLabel}</p>
 					<ol id="toc-list"></ol>
 				</nav>
 				<article>
@@ -188,20 +102,31 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	const list = document.getElementById('toc-list');
 
 	if (list && headings.length > 0) {
+		const items: { li: HTMLLIElement; level: number }[] = [];
 		headings.forEach((h) => {
-			const level = parseInt(h.tagName[1]); // 2, 3, or 4
+			const level = parseInt(h.tagName[1]);
 			const li = document.createElement('li');
 			li.className = `level-${level}`;
 			const a = document.createElement('a');
 			a.href = `#${h.id}`;
 			a.textContent = h.textContent!.trim();
 			li.appendChild(a);
-			list.appendChild(li);
+			items.push({ li, level });
 		});
+
+		for (let i = 0; i < items.length; i++) {
+			if (items[i].level === 3) {
+				const next = items[i + 1];
+				if (!next || next.level <= 2) {
+					items[i].li.className = 'level-3-last';
+				}
+			}
+		}
+
+		items.forEach(({ li }) => list.appendChild(li));
 
 		const links = Array.from(list.querySelectorAll('a')) as HTMLAnchorElement[];
 
-		// No active class on load — wait for scroll
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
