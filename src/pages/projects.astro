@@ -116,30 +116,63 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 
 <script>
 	const pills = document.querySelectorAll<HTMLButtonElement>('.filter-pill');
-	const cards = document.querySelectorAll<HTMLElement>('.proj-card');
 	const featuredSection = document.getElementById('featured-section');
+	const regularGrid = document.getElementById('projects-grid');
+
+	// Keep track of each featured card's original home
+	const featuredCards = featuredSection
+		? Array.from(featuredSection.querySelectorAll<HTMLElement>('.proj-card--featured'))
+		: [];
+
+	function applyFilter(tag: string) {
+		// First pass: decide visibility for every card everywhere
+		const allCards = document.querySelectorAll<HTMLElement>('.proj-card');
+		allCards.forEach(card => {
+			const cardTags = card.dataset.tags ?? '';
+			const visible = tag === 'all' || cardTags.split(',').includes(tag.toLowerCase());
+			card.dataset.visible = visible ? 'true' : 'false';
+		});
+
+		// Count how many featured cards are visible
+		const visibleFeatured = featuredCards.filter(c => c.dataset.visible === 'true');
+		const useFeaturedLayout = visibleFeatured.length >= 2;
+
+		if (useFeaturedLayout) {
+			// Restore featured cards to their section
+			featuredCards.forEach(card => {
+				if (featuredSection && card.parentElement !== featuredSection) {
+					featuredSection.appendChild(card);
+				}
+				card.classList.add('proj-card--featured');
+				card.style.display = card.dataset.visible === 'true' ? '' : 'none';
+			});
+			if (featuredSection) featuredSection.style.display = '';
+		} else {
+			// Move all featured cards into the regular grid
+			if (featuredSection) featuredSection.style.display = 'none';
+			featuredCards.forEach(card => {
+				if (regularGrid && card.parentElement !== regularGrid) {
+					regularGrid.prepend(card);
+				}
+				card.classList.remove('proj-card--featured');
+				card.style.display = card.dataset.visible === 'true' ? '' : 'none';
+			});
+		}
+
+		// Show/hide regular grid cards
+		if (regularGrid) {
+			Array.from(regularGrid.querySelectorAll<HTMLElement>('.proj-card')).forEach(card => {
+				card.style.display = card.dataset.visible === 'true' ? '' : 'none';
+			});
+			regularGrid.style.display = '';
+		}
+	}
 
 	pills.forEach(pill => {
 		pill.addEventListener('click', () => {
-			const tag = pill.dataset.tag!;
-
 			pills.forEach(p => p.classList.remove('active'));
 			pill.classList.add('active');
-
-			let anyFeaturedVisible = false;
-
-			cards.forEach(card => {
-				const cardTags = card.dataset.tags ?? '';
-				const visible = tag === 'all' || cardTags.split(',').includes(tag.toLowerCase());
-				card.style.display = visible ? '' : 'none';
-				if (visible && card.classList.contains('proj-card--featured')) {
-					anyFeaturedVisible = true;
-				}
-			});
-
-			if (featuredSection) {
-				featuredSection.style.display = anyFeaturedVisible ? '' : 'none';
-			}
+			applyFilter(pill.dataset.tag!);
 		});
 	});
 </script>
