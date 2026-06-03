@@ -60,6 +60,9 @@ const featuredProjects = (await getCollection('projects'))
 						<h3><a href={project.link} target="_blank" rel="noopener">{project.title}</a></h3>
 						<p>{project.summary}</p>
 						<p class="tech">{project.tech}</p>
+						{project.blogSlug && (
+							<a class="read-post" href={`/blog/${project.blogSlug}`}>Read post →</a>
+						)}
 					</div>
 				))}
 			</section>
@@ -126,5 +129,16 @@ const featuredProjects = (await getCollection('projects'))
 	}
 	.project-card h3 {
 		margin-bottom: 0.4em;
+	}
+	.read-post {
+		display: inline-block;
+		margin-top: 0.4rem;
+		font-size: 0.82rem;
+		color: var(--text-muted);
+		text-decoration: none;
+		transition: color 0.15s ease;
+	}
+	.read-post:hover {
+		color: var(--accent);
 	}
 </style>
