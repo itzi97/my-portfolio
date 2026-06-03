@@ -19,16 +19,16 @@ const featuredProjects = (await getCollection('projects'))
 		<Header />
 		<main>
 			<section class="hero">
-				<pre class="ascii-art" aria-hidden="true">┌─────────────────────────────┐
-│  itziar@portfolio:~$ whoami │
-│  > software engineer        │
-│  > data science minor       │
-│  > always learning more!    │
-└─────────────────────────────┘</pre>
+				<pre class="ascii-art" aria-hidden="true">┌─────────────────────────────────────┐
+│  itziar@portfolio:~$ whoami         │
+│  > software engineer                │
+│  > data science minor               │
+│  > git commit -m "still learning"   │
+└─────────────────────────────────────┘</pre>
 				<p class="eyebrow">~/home</p>
 				<h1>Itziar Morales Rodríguez</h1>
 				<p class="tagline">Software Engineering Student · Data Science & AI Minor · Madrid, Spain</p>
-				<p class="personality">I write C++ game engines for fun, train neural nets for class, and run a home server I definitely don’t tinker with too much. Currently looking for a remote ML or data engineering internship.</p>
+				<p class="personality">I write C++ game engines for fun, train neural nets for class, and run a home server I definitely don't tinker with too much. Currently looking for a remote ML or data engineering internship.</p>
 				<div class="contact-bar">
 					<a href={`mailto:${EMAIL}`} class="contact-item">
 						<span class="contact-label">✉</span>
@@ -288,6 +288,6 @@ const featuredProjects = (await getCollection('projects'))
 	}
 
 	@media (max-width: 720px) {
-		.ascii-art { font-size: 0.68rem; }
+		.ascii-art { font-size: 0.65rem; }
 	}
 </style>
