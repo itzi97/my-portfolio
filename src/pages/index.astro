@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE, GITHUB_URL, LINKEDIN_URL, EMAIL, PHONE, CV_URL } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE, GITHUB_URL, LINKEDIN_URL, EMAIL, CV_URL } from '../consts';
 import { getCollection } from 'astro:content';
 
 const featuredProjects = (await getCollection('projects'))
@@ -20,17 +20,13 @@ const featuredProjects = (await getCollection('projects'))
 		<main>
 			<section class="hero">
 				<p class="eyebrow">~/home</p>
-				<h1>Itziar Morales Rodríguez</h1>
+				<h1>Itziar Morales</h1>
 				<p class="tagline">Software Engineering Student · Data Science & AI Minor · Madrid, Spain</p>
 				<p class="personality">I write C++ game engines for fun, train neural nets for class, and run a home server I definitely don't tinker with too much. Currently looking for a remote ML or data engineering internship.</p>
 				<div class="contact-bar">
 					<a href={`mailto:${EMAIL}`} class="contact-item">
 						<span class="contact-label">✉</span>
 						{EMAIL}
-					</a>
-					<a href={`tel:${PHONE.replace(/\s/g, '')}`} class="contact-item">
-						<span class="contact-label">✆</span>
-						{PHONE}
 					</a>
 				</div>
 				<nav class="links">
