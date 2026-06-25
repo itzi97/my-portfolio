@@ -2,7 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = 'Itziar Morales';
-export const SITE_DESCRIPTION = 'Software Engineering student (minor in Data Science & AI) based in Madrid. Building data pipelines, ML systems, and backend APIs. Open to remote/hybrid internships.';
+export const SITE_DESCRIPTION = 'Software Engineering student (minor in Data Science & AI) based in Madrid. Currently interning as a Data Analytics Intern at MGA. Building data pipelines, ML systems, and backend APIs. Open to remote data/AI roles from Oct 2026.';
 export const SITE_AUTHOR = 'Itziar Morales';
 export const GITHUB_URL = 'https://github.com/itzi97';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/itzi97';
