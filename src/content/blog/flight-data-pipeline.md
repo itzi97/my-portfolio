@@ -11,8 +11,8 @@ For the Data Processing course at U-tad, the assignment was to build a small but
 The whole pipeline, on one screen:
 
 ```text
- OpenFlights data         Spark ETL (Scala)      storage
- ────────────────         ─────────────────      ───────
+ OpenFlights data        Spark ETL (Scala)            storage
+ ────────────────        ─────────────────            ───────
  countries.txt ────▶  ┌─────────────────────┐  ────▶  HDFS (csv)
  airlines.dat  ────▶  │ Spark Standalone    │  ────▶  HDFS (parquet)
  airports.dat  ────▶  │ master + 2 workers  │  ────▶  PostgreSQL (JDBC)
