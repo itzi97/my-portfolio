@@ -10,7 +10,39 @@
 	--accent-dim:  #7c5cbf;
 	--font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
 	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px rgba(167, 139, 250, 0.04);
+	--header-bg:   rgba(17, 17, 17, 0.95);
 }
+
+html[data-theme='light'] {
+	--bg:          #faf9f7;
+	--surface:     #ffffff;
+	--border:      #e2e0dc;
+	--text:        #24242a;
+	--text-muted:  #6b6b74;
+	--accent:      #6d28d9;
+	--accent-dim:  #5b21b6;
+	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px rgba(109, 40, 217, 0.06);
+	--header-bg:   rgba(250, 249, 247, 0.92);
+}
+
+/* Shiki dual-theme code blocks (config emits --shiki-light/--shiki-dark vars) */
+.astro-code,
+.astro-code span {
+	color: var(--shiki-dark) !important;
+	font-style: var(--shiki-dark-font-style, normal) !important;
+	font-weight: var(--shiki-dark-font-weight, normal) !important;
+}
+html[data-theme='light'] .astro-code,
+html[data-theme='light'] .astro-code span {
+	color: var(--shiki-light) !important;
+	font-style: var(--shiki-light-font-style, normal) !important;
+	font-weight: var(--shiki-light-font-weight, normal) !important;
+}
+
+/* Theme toggle icon swap (button lives in Header.astro) */
+.icon-moon { display: none; }
+html[data-theme='light'] .icon-sun { display: none; }
+html[data-theme='light'] .icon-moon { display: block; }
 
 *, *::before, *::after {
 	box-sizing: border-box;

@@ -1,21 +1,28 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <header>
 	<nav>
 		<a href="/" class="site-title">Itziar<span class="cursor"></span></a>
-		<button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-			<span></span>
-			<span></span>
-			<span></span>
-		</button>
-		<div class="nav-links">
-			<HeaderLink href="/">~/home</HeaderLink>
-			<HeaderLink href="/about">~/about</HeaderLink>
-			<HeaderLink href="/projects">~/projects</HeaderLink>
-			<HeaderLink href="/notes">~/notes</HeaderLink>
-			<HeaderLink href="/uses">~/uses</HeaderLink>
+		<div class="nav-right">
+			<div class="nav-links">
+				<HeaderLink href="/">~/home</HeaderLink>
+				<HeaderLink href="/about">~/about</HeaderLink>
+				<HeaderLink href="/projects">~/projects</HeaderLink>
+				<HeaderLink href="/notes">~/notes</HeaderLink>
+				<HeaderLink href="/uses">~/uses</HeaderLink>
+			</div>
+			<button class="theme-toggle" aria-label="Toggle light/dark mode">
+				<Icon name="lucide:sun" class="toggle-icon icon-sun" />
+				<Icon name="lucide:moon" class="toggle-icon icon-moon" />
+			</button>
+			<button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
 		</div>
 	</nav>
 </header>
@@ -35,6 +42,13 @@ import HeaderLink from './HeaderLink.astro';
 			btn.setAttribute('aria-expanded', 'false');
 		});
 	});
+
+	document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+		const root = document.documentElement;
+		const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+		root.dataset.theme = next;
+		localStorage.setItem('theme', next);
+	});
 </script>
 
 <style>
@@ -42,7 +56,7 @@ import HeaderLink from './HeaderLink.astro';
 		position: sticky;
 		top: 0;
 		z-index: 100;
-		background: rgba(17, 17, 17, 0.95);
+		background: var(--header-bg);
 		border-bottom: 1px solid var(--border);
 		backdrop-filter: blur(8px);
 		-webkit-backdrop-filter: blur(8px);
@@ -65,10 +79,31 @@ import HeaderLink from './HeaderLink.astro';
 		font-weight: 600;
 		letter-spacing: -0.01em;
 	}
+	.nav-right {
+		display: flex;
+		align-items: center;
+		gap: 1.1em;
+	}
 	.nav-links {
 		display: flex;
 		gap: 1.5em;
 		align-items: center;
+	}
+	.theme-toggle {
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 4px;
+		display: flex;
+		color: var(--text-muted);
+		transition: color 0.15s ease;
+	}
+	.theme-toggle:hover {
+		color: var(--accent);
+	}
+	.theme-toggle :global(.toggle-icon) {
+		width: 1.05em;
+		height: 1.05em;
 	}
 	.nav-links a {
 		font-size: 0.82em;
@@ -111,7 +146,7 @@ import HeaderLink from './HeaderLink.astro';
 			position: absolute;
 			top: 52px;
 			right: 0;
-			background: rgba(17, 17, 17, 0.98);
+			background: var(--surface);
 			border: 1px solid var(--border);
 			border-radius: 4px;
 			padding: 0.75em 1.25em;
