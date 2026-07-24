@@ -5,7 +5,8 @@
 		"type": "game",
 		"title": "Grim Dawn",
 		"status": "playing",
-		"note": "First run, base game, no DLCs — seeing what the fuss is about."
+		"note": "First run, base game, no DLCs — seeing what the fuss is about.",
+		"link": "https://www.grimdawn.com/"
 	},
 	{
 		"id": "ff7-remake-intergrade",
@@ -13,7 +14,8 @@
 		"type": "game",
 		"title": "Final Fantasy VII Remake Intergrade",
 		"status": "playing",
-		"note": "Working through it."
+		"note": "Working through it.",
+		"link": "https://www.square-enix.com/ffvii/en-us/games/remake-intergrade/"
 	},
 	{
 		"id": "dofus-3",
@@ -21,7 +23,8 @@
 		"type": "game",
 		"title": "Dofus 3",
 		"status": "playing",
-		"note": "The same game I've been playing since I was about ten. Some things are permanent."
+		"note": "My childhood MMORPG.",
+		"link": "https://www.dofus.com/en"
 	},
 	{
 		"id": "dragon-rider",
