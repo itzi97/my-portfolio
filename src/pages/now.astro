@@ -1,8 +1,11 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
+import fitness from '../content/fitness.json';
 
 const updated = new Date('2026-07-24');
+
+const fmt = (n: number) => n.toLocaleString('en-GB');
 ---
 
 <PageLayout
@@ -64,6 +67,23 @@ const updated = new Date('2026-07-24');
 		<li><Icon name="lucide:piano" class="li-icon" /><span>Mozart &mdash; Sonata in C, K.&nbsp;545</span></li>
 	</ul>
 
+	{fitness.updated && (
+		<>
+			<h2>Moving</h2>
+			<div class="fitness">
+				<p class="fitness-line">
+					<span class="fitness-label">this month</span>
+					{fmt(fitness.month.km)} km · {fmt(fitness.month.hours)} h · {fitness.month.activities} activities{fitness.month.kcal != null && ` · ${fmt(fitness.month.kcal)} kcal`}
+				</p>
+				<p class="fitness-line">
+					<span class="fitness-label">this week</span>
+					{fmt(fitness.week.km)} km · {fmt(fitness.week.hours)} h · {fitness.week.activities} activities
+				</p>
+				<p class="fitness-src">aggregates via Strava, updated nightly</p>
+			</div>
+		</>
+	)}
+
 	<style>
 		.eyebrow {
 			font-family: var(--font-mono);
@@ -105,6 +125,27 @@ const updated = new Date('2026-07-24');
 			flex-shrink: 0;
 			color: var(--accent);
 			transform: translateY(0.15em);
+		}
+		.fitness {
+			border: 1px solid var(--border);
+			border-left: 3px solid var(--accent);
+			border-radius: 6px;
+			background: var(--surface);
+			padding: 0.9em 1.1em;
+		}
+		.fitness-line {
+			font-family: var(--font-mono);
+			font-size: 0.85em;
+			margin: 0 0 0.35em;
+		}
+		.fitness-label {
+			color: var(--accent);
+			margin-right: 0.9em;
+		}
+		.fitness-src {
+			margin: 0.5em 0 0;
+			font-size: 0.72em;
+			color: var(--text-muted);
 		}
 	</style>
 </PageLayout>
