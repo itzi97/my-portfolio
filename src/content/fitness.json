@@ -7,5 +7,15 @@
 		"activities": 13,
 		"kcal": 5130,
 		"steps": 86672
-	}
+	},
+	"history": [
+		{
+			"label": "2026-07",
+			"km": 69.6,
+			"hours": 15.2,
+			"activities": 13,
+			"kcal": 5130,
+			"steps": 86672
+		}
+	]
 }

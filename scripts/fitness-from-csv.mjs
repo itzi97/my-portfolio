@@ -73,17 +73,30 @@ if (acts.length === 0) {
 }
 
 const round1 = (n) => Math.round(n * 10) / 10;
+const monthStats = {
+	label: month,
+	km: round1(acts.reduce((s, r) => s + num(r[iDist]), 0)),
+	hours: round1(acts.reduce((s, r) => s + hoursFrom(r[iMoving] || r[iTime]), 0)),
+	activities: acts.length,
+	kcal: Math.round(acts.reduce((s, r) => s + num(r[iCal]), 0)),
+	steps: Math.round(acts.reduce((s, r) => s + num(r[iSteps]), 0)) || null,
+};
+
+// Accumulate history: /now only displays the latest month, but keeping every
+// month makes a future year-view possible without re-exporting old data.
+let history = [];
+try {
+	const prev = JSON.parse(readFileSync(OUT, 'utf8'));
+	history = prev.history ?? (prev.month?.label ? [prev.month] : []);
+} catch { /* first run */ }
+history = history.filter(m => m.label !== month).concat(monthStats)
+	.sort((a, b) => a.label.localeCompare(b.label));
+
 const stats = {
 	updated: new Date().toISOString().slice(0, 10),
-	month: {
-		label: month,
-		km: round1(acts.reduce((s, r) => s + num(r[iDist]), 0)),
-		hours: round1(acts.reduce((s, r) => s + hoursFrom(r[iMoving] || r[iTime]), 0)),
-		activities: acts.length,
-		kcal: Math.round(acts.reduce((s, r) => s + num(r[iCal]), 0)),
-		steps: Math.round(acts.reduce((s, r) => s + num(r[iSteps]), 0)) || null,
-	},
+	month: history[history.length - 1],
+	history,
 };
 
 writeFileSync(OUT, JSON.stringify(stats, null, '\t') + '\n');
-console.log(`wrote ${OUT} — ${month}: ${stats.month.km} km, ${stats.month.hours} h, ${stats.month.activities} activities, ${stats.month.kcal} kcal, ${stats.month.steps ?? '—'} steps`);
+console.log(`wrote ${OUT} — ${month}: ${monthStats.km} km, ${monthStats.hours} h, ${monthStats.activities} activities, ${monthStats.kcal} kcal, ${monthStats.steps ?? '—'} steps (${history.length} month(s) in history)`);
