@@ -88,7 +88,8 @@
 		"highlight": "A self-contained mini data platform: multi-container infrastructure, JDBC and Spark-connector ingestion, and distributed analysis over flight-network data.",
 		"tags": ["Data Engineering", "Backend"],
 		"origin": "U-tad",
-		"featured": false
+		"featured": false,
+		"blogSlug": "mini-data-platform-docker"
 	},
 	{
 		"id": "distributed-systems",
