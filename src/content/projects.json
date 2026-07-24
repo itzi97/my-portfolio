@@ -6,7 +6,9 @@
 		"summary": "Image classification using CNNs and transfer learning.",
 		"tech": "Python · Keras · TensorFlow · transfer learning",
 		"highlight": "Built and fine-tuned a deep learning image classifier.",
-		"tags": ["Machine Learning"],
+		"tags": [
+			"Machine Learning"
+		],
 		"origin": "U-tad",
 		"featured": false
 	},
@@ -17,7 +19,9 @@
 		"summary": "CNN that classifies 36 alphanumeric characters for licence plate OCR.",
 		"tech": "Python · Keras · TensorFlow · NumPy · pandas · matplotlib",
 		"highlight": "90.65% accuracy (MCC 0.907) after tuning batch size, dropout, and validation split on a cleaned EMNIST subset.",
-		"tags": ["Machine Learning"],
+		"tags": [
+			"Machine Learning"
+		],
 		"origin": "U-tad",
 		"featured": true,
 		"blogSlug": "alphanumeric-classification"
@@ -29,7 +33,10 @@
 		"summary": "Text classification project for spam detection.",
 		"tech": "Python · NLP preprocessing · sklearn · feature engineering",
 		"highlight": "Practical text classification pipeline for message filtering.",
-		"tags": ["Machine Learning", "NLP"],
+		"tags": [
+			"Machine Learning",
+			"NLP"
+		],
 		"origin": "U-tad",
 		"featured": false
 	},
@@ -40,7 +47,10 @@
 		"summary": "Tableau dashboard analysing firearm homicides in the US.",
 		"tech": "Tableau · CSV & Excel data processing · data cleaning",
 		"highlight": "Interactive visualizations for regional and temporal trends.",
-		"tags": ["Data Viz", "Data Analysis"],
+		"tags": [
+			"Data Viz",
+			"Data Analysis"
+		],
 		"origin": "U-tad",
 		"featured": true,
 		"blogSlug": "firearm-homicides"
@@ -52,7 +62,10 @@
 		"summary": "Personal fitness tracking visualizations built with Python.",
 		"tech": "Python · pandas · matplotlib · seaborn · plotly · ipywidgets",
 		"highlight": "Time-series analysis and customizable performance dashboards.",
-		"tags": ["Data Viz", "Data Analysis"],
+		"tags": [
+			"Data Viz",
+			"Data Analysis"
+		],
 		"origin": "U-tad",
 		"featured": false
 	},
@@ -63,7 +76,9 @@
 		"summary": "Object-document mapper for MongoDB and Redis implemented in Python.",
 		"tech": "Python · pymongo · redis-py · custom serialization",
 		"highlight": "Lightweight ODM features and examples for common patterns.",
-		"tags": ["Backend"],
+		"tags": [
+			"Backend"
+		],
 		"origin": "U-tad",
 		"featured": false,
 		"blogSlug": "python-odm"
@@ -75,7 +90,9 @@
 		"summary": "Backend JavaScript app for a fictitious company managing clients, projects, and certifications.",
 		"tech": "Node.js · Express · REST API · JWT · database integration",
 		"highlight": "Role-based endpoints and CRUD for core business entities.",
-		"tags": ["Backend"],
+		"tags": [
+			"Backend"
+		],
 		"origin": "U-tad",
 		"featured": false
 	},
@@ -86,10 +103,13 @@
 		"summary": "Dockerised Spark + HDFS environment with Scala ETL jobs loading airline, airport, and route data into PostgreSQL and MongoDB, plus a Spark analysis stage.",
 		"tech": "Scala · Apache Spark · HDFS · PostgreSQL · MongoDB · Docker Compose",
 		"highlight": "A self-contained mini data platform: multi-container infrastructure, JDBC and Spark-connector ingestion, and distributed analysis over flight-network data.",
-		"tags": ["Data Engineering", "Backend"],
+		"tags": [
+			"Data Engineering",
+			"Backend"
+		],
 		"origin": "U-tad",
 		"featured": false,
-		"blogSlug": "mini-data-platform-docker"
+		"blogSlug": "flight-data-pipeline"
 	},
 	{
 		"id": "distributed-systems",
@@ -98,7 +118,10 @@
 		"summary": "C++ distributed systems exercises covering chat systems and database tutorials.",
 		"tech": "C++ · Docker · Kubernetes · networking fundamentals",
 		"highlight": "Hands-on exercises demonstrating concurrency, messaging, and containerized deployment.",
-		"tags": ["Backend", "Systems"],
+		"tags": [
+			"Backend",
+			"Systems"
+		],
 		"origin": "U-tad",
 		"featured": false
 	},
@@ -109,7 +132,10 @@
 		"summary": "Personal ongoing 2D game engine built from scratch.",
 		"tech": "C++ · Lua · Sol2 · SDL3 · GLM · CMake · Tiled JSON",
 		"highlight": "Writing a game engine from scratch as a personal hobby.",
-		"tags": ["Game Dev", "Systems"],
+		"tags": [
+			"Game Dev",
+			"Systems"
+		],
 		"origin": "Personal",
 		"featured": false
 	},
@@ -120,7 +146,10 @@
 		"summary": "Archived iteration of the 2D game engine, currently has more features than the active rewrite.",
 		"tech": "C++ · Lua · Sol2 · SDL2 · GLM",
 		"highlight": "Earlier version preserved as a reference; active development continues in engine2d.",
-		"tags": ["Game Dev", "Systems"],
+		"tags": [
+			"Game Dev",
+			"Systems"
+		],
 		"origin": "Personal",
 		"featured": false,
 		"blogSlug": "first-game-engine"
@@ -131,7 +160,10 @@
 		"summary": "Speedrun edition of a DigiPen game, built by two college classmates on an engine made from scratch.",
 		"tech": "C++ · CMake · Milkytracker",
 		"highlight": "Contributed to a game built on a custom engine (freshman year project) including a basic soundtrack.",
-		"tags": ["Game Dev", "Media"],
+		"tags": [
+			"Game Dev",
+			"Media"
+		],
 		"origin": "DigiPen",
 		"featured": false
 	},
@@ -142,7 +174,9 @@
 		"summary": "Original soundtrack for DEV, a DigiPen student game.",
 		"tech": "Milkytracker",
 		"highlight": "Layered soundtrack designed to mirror the game's progression, each track introduces a new element, culminating in the full arrangement.",
-		"tags": ["Media"],
+		"tags": [
+			"Media"
+		],
 		"origin": "DigiPen",
 		"featured": false
 	},
@@ -153,7 +187,9 @@
 		"summary": "Stellaris video guide for Paradox Interactive.",
 		"tech": "DaVinci Resolve · Adobe After Effects · Audacity · Adobe Photoshop",
 		"highlight": "Presenting a videogame guide in an entertaining and infographic manner.",
-		"tags": ["Media"],
+		"tags": [
+			"Media"
+		],
 		"origin": "Personal",
 		"featured": false
 	},
@@ -164,7 +200,9 @@
 		"summary": "This portfolio and blog website.",
 		"tech": "Astro · JavaScript · CSS · Cloudflare",
 		"highlight": "Designed and built from scratch.",
-		"tags": ["Web"],
+		"tags": [
+			"Web"
+		],
 		"origin": "Personal",
 		"featured": false
 	},
@@ -175,7 +213,9 @@
 		"summary": "Real Analysis I & II class notes with linked exercise repositories.",
 		"tech": "LaTeX · Markdown",
 		"highlight": "Structured mathematical notes and worked problems.",
-		"tags": ["Mathematics"],
+		"tags": [
+			"Mathematics"
+		],
 		"origin": "U-tad",
 		"featured": false
 	},
@@ -186,7 +226,9 @@
 		"summary": "UX design project for a COVID vaccination website.",
 		"tech": "Figma · HTML · CSS prototyping",
 		"highlight": "User flows and accessibility-focused design decisions.",
-		"tags": ["UX"],
+		"tags": [
+			"UX"
+		],
 		"origin": "U-tad",
 		"featured": false,
 		"blogSlug": "vacumcite"
