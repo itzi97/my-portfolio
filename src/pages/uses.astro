@@ -59,8 +59,17 @@ import PageLayout from '../layouts/PageLayout.astro';
 			color: var(--text-muted);
 		}
 		h2 {
-			font-size: 1.1em;
-			margin-top: 1.6em;
+			font-family: var(--font-mono);
+			font-size: 0.95em;
+			color: var(--accent);
+			text-transform: lowercase;
+			margin-top: 2.4em;
+			padding-bottom: 0.4em;
+			border-bottom: 1px solid var(--border);
+		}
+		h2::before {
+			content: '## ';
+			color: var(--text-muted);
 		}
 		ul {
 			padding-left: 1.25em;
