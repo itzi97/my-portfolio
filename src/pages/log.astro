@@ -13,7 +13,7 @@ function fmt(date: Date) {
 
 <PageLayout
 	title="Log | Itziar Morales"
-	description="A personal changelog — books read and games played, one line each."
+	description="A personal changelog: books read and games played, one line each."
 >
 	<p class="eyebrow">~/log</p>
 	<h1>Log</h1>
@@ -32,7 +32,7 @@ function fmt(date: Date) {
 				<span class="log-title">
 					{e.link ? <a href={e.link} target="_blank" rel="noopener">{e.title}</a> : e.title}
 				</span>
-				{e.note && <span class="log-note">— {e.note}</span>}
+				{e.note && <span class="log-note">· {e.note}</span>}
 			</li>
 		))}
 	</ul>
