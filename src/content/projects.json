@@ -80,6 +80,17 @@
 		"featured": false
 	},
 	{
+		"id": "dp-practice",
+		"title": "Distributed Data Processing Pipeline",
+		"link": "https://github.com/itzi97/DP_practice",
+		"summary": "Dockerised Spark + HDFS environment with Scala ETL jobs loading airline, airport, and route data into PostgreSQL and MongoDB, plus a Spark analysis stage.",
+		"tech": "Scala · Apache Spark · HDFS · PostgreSQL · MongoDB · Docker Compose",
+		"highlight": "A self-contained mini data platform: multi-container infrastructure, JDBC and Spark-connector ingestion, and distributed analysis over flight-network data.",
+		"tags": ["Data Engineering", "Backend"],
+		"origin": "U-tad",
+		"featured": false
+	},
+	{
 		"id": "distributed-systems",
 		"title": "Distributed Systems Exercises",
 		"link": "https://github.com/itzi97/DS_exercise1_fm",
