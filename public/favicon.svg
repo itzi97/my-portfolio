@@ -1,11 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <!-- dark rounded background -->
-  <rect width="32" height="32" rx="6" fill="#1a1a2e"/>
-  <!-- lambda (λ) as paths: left leg diagonal down-left, right leg diagonal down-right, crossbar -->
-  <!-- Left stroke: top-center angling to bottom-left -->
-  <line x1="13" y1="6" x2="5" y2="26" stroke="#a78bfa" stroke-width="3" stroke-linecap="round"/>
-  <!-- Right stroke: top-center angling to bottom-right -->
-  <line x1="13" y1="6" x2="27" y2="26" stroke="#a78bfa" stroke-width="3" stroke-linecap="round"/>
-  <!-- Crossbar on right leg -->
-  <line x1="11" y1="18" x2="21" y2="18" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round"/>
+  <rect width="32" height="32" rx="6" fill="#111111"/>
+  <line x1="7.7" y1="4.2" x2="26.9" y2="27.8" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+  <line x1="16" y1="14.7" x2="5.1" y2="27.8" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
 </svg>
