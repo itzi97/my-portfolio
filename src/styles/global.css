@@ -114,6 +114,28 @@ blockquote {
 	font-style: italic;
 }
 
+.eyebrow {
+	font-family: var(--font-mono);
+	color: var(--accent);
+	font-size: 0.85rem;
+	margin-bottom: 0.4rem;
+	margin-top: 0;
+}
+
+/* Terminal/markdown-style section headers inside prose pages & posts */
+.prose h2 {
+	font-family: var(--font-mono);
+	font-size: 1.05em;
+	color: var(--accent);
+	margin-top: 2.4em;
+	padding-bottom: 0.4em;
+	border-bottom: 1px solid var(--border);
+}
+.prose h2::before {
+	content: '## ';
+	color: var(--text-muted);
+}
+
 hr {
 	border: none;
 	border-top: 1px solid var(--border);
