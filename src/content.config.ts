@@ -21,7 +21,7 @@ const log = defineCollection({
 		type: z.enum(['book', 'game']),
 		title: z.string(),
 		status: z.enum(['playing', 'reading', 'finished', 'dropped', 'replaying']),
-		note: z.string(),
+		note: z.string().default(''),
 		link: z.string().url().optional(),
 	}),
 });

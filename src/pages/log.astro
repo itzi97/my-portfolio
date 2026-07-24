@@ -32,7 +32,7 @@ function fmt(date: Date) {
 				<span class="log-title">
 					{e.link ? <a href={e.link} target="_blank" rel="noopener">{e.title}</a> : e.title}
 				</span>
-				<span class="log-note">— {e.note}</span>
+				{e.note && <span class="log-note">— {e.note}</span>}
 			</li>
 		))}
 	</ul>

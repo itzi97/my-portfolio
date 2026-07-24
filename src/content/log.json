@@ -1,26 +1,34 @@
 [
 	{
-		"id": "example-book-1",
-		"date": "2026-07-01",
-		"type": "book",
-		"title": "EXAMPLE — The Name of the Wind, Patrick Rothfuss",
-		"status": "finished",
-		"note": "Replace me: one honest line, not a review."
-	},
-	{
-		"id": "example-game-1",
-		"date": "2026-07-10",
+		"id": "grim-dawn",
+		"date": "2026-07-24",
 		"type": "game",
-		"title": "EXAMPLE — Hollow Knight",
+		"title": "Grim Dawn",
 		"status": "playing",
-		"note": "Replace me: platform optional, opinion mandatory."
+		"note": "First run, base game, no DLCs — seeing what the fuss is about."
 	},
 	{
-		"id": "example-game-2",
-		"date": "2026-06-15",
+		"id": "ff7-remake-intergrade",
+		"date": "2026-07-24",
 		"type": "game",
-		"title": "EXAMPLE — Chrono Trigger (retro run)",
-		"status": "finished",
-		"note": "Replace me: the retro/modern mix is the charm — show it."
+		"title": "Final Fantasy VII Remake Intergrade",
+		"status": "playing",
+		"note": "Working through it."
+	},
+	{
+		"id": "dofus-3",
+		"date": "2026-07-24",
+		"type": "game",
+		"title": "Dofus 3",
+		"status": "playing",
+		"note": "The same game I've been playing since I was about ten. Some things are permanent."
+	},
+	{
+		"id": "dragon-rider",
+		"date": "2026-07-24",
+		"type": "book",
+		"title": "Dragon Rider — Cornelia Funke",
+		"status": "reading",
+		"note": ""
 	}
 ]
