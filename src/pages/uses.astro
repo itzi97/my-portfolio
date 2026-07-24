@@ -1,0 +1,77 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+	title="Uses | Itziar Morales"
+	description="Hardware, software, and self-hosted services I use daily."
+>
+	<p class="eyebrow">~/uses</p>
+	<h1>Uses</h1>
+	<p class="intro">
+		The machines and software I actually use, in the spirit of
+		<a href="https://uses.tech" target="_blank" rel="noopener">uses.tech</a>.
+	</p>
+
+	<h2>Desktop</h2>
+	<p>
+		Self-built, like every PC in this house &mdash; picking parts is half the fun.
+	</p>
+	<ul>
+		<!-- TODO(itzi): real parts list — CPU / GPU / RAM / storage / case, one line each -->
+		<li>PLACEHOLDER — CPU</li>
+		<li>PLACEHOLDER — GPU</li>
+		<li>PLACEHOLDER — RAM / storage</li>
+		<li>PLACEHOLDER — monitor(s), keyboard</li>
+	</ul>
+
+	<h2>Software</h2>
+	<ul>
+		<li><strong>OS:</strong> Linux as the daily driver
+			<!-- TODO(itzi): distro + WM specifics — NixOS? which window manager? --></li>
+		<li><strong>Editor:</strong> Vim, with dotfiles I tinker with more than I probably should</li>
+		<li><strong>Dotfiles:</strong> managed with
+			<!-- TODO(itzi): how — bare repo? Nix home-manager? --> PLACEHOLDER</li>
+	</ul>
+
+	<h2>Home server</h2>
+	<p>
+		A self-hosted corner that keeps me honest about deployment, backups, and what "it works on my
+		machine" really means:
+	</p>
+	<ul>
+		<li><strong>Nextcloud</strong> &mdash; files and sync</li>
+		<li><strong>Navidrome</strong> &mdash; music streaming</li>
+		<li><strong>Vaultwarden</strong> &mdash; passwords</li>
+		<!-- TODO(itzi): hardware it runs on, how it's deployed (Docker? NixOS?), anything else hosted -->
+	</ul>
+
+	<style>
+		.eyebrow {
+			font-family: var(--font-mono);
+			color: var(--accent);
+			font-size: 0.85rem;
+			margin-bottom: 0.4rem;
+			margin-top: 0;
+		}
+		.intro {
+			color: var(--text-muted);
+		}
+		h2 {
+			font-size: 1.1em;
+			margin-top: 1.6em;
+		}
+		ul {
+			padding-left: 1.25em;
+			display: flex;
+			flex-direction: column;
+			gap: 0.3em;
+		}
+		li {
+			font-size: 0.92em;
+		}
+		li strong {
+			color: var(--accent);
+		}
+	</style>
+</PageLayout>

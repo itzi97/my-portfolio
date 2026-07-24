@@ -7,6 +7,12 @@ const today = new Date();
 <footer>
 	<div class="footer-inner">
 		<span class="muted">// {SITE_AUTHOR} &mdash; {today.getFullYear()}</span>
+		<nav class="footer-links" aria-label="Secondary">
+			<a href="/now">~/now</a>
+			<a href="/log">~/log</a>
+			<a href="/stack">~/stack</a>
+			<a href="/rss.xml">rss</a>
+		</nav>
 		<div class="footer-icons">
 			<a href={GITHUB_URL} target="_blank" rel="noopener" aria-label="GitHub">
 				<Icon name="simple-icons:github" class="footer-icon" />
@@ -40,6 +46,20 @@ const today = new Date();
 	.muted {
 		font-size: 0.78em;
 		color: var(--text-muted);
+	}
+	.footer-links {
+		display: flex;
+		gap: 1em;
+	}
+	.footer-links a {
+		font-family: var(--font-mono);
+		font-size: 0.78em;
+		color: var(--text-muted);
+		text-decoration: none;
+		transition: color 0.15s ease;
+	}
+	.footer-links a:hover {
+		color: var(--accent);
 	}
 	.footer-icons {
 		display: flex;

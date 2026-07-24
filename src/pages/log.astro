@@ -1,0 +1,101 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('log'))
+	.map(e => e.data)
+	.sort((a, b) => b.date.valueOf() - a.date.valueOf());
+
+function fmt(date: Date) {
+	return date.toISOString().slice(0, 7); // YYYY-MM, commit-log style
+}
+---
+
+<PageLayout
+	title="Log | Itziar Morales"
+	description="A personal changelog — books read and games played, one line each."
+>
+	<p class="eyebrow">~/log</p>
+	<h1>Log</h1>
+	<p class="intro">
+		A personal changelog: books and games, one line each. No reviews, just commits.
+	</p>
+
+	<ul class="log-list">
+		{entries.map(e => (
+			<li class="log-entry">
+				<span class="log-meta">
+					<span class="log-date">{fmt(e.date)}</span>
+					<span class={`log-type log-type-${e.type}`}>{e.type}</span>
+					<span class="log-status">{e.status}</span>
+				</span>
+				<span class="log-title">
+					{e.link ? <a href={e.link} target="_blank" rel="noopener">{e.title}</a> : e.title}
+				</span>
+				<span class="log-note">— {e.note}</span>
+			</li>
+		))}
+	</ul>
+
+	<style>
+		.eyebrow {
+			font-family: var(--font-mono);
+			color: var(--accent);
+			font-size: 0.85rem;
+			margin-bottom: 0.4rem;
+			margin-top: 0;
+		}
+		.intro {
+			color: var(--text-muted);
+		}
+		.log-list {
+			list-style: none;
+			padding: 0;
+			margin: 1.5em 0 0;
+			display: flex;
+			flex-direction: column;
+			gap: 0.9em;
+		}
+		.log-entry {
+			font-size: 0.9em;
+			line-height: 1.6;
+		}
+		.log-meta {
+			font-family: var(--font-mono);
+			font-size: 0.85em;
+			margin-right: 0.5em;
+		}
+		.log-date {
+			color: var(--text-muted);
+		}
+		.log-type {
+			margin-left: 0.6em;
+			padding: 0.05em 0.45em;
+			border-radius: 3px;
+			font-size: 0.85em;
+			letter-spacing: 0.03em;
+		}
+		.log-type-book {
+			background: rgba(96, 165, 250, 0.1);
+			color: #60a5fa;
+			border: 1px solid rgba(96, 165, 250, 0.25);
+		}
+		.log-type-game {
+			background: rgba(52, 211, 153, 0.1);
+			color: #34d399;
+			border: 1px solid rgba(52, 211, 153, 0.25);
+		}
+		.log-status {
+			margin-left: 0.6em;
+			color: var(--accent);
+			font-size: 0.85em;
+		}
+		.log-title {
+			color: var(--text);
+			font-weight: 600;
+		}
+		.log-note {
+			color: var(--text-muted);
+		}
+	</style>
+</PageLayout>

@@ -9,6 +9,12 @@ import rehypeSlug from 'rehype-slug';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://itziar.dev',
+
+  redirects: {
+    '/blog': '/notes',
+    '/blog/[...slug]': '/notes/[...slug]',
+  },
+
   integrations: [mdx(), sitemap(), icon()],
 
   markdown: {

@@ -8,6 +8,10 @@ import { getCollection } from 'astro:content';
 const featuredProjects = (await getCollection('projects'))
 	.filter(p => p.data.featured)
 	.map(p => p.data);
+
+const latestPost = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+)[0];
 ---
 
 <!doctype html>
@@ -38,6 +42,19 @@ const featuredProjects = (await getCollection('projects'))
 				</nav>
 			</section>
 
+			<section class="pulse">
+				{latestPost && (
+					<a class="pulse-item" href={`/notes/${latestPost.id}/`}>
+						<span class="pulse-label">latest</span>
+						<span class="pulse-text">{latestPost.data.title}</span>
+					</a>
+				)}
+				<a class="pulse-item" href="/now">
+					<span class="pulse-label">now</span>
+					<span class="pulse-text">Final year looming, schemas by day, engine rewrite by night</span>
+				</a>
+			</section>
+
 			<section class="projects" id="projects">
 				<div class="section-heading">
 					<div>
@@ -65,7 +82,7 @@ const featuredProjects = (await getCollection('projects'))
 						</a>
 						{project.blogSlug && (
 							<div class="card-footer">
-								<a class="footer-link" href={`/blog/${project.blogSlug}`}>Read post →</a>
+								<a class="footer-link" href={`/notes/${project.blogSlug}`}>Read post →</a>
 							</div>
 						)}
 					</div>
@@ -112,6 +129,32 @@ const featuredProjects = (await getCollection('projects'))
 		color: var(--accent);
 	}
 	.contact-label {
+		color: var(--accent);
+	}
+	.pulse {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-bottom: 2.5rem;
+	}
+	.pulse-item {
+		display: flex;
+		align-items: baseline;
+		gap: 0.75em;
+		text-decoration: none;
+		font-size: 0.88rem;
+	}
+	.pulse-label {
+		font-family: var(--font-mono);
+		color: var(--accent);
+		font-size: 0.8em;
+		min-width: 3.5em;
+	}
+	.pulse-text {
+		color: var(--text-muted);
+		transition: color 0.15s ease;
+	}
+	.pulse-item:hover .pulse-text {
 		color: var(--accent);
 	}
 	.section-heading {

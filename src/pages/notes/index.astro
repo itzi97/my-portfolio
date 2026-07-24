@@ -23,7 +23,7 @@ const [featured, ...rest] = posts;
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`Blog | ${SITE_TITLE}`}
+			title={`Notes | ${SITE_TITLE}`}
 			description="Writing on software engineering, data science, ML, and systems programming."
 		/>
 	</head>
@@ -31,16 +31,16 @@ const [featured, ...rest] = posts;
 		<Header />
 		<main>
 			<section class="blog-page">
-				<p class="eyebrow">~/blog</p>
-				<h1>Blog</h1>
-				<p class="intro">Writing on software engineering, data science, ML, and systems programming.</p>
+				<p class="eyebrow">~/notes</p>
+				<h1>Notes</h1>
+				<p class="intro">Long write-ups and short notes: software engineering, data, systems, and whatever else earns a line.</p>
 
 				{posts.length === 0 && (
 					<p class="empty">No posts yet. Check back soon.</p>
 				)}
 
 				{featured && (
-					<a href={`/blog/${featured.id}/`} class="featured-post">
+					<a href={`/notes/${featured.id}/`} class="featured-post">
 						<div class="featured-label">Latest post</div>
 						<div class="featured-meta">
 							<span class="post-date">
@@ -58,7 +58,7 @@ const [featured, ...rest] = posts;
 					<ul class="post-grid">
 						{rest.map((post) => (
 							<li>
-								<a href={`/blog/${post.id}/`} class="post-link">
+								<a href={`/notes/${post.id}/`} class="post-link">
 									<div class="post-meta">
 										<span class="post-date">
 											<FormattedDate date={post.data.pubDate} />

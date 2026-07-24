@@ -1,0 +1,26 @@
+[
+	{
+		"id": "example-book-1",
+		"date": "2026-07-01",
+		"type": "book",
+		"title": "EXAMPLE — The Name of the Wind, Patrick Rothfuss",
+		"status": "finished",
+		"note": "Replace me: one honest line, not a review."
+	},
+	{
+		"id": "example-game-1",
+		"date": "2026-07-10",
+		"type": "game",
+		"title": "EXAMPLE — Hollow Knight",
+		"status": "playing",
+		"note": "Replace me: platform optional, opinion mandatory."
+	},
+	{
+		"id": "example-game-2",
+		"date": "2026-06-15",
+		"type": "game",
+		"title": "EXAMPLE — Chrono Trigger (retro run)",
+		"status": "finished",
+		"note": "Replace me: the retro/modern mix is the charm — show it."
+	}
+]

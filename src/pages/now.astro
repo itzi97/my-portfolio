@@ -1,0 +1,75 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const updated = new Date('2026-07-24');
+---
+
+<PageLayout
+	title="Now | Itziar Morales"
+	description="What I'm doing these days — a now page."
+>
+	<p class="eyebrow">~/now</p>
+	<h1>Now</h1>
+	<p class="updated">
+		Last updated <time datetime={updated.toISOString().slice(0, 10)}>
+			{updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+		</time> · this is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>
+	</p>
+
+	<h2>Working</h2>
+	<p>
+		Interning remotely at MGA, deep in the data-engineering side of a digital transformation:
+		relational schema design, migrating years of spreadsheet data into PostgreSQL, and Spring Boot
+		services on top. Learning a lot about the gap between how a business says it works and what its
+		data actually does.
+	</p>
+
+	<h2>Studying</h2>
+	<p>
+		Final year of Software Engineering at U-tad starts in September. Thesis brewing on the same theme
+		as the internship: how you replace legacy spreadsheet workflows without breaking the people who
+		rely on them.
+	</p>
+
+	<h2>Building</h2>
+	<p>
+		Slowly rewriting <a href="https://github.com/itzi97/engine2d" target="_blank" rel="noopener">engine2d</a> —
+		the flat ECS is in, spatial hashing for the broadphase is next.
+	</p>
+
+	<h2>Playing</h2>
+	<p>
+		<!-- TODO(itzi): current game(s) — e.g. "Revisiting X" / "Finally getting to Y" -->
+		PLACEHOLDER — what you're currently playing.
+	</p>
+
+	<h2>Reading</h2>
+	<p>
+		<!-- TODO(itzi): current book — author + one clause of opinion -->
+		PLACEHOLDER — what you're currently reading.
+	</p>
+
+	<h2>Practicing</h2>
+	<p>
+		<!-- TODO(itzi): keep only if true this month; delete the section otherwise -->
+		PLACEHOLDER — cello/piano piece currently on the stand, if any.
+	</p>
+
+	<style>
+		.eyebrow {
+			font-family: var(--font-mono);
+			color: var(--accent);
+			font-size: 0.85rem;
+			margin-bottom: 0.4rem;
+			margin-top: 0;
+		}
+		.updated {
+			color: var(--text-muted);
+			font-size: 0.85em;
+		}
+		h2 {
+			font-size: 1.1em;
+			margin-top: 1.6em;
+		}
+	</style>
+</PageLayout>

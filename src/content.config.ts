@@ -8,6 +8,21 @@ const blog = defineCollection({
 		description: z.string(),
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
+		tags: z.array(z.string()).default([]),
+		// 'post' = long-form write-up, 'note' = short TIL/thought
+		kind: z.enum(['post', 'note']).default('post'),
+	}),
+});
+
+const log = defineCollection({
+	loader: file('./src/content/log.json'),
+	schema: z.object({
+		date: z.coerce.date(),
+		type: z.enum(['book', 'game']),
+		title: z.string(),
+		status: z.enum(['playing', 'reading', 'finished', 'dropped', 'replaying']),
+		note: z.string(),
+		link: z.string().url().optional(),
 	}),
 });
 
@@ -29,4 +44,4 @@ const projects = defineCollection({
 	}),
 });
 
-export const collections = { blog, projects };
+export const collections = { blog, projects, log };

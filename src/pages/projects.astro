@@ -83,7 +83,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 										<a class="footer-link" href={project.externalUrl} target="_blank" rel="noopener">{project.externalLabel ?? 'Open ↗'}</a>
 									)}
 									{project.blogSlug && (
-										<a class="footer-link" href={`/blog/${project.blogSlug}`}>Read post →</a>
+										<a class="footer-link" href={`/notes/${project.blogSlug}`}>Read post →</a>
 									)}
 								</div>
 							</div>
@@ -133,7 +133,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 									<a class="footer-link" href={project.externalUrl} target="_blank" rel="noopener">{project.externalLabel ?? 'Open ↗'}</a>
 								)}
 								{project.blogSlug && (
-									<a class="footer-link" href={`/blog/${project.blogSlug}`}>Read post →</a>
+									<a class="footer-link" href={`/notes/${project.blogSlug}`}>Read post →</a>
 								)}
 							</div>
 						</div>
