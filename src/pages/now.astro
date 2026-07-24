@@ -6,6 +6,9 @@ import fitness from '../content/fitness.json';
 const updated = new Date('2026-07-24');
 
 const fmt = (n: number) => n.toLocaleString('en-GB');
+const monthLabel = fitness.month.label
+	? new Date(`${fitness.month.label}-01`).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }).toLowerCase()
+	: 'this month';
 ---
 
 <PageLayout
@@ -72,14 +75,10 @@ const fmt = (n: number) => n.toLocaleString('en-GB');
 			<h2>Moving</h2>
 			<div class="fitness">
 				<p class="fitness-line">
-					<span class="fitness-label">this month</span>
-					{fmt(fitness.month.km)} km · {fmt(fitness.month.hours)} h · {fitness.month.activities} activities{fitness.month.kcal != null && ` · ${fmt(fitness.month.kcal)} kcal`}
+					<span class="fitness-label">{monthLabel}</span>
+					{fmt(fitness.month.km)} km · {fmt(fitness.month.hours)} h · {fitness.month.activities} activities · {fmt(fitness.month.kcal)} kcal{fitness.month.steps != null && ` · ${fmt(fitness.month.steps)} steps`}
 				</p>
-				<p class="fitness-line">
-					<span class="fitness-label">this week</span>
-					{fmt(fitness.week.km)} km · {fmt(fitness.week.hours)} h · {fitness.week.activities} activities
-				</p>
-				<p class="fitness-src">aggregates via Strava, updated nightly</p>
+				<p class="fitness-src">aggregates from my Garmin, updated with this page</p>
 			</div>
 		</>
 	)}

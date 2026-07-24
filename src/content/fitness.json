@@ -1,5 +1,11 @@
 {
-	"updated": null,
-	"month": { "km": 0, "hours": 0, "activities": 0, "kcal": null },
-	"week": { "km": 0, "hours": 0, "activities": 0 }
+	"updated": "2026-07-24",
+	"month": {
+		"label": "2026-07",
+		"km": 69.6,
+		"hours": 15.2,
+		"activities": 13,
+		"kcal": 5130,
+		"steps": 86672
+	}
 }
