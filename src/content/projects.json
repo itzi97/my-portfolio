@@ -12,7 +12,8 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"blogSlug": "flight-data-pipeline"
+		"blogSlug": "flight-data-pipeline",
+		"order": 0
 	},
 	{
 		"id": "engine2d",
@@ -26,7 +27,8 @@
 			"Systems"
 		],
 		"origin": "Personal",
-		"featured": false
+		"featured": false,
+		"order": 1
 	},
 	{
 		"id": "alphanumeric-classification",
@@ -40,7 +42,8 @@
 		],
 		"origin": "U-tad",
 		"featured": true,
-		"blogSlug": "alphanumeric-classification"
+		"blogSlug": "alphanumeric-classification",
+		"order": 2
 	},
 	{
 		"id": "firearm-homicides",
@@ -55,7 +58,8 @@
 		],
 		"origin": "U-tad",
 		"featured": true,
-		"blogSlug": "firearm-homicides"
+		"blogSlug": "firearm-homicides",
+		"order": 3
 	},
 	{
 		"id": "social-media-odm",
@@ -69,7 +73,8 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"blogSlug": "python-odm"
+		"blogSlug": "python-odm",
+		"order": 4
 	},
 	{
 		"id": "bildyapp",
@@ -82,7 +87,8 @@
 			"Backend"
 		],
 		"origin": "U-tad",
-		"featured": false
+		"featured": false,
+		"order": 5
 	},
 	{
 		"id": "portfolio-website",
@@ -95,7 +101,8 @@
 			"Web"
 		],
 		"origin": "Personal",
-		"featured": false
+		"featured": false,
+		"order": 6
 	},
 	{
 		"id": "distributed-systems",
@@ -109,7 +116,8 @@
 			"Systems"
 		],
 		"origin": "U-tad",
-		"featured": false
+		"featured": false,
+		"order": 7
 	},
 	{
 		"id": "engine2d-old",
@@ -124,7 +132,8 @@
 		],
 		"origin": "Personal",
 		"featured": false,
-		"blogSlug": "first-game-engine"
+		"blogSlug": "first-game-engine",
+		"order": 8
 	},
 	{
 		"id": "fitness-tracking",
@@ -138,7 +147,8 @@
 			"Data Analysis"
 		],
 		"origin": "U-tad",
-		"featured": false
+		"featured": false,
+		"order": 9
 	},
 	{
 		"id": "spam-filtering",
@@ -152,7 +162,8 @@
 			"NLP"
 		],
 		"origin": "U-tad",
-		"featured": false
+		"featured": false,
+		"order": 10
 	},
 	{
 		"id": "dogs-vs-cats",
@@ -165,7 +176,8 @@
 			"Machine Learning"
 		],
 		"origin": "U-tad",
-		"featured": false
+		"featured": false,
+		"order": 11
 	},
 	{
 		"id": "world-of-traps",
@@ -178,7 +190,8 @@
 			"Media"
 		],
 		"origin": "DigiPen",
-		"featured": false
+		"featured": false,
+		"order": 12
 	},
 	{
 		"id": "vacumcite",
@@ -192,7 +205,8 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"blogSlug": "vacumcite"
+		"blogSlug": "vacumcite",
+		"order": 13
 	},
 	{
 		"id": "am-apuntes",
@@ -205,7 +219,8 @@
 			"Mathematics"
 		],
 		"origin": "U-tad",
-		"featured": false
+		"featured": false,
+		"order": 14
 	},
 	{
 		"id": "dev-ost",
@@ -218,7 +233,8 @@
 			"Media"
 		],
 		"origin": "DigiPen",
-		"featured": false
+		"featured": false,
+		"order": 15
 	},
 	{
 		"id": "gateway-technologies",
@@ -231,6 +247,7 @@
 			"Media"
 		],
 		"origin": "Personal",
-		"featured": false
+		"featured": false,
+		"order": 16
 	}
 ]

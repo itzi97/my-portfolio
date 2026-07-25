@@ -8,7 +8,7 @@ import { Icon } from 'astro-icon/components';
 import { techIcons } from '../lib/techIcons';
 
 const allProjects = await getCollection('projects');
-const projects = allProjects.map(p => p.data);
+const projects = allProjects.map(p => p.data).sort((a, b) => a.order - b.order);
 
 const featured = projects.filter(p => p.featured);
 const rest = projects.filter(p => !p.featured);

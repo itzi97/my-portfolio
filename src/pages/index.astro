@@ -26,7 +26,8 @@ const nfRows: [string, string][] = [
 
 const featuredProjects = (await getCollection('projects'))
 	.filter(p => p.data.featured)
-	.map(p => p.data);
+	.map(p => p.data)
+	.sort((a, b) => a.order - b.order);
 
 const latestPost = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
