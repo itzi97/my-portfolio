@@ -250,8 +250,9 @@ input, textarea {
 	50%       { opacity: 0; }
 }
 
-/* eyebrow — shared across all pages */
-.eyebrow {
+/* eyebrow — shared across all pages; p.eyebrow (and source order) outranks
+   .prose p, which was silently inflating the gap on PageLayout pages */
+p.eyebrow {
 	font-family: var(--font-mono);
 	color: var(--accent);
 	font-size: 0.85rem;
