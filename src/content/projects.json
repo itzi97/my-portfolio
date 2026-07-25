@@ -1,15 +1,31 @@
 [
 	{
-		"id": "dogs-vs-cats",
-		"title": "Dogs vs Cats",
-		"link": "https://www.kaggle.com/code/itzi97/u-tad-dogs-vs-cats",
-		"summary": "Image classification using CNNs and transfer learning.",
-		"tech": "Python · Keras · TensorFlow · transfer learning",
-		"highlight": "Built and fine-tuned a deep learning image classifier.",
+		"id": "dp-practice",
+		"title": "Distributed Data Processing Pipeline",
+		"link": "https://github.com/itzi97/DP_practice",
+		"summary": "Dockerised Spark + HDFS environment with Scala ETL jobs loading airline, airport, and route data into PostgreSQL and MongoDB, plus a Spark analysis stage.",
+		"tech": "Scala · Apache Spark · HDFS · PostgreSQL · MongoDB · Docker Compose",
+		"highlight": "A self-contained mini data platform: multi-container infrastructure, JDBC and Spark-connector ingestion, and distributed analysis over flight-network data.",
 		"tags": [
-			"Machine Learning"
+			"Data Engineering",
+			"Backend"
 		],
 		"origin": "U-tad",
+		"featured": false,
+		"blogSlug": "flight-data-pipeline"
+	},
+	{
+		"id": "engine2d",
+		"title": "2D Game Engine",
+		"link": "https://github.com/itzi97/engine2d",
+		"summary": "Personal ongoing 2D game engine built from scratch.",
+		"tech": "C++ · Lua · Sol2 · SDL3 · GLM · CMake · Tiled JSON",
+		"highlight": "Writing a game engine from scratch as a personal hobby.",
+		"tags": [
+			"Game Dev",
+			"Systems"
+		],
+		"origin": "Personal",
 		"featured": false
 	},
 	{
@@ -27,20 +43,6 @@
 		"blogSlug": "alphanumeric-classification"
 	},
 	{
-		"id": "spam-filtering",
-		"title": "Spam Filtering",
-		"link": "https://www.kaggle.com/code/itzi97/u-tad-spam-not-spam",
-		"summary": "Text classification project for spam detection.",
-		"tech": "Python · NLP preprocessing · sklearn · feature engineering",
-		"highlight": "Practical text classification pipeline for message filtering.",
-		"tags": [
-			"Machine Learning",
-			"NLP"
-		],
-		"origin": "U-tad",
-		"featured": false
-	},
-	{
 		"id": "firearm-homicides",
 		"title": "Firearm Homicides vs Legislation",
 		"link": "https://github.com/itzi97/DV_Tableau",
@@ -54,20 +56,6 @@
 		"origin": "U-tad",
 		"featured": true,
 		"blogSlug": "firearm-homicides"
-	},
-	{
-		"id": "fitness-tracking",
-		"title": "Fitness Tracking Visualization",
-		"link": "https://github.com/itzi97/DV_Python",
-		"summary": "Personal fitness tracking visualizations built with Python.",
-		"tech": "Python · pandas · matplotlib · seaborn · plotly · ipywidgets",
-		"highlight": "Time-series analysis and customizable performance dashboards.",
-		"tags": [
-			"Data Viz",
-			"Data Analysis"
-		],
-		"origin": "U-tad",
-		"featured": false
 	},
 	{
 		"id": "social-media-odm",
@@ -97,19 +85,17 @@
 		"featured": false
 	},
 	{
-		"id": "dp-practice",
-		"title": "Distributed Data Processing Pipeline",
-		"link": "https://github.com/itzi97/DP_practice",
-		"summary": "Dockerised Spark + HDFS environment with Scala ETL jobs loading airline, airport, and route data into PostgreSQL and MongoDB, plus a Spark analysis stage.",
-		"tech": "Scala · Apache Spark · HDFS · PostgreSQL · MongoDB · Docker Compose",
-		"highlight": "A self-contained mini data platform: multi-container infrastructure, JDBC and Spark-connector ingestion, and distributed analysis over flight-network data.",
+		"id": "portfolio-website",
+		"title": "Portfolio Website",
+		"link": "https://github.com/itzi97/my-portfolio",
+		"summary": "This portfolio and blog website.",
+		"tech": "Astro · JavaScript · CSS · Cloudflare",
+		"highlight": "Designed and built from scratch.",
 		"tags": [
-			"Data Engineering",
-			"Backend"
+			"Web"
 		],
-		"origin": "U-tad",
-		"featured": false,
-		"blogSlug": "flight-data-pipeline"
+		"origin": "Personal",
+		"featured": false
 	},
 	{
 		"id": "distributed-systems",
@@ -123,20 +109,6 @@
 			"Systems"
 		],
 		"origin": "U-tad",
-		"featured": false
-	},
-	{
-		"id": "engine2d",
-		"title": "2D Game Engine",
-		"link": "https://github.com/itzi97/engine2d",
-		"summary": "Personal ongoing 2D game engine built from scratch.",
-		"tech": "C++ · Lua · Sol2 · SDL3 · GLM · CMake · Tiled JSON",
-		"highlight": "Writing a game engine from scratch as a personal hobby.",
-		"tags": [
-			"Game Dev",
-			"Systems"
-		],
-		"origin": "Personal",
 		"featured": false
 	},
 	{
@@ -155,6 +127,47 @@
 		"blogSlug": "first-game-engine"
 	},
 	{
+		"id": "fitness-tracking",
+		"title": "Fitness Tracking Visualization",
+		"link": "https://github.com/itzi97/DV_Python",
+		"summary": "Personal fitness tracking visualizations built with Python.",
+		"tech": "Python · pandas · matplotlib · seaborn · plotly · ipywidgets",
+		"highlight": "Time-series analysis and customizable performance dashboards.",
+		"tags": [
+			"Data Viz",
+			"Data Analysis"
+		],
+		"origin": "U-tad",
+		"featured": false
+	},
+	{
+		"id": "spam-filtering",
+		"title": "Spam Filtering",
+		"link": "https://www.kaggle.com/code/itzi97/u-tad-spam-not-spam",
+		"summary": "Text classification project for spam detection.",
+		"tech": "Python · NLP preprocessing · sklearn · feature engineering",
+		"highlight": "Practical text classification pipeline for message filtering.",
+		"tags": [
+			"Machine Learning",
+			"NLP"
+		],
+		"origin": "U-tad",
+		"featured": false
+	},
+	{
+		"id": "dogs-vs-cats",
+		"title": "Dogs vs Cats",
+		"link": "https://www.kaggle.com/code/itzi97/u-tad-dogs-vs-cats",
+		"summary": "Image classification using CNNs and transfer learning.",
+		"tech": "Python · Keras · TensorFlow · transfer learning",
+		"highlight": "Built and fine-tuned a deep learning image classifier.",
+		"tags": [
+			"Machine Learning"
+		],
+		"origin": "U-tad",
+		"featured": false
+	},
+	{
 		"id": "world-of-traps",
 		"title": "World of Traps",
 		"summary": "Speedrun edition of a DigiPen game, built by two college classmates on an engine made from scratch.",
@@ -165,6 +178,33 @@
 			"Media"
 		],
 		"origin": "DigiPen",
+		"featured": false
+	},
+	{
+		"id": "vacumcite",
+		"title": "Vacumcite",
+		"link": "https://github.com/itzi97/vacumcite",
+		"summary": "UX design project for a COVID vaccination website.",
+		"tech": "Figma · HTML · CSS prototyping",
+		"highlight": "User flows and accessibility-focused design decisions.",
+		"tags": [
+			"UX"
+		],
+		"origin": "U-tad",
+		"featured": false,
+		"blogSlug": "vacumcite"
+	},
+	{
+		"id": "am-apuntes",
+		"title": "AM-apuntes",
+		"link": "https://github.com/itzi97/AM-apuntes",
+		"summary": "Real Analysis I & II class notes with linked exercise repositories.",
+		"tech": "LaTeX · Markdown",
+		"highlight": "Structured mathematical notes and worked problems.",
+		"tags": [
+			"Mathematics"
+		],
+		"origin": "U-tad",
 		"featured": false
 	},
 	{
@@ -192,45 +232,5 @@
 		],
 		"origin": "Personal",
 		"featured": false
-	},
-	{
-		"id": "portfolio-website",
-		"title": "Portfolio Website",
-		"link": "https://github.com/itzi97/my-portfolio",
-		"summary": "This portfolio and blog website.",
-		"tech": "Astro · JavaScript · CSS · Cloudflare",
-		"highlight": "Designed and built from scratch.",
-		"tags": [
-			"Web"
-		],
-		"origin": "Personal",
-		"featured": false
-	},
-	{
-		"id": "am-apuntes",
-		"title": "AM-apuntes",
-		"link": "https://github.com/itzi97/AM-apuntes",
-		"summary": "Real Analysis I & II class notes with linked exercise repositories.",
-		"tech": "LaTeX · Markdown",
-		"highlight": "Structured mathematical notes and worked problems.",
-		"tags": [
-			"Mathematics"
-		],
-		"origin": "U-tad",
-		"featured": false
-	},
-	{
-		"id": "vacumcite",
-		"title": "Vacumcite",
-		"link": "https://github.com/itzi97/vacumcite",
-		"summary": "UX design project for a COVID vaccination website.",
-		"tech": "Figma · HTML · CSS prototyping",
-		"highlight": "User flows and accessibility-focused design decisions.",
-		"tags": [
-			"UX"
-		],
-		"origin": "U-tad",
-		"featured": false,
-		"blogSlug": "vacumcite"
 	}
 ]
