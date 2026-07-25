@@ -165,6 +165,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 
 <script>
 	const pills = document.querySelectorAll<HTMLButtonElement>('.filter-pill');
+	const sectionLabels = document.querySelectorAll<HTMLElement>('.section-label');
 	const featuredSection = document.getElementById('featured-section');
 	const regularGrid = document.getElementById('projects-grid');
 
@@ -180,8 +181,10 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 			card.dataset.visible = visible ? 'true' : 'false';
 		});
 
-		const visibleFeatured = featuredCards.filter(c => c.dataset.visible === 'true');
-		const useFeaturedLayout = visibleFeatured.length >= 2;
+		// Sections are the default-view editorial; any active filter collapses
+		// the page to one flat list.
+		const useFeaturedLayout = tag === 'all';
+		sectionLabels.forEach(l => { l.style.display = useFeaturedLayout ? '' : 'none'; });
 
 		if (useFeaturedLayout) {
 			featuredCards.forEach(card => {
@@ -194,7 +197,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 			if (featuredSection) featuredSection.style.display = '';
 		} else {
 			if (featuredSection) featuredSection.style.display = 'none';
-			featuredCards.forEach(card => {
+			[...featuredCards].reverse().forEach(card => {
 				if (regularGrid && card.parentElement !== regularGrid) {
 					regularGrid.prepend(card);
 				}
