@@ -353,16 +353,15 @@ p.eyebrow {
 
 .projects h2 {
 	margin-bottom: 1.25em;
-	font-size: 1em;
-	color: var(--text-muted);
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	font-weight: 400;
+	font-size: 1.05em;
+	color: var(--accent);
+	padding-bottom: 0.4em;
+	border-bottom: 1px solid var(--border);
 }
 
 .projects h2::before {
-	content: '# ';
-	color: var(--accent);
+	content: '## ';
+	color: var(--text-muted);
 }
 
 /* TOC — must be global because li elements are created by JS at runtime */
