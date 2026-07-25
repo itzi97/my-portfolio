@@ -12,7 +12,6 @@ const nfArt = String.raw` _ _       _
 | | __|_  / |
 | | |_ / /| |
 |_|\__/___|_|
-             
 `.trimEnd();
 
 const nfRows: [string, string][] = [
@@ -160,6 +159,7 @@ const latestPost = (await getCollection('blog')).sort(
 		background-color: transparent !important;
 		border: none;
 		border-radius: 0;
+		overflow: visible;
 		font-size: 1em;
 		line-height: 1.25;
 		color: var(--accent-hot);
