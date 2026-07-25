@@ -172,8 +172,9 @@ const latestPost = (await getCollection('blog')).sort(
 	}
 	.nf-grid {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		column-gap: 1.25rem;
+		grid-template-columns: minmax(0, max-content) minmax(0, max-content);
+		justify-content: start;
+		column-gap: 2.5rem;
 	}
 	.nf-head {
 		margin: 0;
@@ -246,10 +247,6 @@ const latestPost = (await getCollection('blog')).sort(
 		flex-direction: column;
 		gap: 0.6rem;
 		margin-bottom: 2.5rem;
-		border: 1px solid var(--border);
-		border-radius: 6px;
-		background: var(--surface);
-		padding: 0.9em 1.1em;
 	}
 	.pulse-item {
 		display: flex;
