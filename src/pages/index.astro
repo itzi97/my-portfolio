@@ -48,16 +48,17 @@ const latestPost = (await getCollection('blog')).sort(
 				<p class="tagline">Software Engineering Student · Data Science & AI Minor · Madrid, Spain</p>
 				<p class="personality">I write C++ game engines for fun, train neural nets for class, and run a home server I definitely don't tinker with too much. These days I'm interning at MGA, turning years of spreadsheet workflows into a PostgreSQL + Spring Boot platform that enforces its own rules.</p>
 				<div class="nf" aria-label="About me, neofetch style">
-					<p class="nf-cmd" aria-hidden="true"><span class="nf-prompt">❯</span> neofetch</p>
 					<div class="nf-cols">
 					<pre class="nf-art" aria-hidden="true">{nfArt}</pre>
 					<div class="nf-info">
 						<p class="nf-head">itziar<span class="nf-dim">@</span>itziar.dev</p>
 						<p class="nf-sep" aria-hidden="true">─────────────────</p>
-						{nfRows.map(([k, v]) => (
-							<p class="nf-row"><span class="nf-key">{k}</span>{v}</p>
-						))}
-						<p class="nf-row"><span class="nf-key">mail</span><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+						<div class="nf-grid">
+							{nfRows.map(([k, v]) => (
+								<p class="nf-row"><span class="nf-key">{k}</span>{v}</p>
+							))}
+							<p class="nf-row"><span class="nf-key">mail</span><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+						</div>
 						<div class="nf-colors" aria-hidden="true">
 							<span style="background: var(--accent-hot)"></span>
 							<span style="background: var(--accent)"></span>
@@ -148,16 +149,6 @@ const latestPost = (await getCollection('blog')).sort(
 		padding: 1em 1.6em 1.15em;
 		margin: 1.25rem 0;
 	}
-	.nf-cmd {
-		margin: 0 0 0.9em;
-		font-size: 0.85em;
-		color: var(--text-muted);
-	}
-	.nf-prompt {
-		color: var(--accent-hot);
-		font-weight: 700;
-		margin-right: 0.45em;
-	}
 	.nf-cols {
 		display: flex;
 		gap: 3rem;
@@ -177,6 +168,12 @@ const latestPost = (await getCollection('blog')).sort(
 	}
 	.nf-info {
 		min-width: 0;
+		flex: 1;
+	}
+	.nf-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		column-gap: 2.5rem;
 	}
 	.nf-head {
 		margin: 0;
@@ -221,6 +218,9 @@ const latestPost = (await getCollection('blog')).sort(
 		display: inline-block;
 	}
 	@media (max-width: 560px) {
+		.nf-grid {
+			grid-template-columns: 1fr;
+		}
 		.nf-cols {
 			flex-direction: column;
 			align-items: flex-start;
