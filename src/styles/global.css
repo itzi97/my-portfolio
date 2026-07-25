@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 :root {
 	--bg:          #1d2021;
@@ -12,7 +12,6 @@
 	--c-blue:      #83a598;
 	--c-yellow:    #fabd2f;
 	--font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
-	--font-text:   'Source Serif 4', Georgia, 'Times New Roman', serif;
 	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px color-mix(in srgb, var(--accent) 5%, transparent);
 	--header-bg:   rgba(29, 32, 33, 0.95);
 }
@@ -175,11 +174,10 @@ blockquote {
 	font-style: italic;
 }
 
-/* Long-form reading: serif body for blog posts only (chrome stays mono) */
+/* Long-form reading: slightly larger, looser mono for blog post bodies */
 .post-body {
-	font-family: var(--font-text);
-	font-size: 1.13em;
-	line-height: 1.7;
+	font-size: 1.05em;
+	line-height: 1.75;
 }
 .post-body p {
 	text-wrap: pretty;
