@@ -21,7 +21,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 	</head>
 	<body>
 		<Header />
-		<main class="wide">
+		<main>
 			<section class="projects-page">
 				<p class="eyebrow">~/projects</p>
 				<h1>All Projects</h1>
@@ -247,7 +247,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 	/* Featured grid — 2-col */
 	.featured-grid {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: 1fr;
 		gap: 1rem;
 		margin-bottom: 1rem;
 	}
@@ -260,7 +260,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 	/* Regular grid */
 	.projects-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		grid-template-columns: 1fr;
 		gap: 1rem;
 	}
 
