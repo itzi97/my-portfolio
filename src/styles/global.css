@@ -485,17 +485,7 @@ input, textarea {
 	white-space: nowrap;
 }
 
-/* fsociety flavour: faint CRT scanlines + phosphor glow (dark mode only) */
-html:not([data-theme='light']) body::after {
-	content: '';
-	position: fixed;
-	inset: 0;
-	pointer-events: none;
-	z-index: 9999;
-	background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 3px);
-	opacity: 0.35;
-}
-html:not([data-theme='light']) .site-title,
-html:not([data-theme='light']) .hero h1 {
-	text-shadow: 0 0 8px color-mix(in srgb, var(--accent) 55%, transparent);
+/* A hint of phosphor on the wordmark only */
+html:not([data-theme='light']) .site-title {
+	text-shadow: 0 0 6px color-mix(in srgb, var(--accent) 40%, transparent);
 }
