@@ -174,10 +174,9 @@ blockquote {
 	font-style: italic;
 }
 
-/* Long-form reading: slightly larger, looser mono for blog post bodies */
+/* Long-form reading: same size as the rest of the site, slightly looser leading */
 .post-body {
-	font-size: 1.05em;
-	line-height: 1.75;
+	line-height: 1.8;
 }
 .post-body p {
 	text-wrap: pretty;
