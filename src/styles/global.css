@@ -2,33 +2,33 @@
 
 :root {
 	--bg:         #050505;
-	--surface:    #0e0f0e;
-	--border:     #212621;
-	--text:       #e6ebe6;
-	--text-muted: #7e877e;
-	--accent:     #22d35f;
-	--accent-dim: #159a45;
-	--c-green:    #86efac;
-	--c-blue:     #3ec5da;
-	--c-yellow:   #e0b94f;
+	--surface:    #100d0e;
+	--border:     #262023;
+	--text:       #eceae8;
+	--text-muted: #8f8789;
+	--accent:     #f43f5e;
+	--accent-dim: #be123c;
+	--c-green:    #4ade80;
+	--c-blue:     #38bdf8;
+	--c-yellow:   #facc15;
 	--font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
 	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px color-mix(in srgb, var(--accent) 5%, transparent);
 	--header-bg:   rgba(5, 5, 5, 0.95);
 }
 
 html[data-theme='light'] {
-	--bg:         #f5f5f2;
-	--surface:    #ebece9;
-	--border:     #d2d5d2;
-	--text:       #141614;
-	--text-muted: #5d665d;
-	--accent:     #0c7a3a;
-	--accent-dim: #085228;
+	--bg:         #fafaf8;
+	--surface:    #f1f0ee;
+	--border:     #d8d5d3;
+	--text:       #171417;
+	--text-muted: #6b6467;
+	--accent:     #be123c;
+	--accent-dim: #9f1239;
 	--c-green:    #15803d;
-	--c-blue:     #0e7490;
-	--c-yellow:   #926b00;
+	--c-blue:     #0369a1;
+	--c-yellow:   #a16207;
 	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px color-mix(in srgb, var(--accent) 8%, transparent);
-	--header-bg:   rgba(245, 245, 242, 0.93);
+	--header-bg:   rgba(250, 250, 248, 0.93);
 }
 
 /* Shiki dual-theme code blocks (config emits --shiki-light/--shiki-dark vars) */
