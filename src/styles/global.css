@@ -1,28 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 :root {
-	--bg:          #0d0d0d;
-	--surface:     #111111;
-	--border:      #1e1e1e;
-	--text:        #e2e2e2;
-	--text-muted:  #888888;
-	--accent:      #a78bfa;
-	--accent-dim:  #7c5cbf;
+	--bg:         #050505;
+	--surface:    #100d0e;
+	--border:     #262023;
+	--text:       #eceae8;
+	--text-muted: #8f8789;
+	--accent:     #c2b6a6;
+	--accent-dim: #f43f5e;
+	--accent-hot: #f43f5e;
+	--c-green:    #a4bcab;
+	--c-blue:     #a2b4c0;
+	--c-yellow:   #c3b291;
 	--font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
-	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px rgba(167, 139, 250, 0.04);
-	--header-bg:   rgba(17, 17, 17, 0.95);
+	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px color-mix(in srgb, var(--accent) 5%, transparent);
+	--header-bg:   rgba(5, 5, 5, 0.95);
 }
 
 html[data-theme='light'] {
-	--bg:          #faf9f7;
-	--surface:     #ffffff;
-	--border:      #e2e0dc;
-	--text:        #24242a;
-	--text-muted:  #6b6b74;
-	--accent:      #6d28d9;
-	--accent-dim:  #5b21b6;
-	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px rgba(109, 40, 217, 0.06);
-	--header-bg:   rgba(250, 249, 247, 0.92);
+	--bg:         #fafaf8;
+	--surface:    #f1f0ee;
+	--border:     #d8d5d3;
+	--text:       #171417;
+	--text-muted: #6b6467;
+	--accent:     #5c554f;
+	--accent-dim: #be123c;
+	--accent-hot: #be123c;
+	--c-green:    #5c7263;
+	--c-blue:     #566b7a;
+	--c-yellow:   #7e6f52;
+	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px color-mix(in srgb, var(--accent) 8%, transparent);
+	--header-bg:   rgba(250, 250, 248, 0.93);
 }
 
 /* Shiki dual-theme code blocks (config emits --shiki-light/--shiki-dark vars) */
@@ -76,7 +84,7 @@ body {
 	padding: 0;
 	background-color: var(--bg);
 	color: var(--text);
-	font-size: 15px;
+	font-size: 16px;
 	line-height: 1.75;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -102,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing: -0.02em;
 }
 
-h1 { font-size: 2.4em; }
+h1 { font-size: 2.4em; color: var(--accent-hot); }
 h2 { font-size: 1.6em; }
 h3 { font-size: 1.2em; color: var(--text); }
 h4 { font-size: 1.05em; }
@@ -110,13 +118,15 @@ h5 { font-size: 1em; }
 
 a {
 	color: var(--accent);
-	text-decoration: none;
-	transition: color 0.15s ease;
+	text-decoration: underline;
+	text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+	text-underline-offset: 3px;
+	transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 a:hover {
 	color: var(--accent-dim);
-	text-decoration: underline;
+	text-decoration-color: currentColor;
 }
 
 p {
@@ -146,7 +156,7 @@ code {
 pre {
 	background-color: var(--surface) !important;
 	border: 1px solid var(--border);
-	border-left: 3px solid var(--accent);
+	border-left: 3px solid var(--accent-hot);
 	padding: 1.25em 1.5em;
 	border-radius: 4px;
 	overflow-x: auto;
@@ -166,6 +176,17 @@ blockquote {
 	margin: 0 0 1em;
 	color: var(--text-muted);
 	font-style: italic;
+}
+
+/* Long-form reading: same size as the rest of the site, slightly looser leading */
+.post-body {
+	line-height: 1.8;
+}
+.post-body p {
+	text-wrap: pretty;
+}
+.post-body ul, .post-body ol {
+	line-height: 1.7;
 }
 
 /* Terminal/markdown-style section headers inside prose pages & posts */
@@ -224,7 +245,7 @@ input, textarea {
 
 .cursor::after {
 	content: '_';
-	color: var(--accent);
+	color: var(--accent-hot);
 	animation: blink 1.1s step-end infinite;
 }
 
@@ -233,8 +254,9 @@ input, textarea {
 	50%       { opacity: 0; }
 }
 
-/* eyebrow — shared across all pages */
-.eyebrow {
+/* eyebrow — shared across all pages; p.eyebrow (and source order) outranks
+   .prose p, which was silently inflating the gap on PageLayout pages */
+p.eyebrow {
 	font-family: var(--font-mono);
 	color: var(--accent);
 	font-size: 0.85rem;
@@ -255,7 +277,7 @@ input, textarea {
 
 .project-card:hover {
 	border-color: var(--accent);
-	box-shadow: 0 0 12px rgba(167, 139, 250, 0.08);
+	box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
 .project-card h3 {
@@ -333,16 +355,15 @@ input, textarea {
 
 .projects h2 {
 	margin-bottom: 1.25em;
-	font-size: 1em;
-	color: var(--text-muted);
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	font-weight: 400;
+	font-size: 1.05em;
+	color: var(--accent);
+	padding-bottom: 0.4em;
+	border-bottom: 1px solid var(--border);
 }
 
 .projects h2::before {
-	content: '# ';
-	color: var(--accent);
+	content: '## ';
+	color: var(--text-muted);
 }
 
 /* TOC — must be global because li elements are created by JS at runtime */
@@ -466,4 +487,9 @@ input, textarea {
 	clip: rect(1px, 1px, 1px, 1px);
 	clip-path: inset(50%);
 	white-space: nowrap;
+}
+
+/* A hint of phosphor on the wordmark only */
+html:not([data-theme='light']) .site-title {
+	text-shadow: 0 0 6px color-mix(in srgb, var(--accent-hot) 40%, transparent);
 }

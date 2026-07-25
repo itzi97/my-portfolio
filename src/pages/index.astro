@@ -188,7 +188,7 @@ const latestPost = (await getCollection('blog')).sort(
 	}
 	.proj-card:hover {
 		border-color: var(--accent);
-		box-shadow: 0 0 14px rgba(167, 139, 250, 0.1);
+		box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 10%, transparent);
 		transform: translateY(-2px);
 	}
 	.proj-card-inner {
@@ -237,9 +237,9 @@ const latestPost = (await getCollection('blog')).sort(
 		text-transform: uppercase;
 		padding: 0.1em 0.45em;
 		border-radius: 3px;
-		background: rgba(167, 139, 250, 0.15);
+		background: color-mix(in srgb, var(--accent) 15%, transparent);
 		color: var(--accent);
-		border: 1px solid rgba(167, 139, 250, 0.35);
+		border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
 	}
 	.origin {
 		display: inline-block;
@@ -251,34 +251,34 @@ const latestPost = (await getCollection('blog')).sort(
 		border-radius: 3px;
 	}
 	.origin-personal {
-		background: rgba(52, 211, 153, 0.1);
-		color: #34d399;
-		border: 1px solid rgba(52, 211, 153, 0.25);
+		background: color-mix(in srgb, var(--c-green) 10%, transparent);
+		color: var(--c-green);
+		border: 1px solid color-mix(in srgb, var(--c-green) 25%, transparent);
 	}
 	.origin-utad {
-		background: rgba(96, 165, 250, 0.1);
-		color: #60a5fa;
-		border: 1px solid rgba(96, 165, 250, 0.25);
+		background: color-mix(in srgb, var(--c-blue) 10%, transparent);
+		color: var(--c-blue);
+		border: 1px solid color-mix(in srgb, var(--c-blue) 25%, transparent);
 	}
 	.origin-digipen {
-		background: rgba(251, 146, 60, 0.1);
-		color: #fb923c;
-		border: 1px solid rgba(251, 146, 60, 0.25);
+		background: color-mix(in srgb, var(--c-yellow) 10%, transparent);
+		color: var(--c-yellow);
+		border: 1px solid color-mix(in srgb, var(--c-yellow) 25%, transparent);
 	}
 	.tag {
 		font-size: 0.72rem;
 		padding: 0.15em 0.55em;
 		border-radius: 3px;
-		background: rgba(167, 139, 250, 0.1);
+		background: color-mix(in srgb, var(--accent) 10%, transparent);
 		color: var(--accent);
-		border: 1px solid rgba(167, 139, 250, 0.25);
+		border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
 		letter-spacing: 0.02em;
 		font-weight: 500;
 	}
 	.tag-post {
-		background: rgba(52, 211, 153, 0.08);
-		color: #34d399;
-		border-color: rgba(52, 211, 153, 0.25);
+		background: color-mix(in srgb, var(--c-green) 8%, transparent);
+		color: var(--c-green);
+		border-color: color-mix(in srgb, var(--c-green) 25%, transparent);
 	}
 	.card-footer {
 		display: flex;
