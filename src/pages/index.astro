@@ -7,14 +7,12 @@ import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import { techIcons } from '../lib/techIcons';
 
-const nfArt = String.raw`  \
-   \
-    \
-     \
-     /\
-    /  \
-   /    \
-  /      \
+const nfArt = String.raw` _ _       _ 
+(_) |_ ___(_)
+| | __|_  / |
+| | |_ / /| |
+|_|\__/___|_|
+             
 `.trimEnd();
 
 const nfRows: [string, string][] = [
@@ -152,7 +150,7 @@ const latestPost = (await getCollection('blog')).sort(
 	}
 	.nf-art {
 		margin: 0;
-		font-size: 0.95em;
+		font-size: 1em;
 		line-height: 1.25;
 		color: var(--accent-hot);
 		font-weight: 700;
