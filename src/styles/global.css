@@ -1,28 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap');
 
 :root {
-	--bg:          #0d0d0d;
-	--surface:     #111111;
-	--border:      #1e1e1e;
-	--text:        #e2e2e2;
-	--text-muted:  #888888;
-	--accent:      #a78bfa;
-	--accent-dim:  #7c5cbf;
+	--bg:          #1d2021;
+	--surface:     #282828;
+	--border:      #3c3836;
+	--text:        #ebdbb2;
+	--text-muted:  #a89984;
+	--accent:      #fe8019;
+	--accent-dim:  #d65d0e;
+	--c-green:     #b8bb26;
+	--c-blue:      #83a598;
+	--c-yellow:    #fabd2f;
 	--font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
-	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px rgba(167, 139, 250, 0.04);
-	--header-bg:   rgba(17, 17, 17, 0.95);
+	--font-text:   'Source Serif 4', Georgia, 'Times New Roman', serif;
+	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px color-mix(in srgb, var(--accent) 5%, transparent);
+	--header-bg:   rgba(29, 32, 33, 0.95);
 }
 
 html[data-theme='light'] {
-	--bg:          #faf9f7;
-	--surface:     #ffffff;
-	--border:      #e2e0dc;
-	--text:        #24242a;
-	--text-muted:  #6b6b74;
-	--accent:      #6d28d9;
-	--accent-dim:  #5b21b6;
-	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px rgba(109, 40, 217, 0.06);
-	--header-bg:   rgba(250, 249, 247, 0.92);
+	--bg:          #f9f5d7;
+	--surface:     #fbf1c7;
+	--border:      #d5c4a1;
+	--text:        #3c3836;
+	--text-muted:  #7c6f64;
+	--accent:      #d65d0e;
+	--accent-dim:  #af3a03;
+	--c-green:     #79740e;
+	--c-blue:      #076678;
+	--c-yellow:    #b57614;
+	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px color-mix(in srgb, var(--accent) 8%, transparent);
+	--header-bg:   rgba(249, 245, 215, 0.93);
 }
 
 /* Shiki dual-theme code blocks (config emits --shiki-light/--shiki-dark vars) */
@@ -76,7 +83,7 @@ body {
 	padding: 0;
 	background-color: var(--bg);
 	color: var(--text);
-	font-size: 15px;
+	font-size: 16px;
 	line-height: 1.75;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -168,6 +175,19 @@ blockquote {
 	font-style: italic;
 }
 
+/* Long-form reading: serif body for blog posts only (chrome stays mono) */
+.post-body {
+	font-family: var(--font-text);
+	font-size: 1.13em;
+	line-height: 1.7;
+}
+.post-body p {
+	text-wrap: pretty;
+}
+.post-body ul, .post-body ol {
+	line-height: 1.7;
+}
+
 /* Terminal/markdown-style section headers inside prose pages & posts */
 .prose h2 {
 	font-family: var(--font-mono);
@@ -255,7 +275,7 @@ input, textarea {
 
 .project-card:hover {
 	border-color: var(--accent);
-	box-shadow: 0 0 12px rgba(167, 139, 250, 0.08);
+	box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
 .project-card h3 {

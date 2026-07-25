@@ -20,7 +20,7 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [rehypeSlug],
     shikiConfig: {
-      themes: { light: 'github-light', dark: 'github-dark' },
+      themes: { light: 'gruvbox-light-hard', dark: 'gruvbox-dark-hard' },
       defaultColor: false,
     },
   },
