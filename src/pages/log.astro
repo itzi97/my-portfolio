@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
 
 const entries = (await getCollection('log'))
 	.map(e => e.data)
@@ -26,7 +27,7 @@ function fmt(date: Date) {
 			<li class="log-entry">
 				<span class="log-meta">
 					<span class="log-date">{fmt(e.date)}</span>
-					<span class={`log-type log-type-${e.type}`}>{e.type}</span>
+					<Icon name={e.type === 'game' ? 'lucide:gamepad-2' : 'lucide:book-open'} class={`log-icon log-icon-${e.type}`} />
 					<span class="log-status">{e.status}</span>
 				</span>
 				<span class="log-title">
@@ -61,22 +62,17 @@ function fmt(date: Date) {
 		.log-date {
 			color: var(--text-muted);
 		}
-		.log-type {
+		.log-list :global(.log-icon) {
+			width: 1em;
+			height: 1em;
 			margin-left: 0.6em;
-			padding: 0.05em 0.45em;
-			border-radius: 3px;
-			font-size: 0.85em;
-			letter-spacing: 0.03em;
+			transform: translateY(0.18em);
 		}
-		.log-type-book {
-			background: color-mix(in srgb, var(--c-blue) 10%, transparent);
-			color: var(--c-blue);
-			border: 1px solid color-mix(in srgb, var(--c-blue) 25%, transparent);
-		}
-		.log-type-game {
-			background: color-mix(in srgb, var(--c-green) 10%, transparent);
+		.log-list :global(.log-icon-game) {
 			color: var(--c-green);
-			border: 1px solid color-mix(in srgb, var(--c-green) 25%, transparent);
+		}
+		.log-list :global(.log-icon-book) {
+			color: var(--c-blue);
 		}
 		.log-status {
 			margin-left: 0.6em;

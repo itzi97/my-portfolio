@@ -4,6 +4,27 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE, GITHUB_URL, LINKEDIN_URL, EMAIL, CV_URL } from '../consts';
 import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import { techIcons } from '../lib/techIcons';
+
+const nfArt = String.raw`  \
+   \
+    \
+     \
+     /\
+    /  \
+   /    \
+  /      \
+`.trimEnd();
+
+const nfRows: [string, string][] = [
+	['host', 'U-tad, Madrid'],
+	['kernel', 'Software Engineering + DS&AI'],
+	['shell', 'fish'],
+	['editor', 'Neovim'],
+	['wm', 'Plasma / Hyprland'],
+	['langs', 'es · en (C2) · fr (loading…)'],
+];
 
 const featuredProjects = (await getCollection('projects'))
 	.filter(p => p.data.featured)
@@ -27,11 +48,24 @@ const latestPost = (await getCollection('blog')).sort(
 				<h1>Itziar Morales</h1>
 				<p class="tagline">Software Engineering Student · Data Science & AI Minor · Madrid, Spain</p>
 				<p class="personality">I write C++ game engines for fun, train neural nets for class, and run a home server I definitely don't tinker with too much. These days I'm interning at MGA, turning years of spreadsheet workflows into a PostgreSQL + Spring Boot platform that enforces its own rules.</p>
-				<div class="contact-bar">
-					<a href={`mailto:${EMAIL}`} class="contact-item">
-						<span class="contact-label">✉</span>
-						{EMAIL}
-					</a>
+				<div class="nf" aria-label="About me, neofetch style">
+					<pre class="nf-art" aria-hidden="true">{nfArt}</pre>
+					<div class="nf-info">
+						<p class="nf-head">itziar<span class="nf-dim">@</span>itziar.dev</p>
+						<p class="nf-sep" aria-hidden="true">─────────────────</p>
+						{nfRows.map(([k, v]) => (
+							<p class="nf-row"><span class="nf-key">{k}</span>{v}</p>
+						))}
+						<p class="nf-row"><span class="nf-key">mail</span><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+						<div class="nf-colors" aria-hidden="true">
+							<span style="background: var(--accent-hot)"></span>
+							<span style="background: var(--accent)"></span>
+							<span style="background: var(--c-green)"></span>
+							<span style="background: var(--c-blue)"></span>
+							<span style="background: var(--c-yellow)"></span>
+							<span style="background: var(--text-muted)"></span>
+						</div>
+					</div>
 				</div>
 				<nav class="links">
 					<a href={GITHUB_URL} target="_blank" rel="noopener">GitHub</a>
@@ -77,6 +111,9 @@ const latestPost = (await getCollection('blog')).sort(
 							</div>
 							<h3>{project.title}</h3>
 							<p class="summary">{project.summary}</p>
+							<div class="tech-icons" aria-hidden="true">
+								{techIcons(project.tech).map((i) => <Icon name={i} />)}
+							</div>
 							<p class="tech">{project.tech}</p>
 							<span class="card-cta">Open ↗</span>
 						</a>
@@ -101,28 +138,91 @@ const latestPost = (await getCollection('blog')).sort(
 		margin-bottom: 0.75em;
 	}
 
-	.contact-bar {
+	.nf {
 		display: flex;
-		gap: 1.5rem;
+		gap: 2.25rem;
 		align-items: center;
-		margin-bottom: 1rem;
-		flex-wrap: wrap;
+		border: 1px solid var(--border);
+		border-left: 3px solid var(--accent-hot);
+		border-radius: 6px;
+		background: var(--surface);
+		padding: 1.1em 1.4em;
+		margin: 1.25rem 0;
+		max-width: 34rem;
 	}
-	.contact-item {
-		display: flex;
-		align-items: center;
-		gap: 0.4em;
-		font-family: var(--font-mono);
-		font-size: 0.85rem;
+	.nf-art {
+		margin: 0;
+		font-size: 0.95em;
+		line-height: 1.25;
+		color: var(--accent-hot);
+		font-weight: 700;
+		flex-shrink: 0;
+	}
+	.nf-info {
+		min-width: 0;
+	}
+	.nf-head {
+		margin: 0;
+		font-size: 0.9em;
+		font-weight: 600;
+		color: var(--accent-hot);
+	}
+	.nf-dim {
 		color: var(--text-muted);
-		text-decoration: none;
-		transition: color 0.15s ease;
+		font-weight: 400;
 	}
-	.contact-item:hover {
-		color: var(--accent);
+	.nf-sep {
+		margin: 0 0 0.2em;
+		color: var(--text-muted);
+		font-size: 0.8em;
+		line-height: 1.2;
 	}
-	.contact-label {
+	.nf-row {
+		margin: 0;
+		font-size: 0.82em;
+		line-height: 1.65;
+		color: var(--text);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.nf-key {
+		display: inline-block;
+		min-width: 4.4em;
 		color: var(--accent);
+		font-weight: 600;
+	}
+	.nf-colors {
+		display: flex;
+		gap: 0.3em;
+		margin-top: 0.55em;
+	}
+	.nf-colors span {
+		width: 1em;
+		height: 0.65em;
+		border-radius: 2px;
+		display: inline-block;
+	}
+	@media (max-width: 560px) {
+		.nf {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.9rem;
+		}
+		.nf-art {
+			display: none;
+		}
+	}
+	.tech-icons {
+		display: flex;
+		gap: 0.55em;
+		align-items: center;
+		margin-top: 0.4rem;
+	}
+	.tech-icons :global(svg) {
+		width: 1.05em;
+		height: 1.05em;
+		color: var(--text-muted);
 	}
 	.pulse {
 		display: flex;

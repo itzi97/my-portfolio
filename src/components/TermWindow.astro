@@ -1,0 +1,72 @@
+---
+/**
+ * Frames any image (or content) as a terminal window so screenshots feel
+ * native to the site instead of punched through it.
+ *
+ * Usage (in .astro pages or .mdx posts):
+ *   <TermWindow title="~/screenshots/engine2d-breakout.gif">
+ *     <img src={...} alt="Breakout running in engine2d" />
+ *   </TermWindow>
+ */
+interface Props {
+	title?: string;
+}
+const { title = '~/screenshot.png' } = Astro.props;
+---
+
+<figure class="term-window">
+	<div class="tw-bar" aria-hidden="true">
+		<span class="tw-dot"></span>
+		<span class="tw-dot"></span>
+		<span class="tw-dot"></span>
+		<span class="tw-title">{title}</span>
+	</div>
+	<div class="tw-body">
+		<slot />
+	</div>
+</figure>
+
+<style>
+	.term-window {
+		margin: 0 0 1.5em;
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		background: var(--surface);
+		overflow: hidden;
+	}
+	.tw-bar {
+		display: flex;
+		align-items: center;
+		gap: 0.45em;
+		padding: 0.5em 0.9em;
+		border-bottom: 1px solid var(--border);
+	}
+	.tw-dot {
+		width: 0.65em;
+		height: 0.65em;
+		border-radius: 50%;
+		background: var(--border);
+	}
+	.tw-dot:first-child {
+		background: var(--accent-hot);
+	}
+	.tw-title {
+		margin-left: 0.5em;
+		font-family: var(--font-mono);
+		font-size: 0.75em;
+		color: var(--text-muted);
+	}
+	.tw-body :global(img) {
+		display: block;
+		width: 100%;
+		border: none;
+		border-radius: 0;
+		margin: 0;
+	}
+	.tw-body :global(figcaption),
+	.term-window :global(figcaption) {
+		font-size: 0.78em;
+		color: var(--text-muted);
+		padding: 0.5em 0.9em;
+	}
+</style>

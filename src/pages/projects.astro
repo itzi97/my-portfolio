@@ -4,6 +4,8 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import { techIcons } from '../lib/techIcons';
 
 const allProjects = await getCollection('projects');
 const projects = allProjects.map(p => p.data);
@@ -55,6 +57,9 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 											<h2>{project.title}</h2>
 											<p class="summary">{project.summary}</p>
 											<p class="highlight">{project.highlight}</p>
+											<div class="tech-icons" aria-hidden="true">
+												{techIcons(project.tech).map((i) => <Icon name={i} />)}
+											</div>
 											<p class="tech">{project.tech}</p>
 											<span class="card-cta">Open ↗</span>
 										</a>
@@ -70,6 +75,9 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 											<h2>{project.title}</h2>
 											<p class="summary">{project.summary}</p>
 											<p class="highlight">{project.highlight}</p>
+											<div class="tech-icons" aria-hidden="true">
+												{techIcons(project.tech).map((i) => <Icon name={i} />)}
+											</div>
 											<p class="tech">{project.tech}</p>
 											<span class="card-cta no-link">Coming soon</span>
 										</div>
@@ -106,7 +114,10 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 										<h2>{project.title}</h2>
 										<p class="summary">{project.summary}</p>
 										<p class="highlight">{project.highlight}</p>
-										<p class="tech">{project.tech}</p>
+										<div class="tech-icons" aria-hidden="true">
+												{techIcons(project.tech).map((i) => <Icon name={i} />)}
+											</div>
+											<p class="tech">{project.tech}</p>
 										<span class="card-cta">Open ↗</span>
 									</a>
 								)
@@ -120,7 +131,10 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 										<h2>{project.title}</h2>
 										<p class="summary">{project.summary}</p>
 										<p class="highlight">{project.highlight}</p>
-										<p class="tech">{project.tech}</p>
+										<div class="tech-icons" aria-hidden="true">
+												{techIcons(project.tech).map((i) => <Icon name={i} />)}
+											</div>
+											<p class="tech">{project.tech}</p>
 										<span class="card-cta no-link">Coming soon</span>
 									</div>
 								)
@@ -410,5 +424,16 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 	}
 	.footer-link:hover {
 		color: var(--accent);
+	}
+	.tech-icons {
+		display: flex;
+		gap: 0.55em;
+		align-items: center;
+		margin-top: 0.4rem;
+	}
+	.tech-icons :global(svg) {
+		width: 1.05em;
+		height: 1.05em;
+		color: var(--text-muted);
 	}
 </style>

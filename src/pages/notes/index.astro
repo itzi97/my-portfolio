@@ -108,7 +108,7 @@ const [featured, ...rest] = posts;
 		transition: box-shadow 0.15s ease, transform 0.15s ease;
 	}
 	.featured-post:hover {
-		box-shadow: 0 0 20px rgba(167, 139, 250, 0.12);
+		box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 12%, transparent);
 		transform: translateY(-2px);
 	}
 	.featured-label {
@@ -169,7 +169,7 @@ const [featured, ...rest] = posts;
 	}
 	.post-link:hover {
 		border-color: var(--accent);
-		box-shadow: 0 0 14px rgba(167, 139, 250, 0.1);
+		box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 10%, transparent);
 		transform: translateY(-2px);
 	}
 	.post-meta {
