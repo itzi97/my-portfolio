@@ -6,12 +6,12 @@
 	--border:     #262023;
 	--text:       #eceae8;
 	--text-muted: #8f8789;
-	--accent:     #c9c2bc;
+	--accent:     #c2b6a6;
 	--accent-dim: #f43f5e;
 	--accent-hot: #f43f5e;
-	--c-green:    #4ade80;
-	--c-blue:     #38bdf8;
-	--c-yellow:   #facc15;
+	--c-green:    #a4bcab;
+	--c-blue:     #a2b4c0;
+	--c-yellow:   #c3b291;
 	--font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
 	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px color-mix(in srgb, var(--accent) 5%, transparent);
 	--header-bg:   rgba(5, 5, 5, 0.95);
@@ -26,9 +26,9 @@ html[data-theme='light'] {
 	--accent:     #5c554f;
 	--accent-dim: #be123c;
 	--accent-hot: #be123c;
-	--c-green:    #15803d;
-	--c-blue:     #0369a1;
-	--c-yellow:   #a16207;
+	--c-green:    #5c7263;
+	--c-blue:     #566b7a;
+	--c-yellow:   #7e6f52;
 	--box-shadow:  0 0 0 1px var(--border), 0 4px 24px color-mix(in srgb, var(--accent) 8%, transparent);
 	--header-bg:   rgba(250, 250, 248, 0.93);
 }
