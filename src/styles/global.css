@@ -6,8 +6,9 @@
 	--border:     #262023;
 	--text:       #eceae8;
 	--text-muted: #8f8789;
-	--accent:     #f43f5e;
-	--accent-dim: #be123c;
+	--accent:     #c9848e;
+	--accent-dim: #f43f5e;
+	--accent-hot: #f43f5e;
 	--c-green:    #4ade80;
 	--c-blue:     #38bdf8;
 	--c-yellow:   #facc15;
@@ -22,8 +23,9 @@ html[data-theme='light'] {
 	--border:     #d8d5d3;
 	--text:       #171417;
 	--text-muted: #6b6467;
-	--accent:     #be123c;
-	--accent-dim: #9f1239;
+	--accent:     #9c4a56;
+	--accent-dim: #be123c;
+	--accent-hot: #be123c;
 	--c-green:    #15803d;
 	--c-blue:     #0369a1;
 	--c-yellow:   #a16207;
@@ -108,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing: -0.02em;
 }
 
-h1 { font-size: 2.4em; }
+h1 { font-size: 2.4em; color: var(--accent-hot); }
 h2 { font-size: 1.6em; }
 h3 { font-size: 1.2em; color: var(--text); }
 h4 { font-size: 1.05em; }
@@ -152,7 +154,7 @@ code {
 pre {
 	background-color: var(--surface) !important;
 	border: 1px solid var(--border);
-	border-left: 3px solid var(--accent);
+	border-left: 3px solid var(--accent-hot);
 	padding: 1.25em 1.5em;
 	border-radius: 4px;
 	overflow-x: auto;
@@ -241,7 +243,7 @@ input, textarea {
 
 .cursor::after {
 	content: '_';
-	color: var(--accent);
+	color: var(--accent-hot);
 	animation: blink 1.1s step-end infinite;
 }
 
@@ -488,5 +490,5 @@ p.eyebrow {
 
 /* A hint of phosphor on the wordmark only */
 html:not([data-theme='light']) .site-title {
-	text-shadow: 0 0 6px color-mix(in srgb, var(--accent) 40%, transparent);
+	text-shadow: 0 0 6px color-mix(in srgb, var(--accent-hot) 40%, transparent);
 }
