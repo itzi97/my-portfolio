@@ -42,6 +42,9 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 
 				<!-- Featured projects -->
 				{featured.length > 0 && (
+					<h2 class="section-label">Pinned</h2>
+				)}
+				{featured.length > 0 && (
 					<div class="featured-grid" id="featured-section">
 						{featured.map((project) => (
 							<div class="proj-card proj-card--featured" data-tags={project.tags.join(',').toLowerCase()}>
@@ -100,6 +103,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 				)}
 
 				<!-- Rest of projects -->
+				<h2 class="section-label">The rest</h2>
 				<div class="projects-grid" id="projects-grid">
 					{rest.map((project) => (
 						<div class="proj-card" data-tags={project.tags.join(',').toLowerCase()}>
@@ -295,6 +299,15 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 	}
 	.proj-card--featured {
 		border-left-width: 4px;
+		border-left-color: var(--accent-hot);
+	}
+	.proj-card--featured:hover {
+		border-color: var(--accent-hot);
+		box-shadow: 0 0 14px color-mix(in srgb, var(--accent-hot) 12%, transparent);
+	}
+	.proj-card--featured h2 a,
+	.proj-card--featured > .proj-card-inner h2 {
+		color: var(--accent-hot);
 	}
 	.proj-card-inner {
 		display: flex;
@@ -349,9 +362,9 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 		text-transform: uppercase;
 		padding: 0.1em 0.45em;
 		border-radius: 3px;
-		background: color-mix(in srgb, var(--accent) 15%, transparent);
-		color: var(--accent);
-		border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+		background: color-mix(in srgb, var(--accent-hot) 14%, transparent);
+		color: var(--accent-hot);
+		border: 1px solid color-mix(in srgb, var(--accent-hot) 35%, transparent);
 	}
 	.origin {
 		display: inline-block;
@@ -434,6 +447,17 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 	.tech-icons :global(svg) {
 		width: 1.05em;
 		height: 1.05em;
+		color: var(--text-muted);
+	}
+	.section-label {
+		font-size: 1.05em;
+		color: var(--accent);
+		margin: 2rem 0 1rem;
+		padding-bottom: 0.4em;
+		border-bottom: 1px solid var(--border);
+	}
+	.section-label::before {
+		content: '## ';
 		color: var(--text-muted);
 	}
 </style>
