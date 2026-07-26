@@ -34,6 +34,7 @@ const MAP: [RegExp, string][] = [
 	[/markdown/i, 'simple-icons:markdown'],
 	[/html/i, 'simple-icons:html5'],
 	[/cloudflare/i, 'simple-icons:cloudflare'],
+	[/webassembly|wasm/i, 'simple-icons:webassembly'],
 	[/scraping|selenium/i, 'simple-icons:selenium'],
 	[/sklearn|scikit/i, 'simple-icons:scikitlearn'],
 	[/nlp/i, 'lucide:message-square-text'],

@@ -16,19 +16,34 @@
 		"order": 0
 	},
 	{
+		"id": "tiny-ski",
+		"title": "Tiny Ski",
+		"link": "/tinyski",
+		"summary": "A 2D ski game built on my own engine, compiled to WebAssembly and playable right on this site.",
+		"tech": "C++20 · SDL3 · Lua · sol2 · WebAssembly · Tiled",
+		"highlight": "Procedurally generated courses, three difficulties, synthesized SFX, and a SkiFree-style yeti. Click the card and ski.",
+		"tags": [
+			"Game Dev",
+			"Web"
+		],
+		"origin": "Personal",
+		"featured": true,
+		"order": 1
+	},
+	{
 		"id": "engine2d",
 		"title": "2D Game Engine",
 		"link": "https://github.com/itzi97/engine2d",
 		"summary": "2D game engine built from scratch in C++20: SDL3, flat ECS, Lua scripting through sol2, Tiled map loading.",
 		"tech": "C++ · Lua · Sol2 · SDL3 · GLM · CMake · Tiled JSON",
-		"highlight": "All game logic lives in Lua; the C++ layer owns the ECS and platform. Ships runnable Breakout and Snake, with architecture docs in the repo.",
+		"highlight": "All game logic lives in Lua; the C++ layer owns the ECS and platform. Compiles to WebAssembly and powers Tiny Ski, playable on this site.",
 		"tags": [
 			"Game Dev",
 			"Systems"
 		],
 		"origin": "Personal",
 		"featured": true,
-		"order": 1
+		"order": 2
 	},
 	{
 		"id": "alphanumeric-classification",
@@ -43,7 +58,7 @@
 		"origin": "U-tad",
 		"featured": false,
 		"blogSlug": "alphanumeric-classification",
-		"order": 2
+		"order": 3
 	},
 	{
 		"id": "firearm-homicides",
@@ -59,7 +74,7 @@
 		"origin": "U-tad",
 		"featured": false,
 		"blogSlug": "firearm-homicides",
-		"order": 3
+		"order": 4
 	},
 	{
 		"id": "social-media-odm",
@@ -74,7 +89,7 @@
 		"origin": "U-tad",
 		"featured": false,
 		"blogSlug": "python-odm",
-		"order": 4
+		"order": 5
 	},
 	{
 		"id": "bildyapp",
@@ -88,7 +103,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 5
+		"order": 6
 	},
 	{
 		"id": "portfolio-website",
@@ -102,7 +117,7 @@
 		],
 		"origin": "Personal",
 		"featured": false,
-		"order": 6
+		"order": 7
 	},
 	{
 		"id": "distributed-systems",
@@ -117,7 +132,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 7
+		"order": 8
 	},
 	{
 		"id": "engine2d-old",
@@ -133,7 +148,7 @@
 		"origin": "Personal",
 		"featured": false,
 		"blogSlug": "first-game-engine",
-		"order": 8
+		"order": 9
 	},
 	{
 		"id": "fitness-tracking",
@@ -148,7 +163,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 9
+		"order": 10
 	},
 	{
 		"id": "spam-filtering",
@@ -163,7 +178,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 10
+		"order": 11
 	},
 	{
 		"id": "dogs-vs-cats",
@@ -177,7 +192,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 11
+		"order": 12
 	},
 	{
 		"id": "world-of-traps",
@@ -191,7 +206,7 @@
 		],
 		"origin": "DigiPen",
 		"featured": false,
-		"order": 12
+		"order": 13
 	},
 	{
 		"id": "vacumcite",
@@ -206,7 +221,7 @@
 		"origin": "U-tad",
 		"featured": false,
 		"blogSlug": "vacumcite",
-		"order": 13
+		"order": 14
 	},
 	{
 		"id": "am-apuntes",
@@ -220,7 +235,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 14
+		"order": 15
 	},
 	{
 		"id": "dev-ost",
@@ -234,7 +249,7 @@
 		],
 		"origin": "DigiPen",
 		"featured": false,
-		"order": 15
+		"order": 16
 	},
 	{
 		"id": "gateway-technologies",
@@ -248,6 +263,6 @@
 		],
 		"origin": "Personal",
 		"featured": false,
-		"order": 16
+		"order": 17
 	}
 ]

@@ -1,0 +1,117 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import TermWindow from '../components/TermWindow.astro';
+
+const GAME_URL = 'https://itzi97.github.io/engine2d/2d-engine.html';
+---
+
+<PageLayout
+	title="Tiny Ski | Itziar Morales"
+	description="A 2D ski game built on my own C++/SDL3 engine, compiled to WebAssembly. Playable in the browser: procedural courses, three difficulties, and a yeti."
+>
+	<p class="eyebrow">~/tinyski</p>
+	<h1>Tiny Ski</h1>
+	<p class="intro">
+		A little ski game running on my own engine, compiled to WebAssembly and playable right here.
+	</p>
+
+	<div class="game-bleed">
+		<TermWindow title="~/tinyski — 2d-engine (wasm)">
+			<iframe
+				src={GAME_URL}
+				title="Tiny Ski, running in the browser"
+				allow="autoplay"
+				loading="lazy"
+				scrolling="no"
+			></iframe>
+		</TermWindow>
+	</div>
+	<p class="focus-hint">
+		Click the game once to hand it your keyboard. If it fails to load, the engine's latest build is
+		still deploying; try again in a minute.
+	</p>
+
+	<h2>Controls</h2>
+	<ul class="controls">
+		<li><kbd>←</kbd> <kbd>→</kbd> <kbd>↑</kbd> <kbd>↓</kbd><span>steer / shift gear</span></li>
+		<li><kbd>Enter</kbd><span>select</span></li>
+		<li><kbd>P</kbd><span>pause</span></li>
+		<li><kbd>R</kbd><span>retry</span></li>
+		<li><kbd>-</kbd> <kbd>+</kbd><span>volume</span></li>
+		<li><kbd>Esc</kbd><span>menu</span></li>
+	</ul>
+
+	<h2>How it's made</h2>
+	<p>
+		Tiny Ski runs on <a href="https://github.com/itzi97/engine2d" target="_blank" rel="noopener">engine2d</a>,
+		the 2D engine I've been building from scratch: C++20 on SDL3 with a flat ECS, all gameplay
+		scripted in Lua through sol2. The engine compiles to WebAssembly, and a GitHub Actions workflow
+		rebuilds and republishes the game on every push, so what you're playing above is always the
+		latest build.
+	</p>
+	<p>
+		Courses are procedurally generated in Tiled's map format, with three difficulties and
+		synthesized sound effects. There is also a yeti, in the SkiFree tradition. Skiers who dawdle
+		will meet it.
+	</p>
+	<p class="credits">
+		Art: <a href="https://kenney.nl" target="_blank" rel="noopener">Kenney</a>'s Tiny Ski pack (CC0).
+		Source on <a href="https://github.com/itzi97/engine2d" target="_blank" rel="noopener">GitHub</a>.
+	</p>
+
+	<style>
+		.intro {
+			color: var(--text-muted);
+		}
+		/* Break out of the 760px column up to the game's ideal 2x size (992px) */
+		.game-bleed {
+			width: min(992px, calc(100vw - 2rem));
+			margin-inline: calc((min(992px, calc(100vw - 2rem)) - 100%) / -2);
+			margin-top: 1.5rem;
+		}
+		.game-bleed iframe {
+			display: block;
+			width: 100%;
+			aspect-ratio: 496 / 288;
+			border: 0;
+			image-rendering: pixelated;
+			background: #000;
+		}
+		.focus-hint {
+			font-size: 0.82em;
+			color: var(--text-muted);
+			margin-top: 0.6em;
+		}
+		.controls {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 0.45em;
+		}
+		.controls li {
+			display: flex;
+			align-items: center;
+			gap: 0.7em;
+			font-size: 0.9em;
+		}
+		.controls span {
+			color: var(--text-muted);
+		}
+		kbd {
+			font-family: var(--font-mono);
+			font-size: 0.82em;
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-bottom-width: 2px;
+			border-radius: 4px;
+			padding: 0.1em 0.5em;
+			color: var(--accent);
+		}
+		.credits {
+			font-size: 0.85em;
+			color: var(--text-muted);
+		}
+	</style>
+</PageLayout>
