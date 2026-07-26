@@ -3,6 +3,9 @@
  * Frames any image (or content) as a terminal window so screenshots feel
  * native to the site instead of punched through it.
  *
+ * The third titlebar dot is a working fullscreen button (macOS green-light
+ * tradition). Note: inside fullscreen the browser reserves Esc for exiting.
+ *
  * Usage (in .astro pages or .mdx posts):
  *   <TermWindow title="~/screenshots/engine2d-breakout.gif">
  *     <img src={...} alt="Breakout running in engine2d" />
@@ -15,16 +18,29 @@ const { title = '~/screenshot.png' } = Astro.props;
 ---
 
 <figure class="term-window">
-	<div class="tw-bar" aria-hidden="true">
-		<span class="tw-dot"></span>
-		<span class="tw-dot"></span>
-		<span class="tw-dot"></span>
+	<div class="tw-bar">
+		<span class="tw-dot tw-dot-hot" aria-hidden="true"></span>
+		<span class="tw-dot" aria-hidden="true"></span>
+		<button class="tw-dot tw-fullscreen" aria-label="Toggle fullscreen" title="Fullscreen"></button>
 		<span class="tw-title">{title}</span>
 	</div>
 	<div class="tw-body">
 		<slot />
 	</div>
 </figure>
+
+<script>
+	document.querySelectorAll<HTMLButtonElement>('.term-window .tw-fullscreen').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const body = btn.closest('.term-window')?.querySelector('.tw-body');
+			if (!document.fullscreenElement) {
+				body?.requestFullscreen?.();
+			} else {
+				document.exitFullscreen();
+			}
+		});
+	});
+</script>
 
 <style>
 	.term-window {
@@ -46,9 +62,20 @@ const { title = '~/screenshot.png' } = Astro.props;
 		height: 0.65em;
 		border-radius: 50%;
 		background: var(--border);
+		border: none;
+		padding: 0;
+		flex-shrink: 0;
 	}
-	.tw-dot:first-child {
+	.tw-dot-hot {
 		background: var(--accent-hot);
+	}
+	.tw-fullscreen {
+		cursor: pointer;
+		transition: background 0.15s ease, transform 0.15s ease;
+	}
+	.tw-fullscreen:hover {
+		background: var(--accent);
+		transform: scale(1.25);
 	}
 	.tw-title {
 		margin-left: 0.5em;
@@ -62,6 +89,22 @@ const { title = '~/screenshot.png' } = Astro.props;
 		border: none;
 		border-radius: 0;
 		margin: 0;
+	}
+	.tw-body:fullscreen {
+		background: #000;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.tw-body:fullscreen :global(iframe) {
+		width: 100% !important;
+		height: 100% !important;
+		aspect-ratio: auto !important;
+	}
+	.tw-body:fullscreen :global(img) {
+		width: auto;
+		max-width: 100%;
+		max-height: 100%;
 	}
 	.tw-body :global(figcaption),
 	.term-window :global(figcaption) {
