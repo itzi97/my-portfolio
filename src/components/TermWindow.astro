@@ -31,6 +31,12 @@ const { title = '~/screenshot.png' } = Astro.props;
 
 <script>
 	document.querySelectorAll<HTMLButtonElement>('.term-window .tw-fullscreen').forEach((btn) => {
+		if (!document.fullscreenEnabled) {
+			btn.style.pointerEvents = 'none';
+			btn.style.cursor = 'default';
+			btn.classList.remove('tw-fullscreen');
+			return;
+		}
 		btn.addEventListener('click', () => {
 			const body = btn.closest('.term-window')?.querySelector('.tw-body');
 			if (!document.fullscreenElement) {

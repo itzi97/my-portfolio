@@ -15,22 +15,30 @@ const GAME_URL = 'https://itzi97.github.io/engine2d/2d-engine.html';
 		A little ski game running on my own engine, compiled to WebAssembly and playable right here.
 	</p>
 
-	<div class="game-bleed">
+	<div class="game-desktop">
 		<TermWindow title="~/tinyski — 2d-engine (wasm)">
 			<iframe
 				src={GAME_URL}
 				title="Tiny Ski, running in the browser"
-				allow="autoplay"
+				allow="autoplay; fullscreen; gamepad"
+				allowfullscreen
 				loading="lazy"
 				scrolling="no"
 			></iframe>
 		</TermWindow>
+		<p class="focus-hint">
+			Click the game once to hand it your keyboard. The third dot in the titlebar goes fullscreen
+			(Esc leaves fullscreen, so use P for the pause menu while in it). If the game fails to load,
+			the engine's latest build is still deploying; try again in a minute.
+		</p>
 	</div>
-	<p class="focus-hint">
-		Click the game once to hand it your keyboard. The third dot in the titlebar goes fullscreen
-		(Esc leaves fullscreen, so use P for the pause menu while in it). If the game fails to load,
-		the engine's latest build is still deploying; try again in a minute.
-	</p>
+	<div class="game-mobile">
+		<a class="play-btn" href="https://itzi97.github.io/engine2d/" target="_blank" rel="noopener">PLAY TINY SKI ↗</a>
+		<p class="play-note">
+			Opens in a new tab, portrait mode. Use your browser's "Add to Home Screen" to install it as a
+			fullscreen offline app.
+		</p>
+	</div>
 
 	<h2>Controls</h2>
 	<ul class="controls">
@@ -64,16 +72,49 @@ const GAME_URL = 'https://itzi97.github.io/engine2d/2d-engine.html';
 		.intro {
 			color: var(--text-muted);
 		}
-		.game-bleed {
+		.game-desktop {
 			margin-top: 1.5rem;
 		}
-		.game-bleed iframe {
+		.game-desktop iframe {
 			display: block;
 			width: 100%;
-			aspect-ratio: 496 / 288;
+			height: min(80dvh, 600px);
 			border: 0;
-			image-rendering: pixelated;
-			background: #000;
+			background: #050505;
+		}
+		.game-mobile {
+			display: none;
+		}
+		@media (max-width: 700px) {
+			.game-desktop {
+				display: none;
+			}
+			.game-mobile {
+				display: block;
+				margin: 1.5rem 0 2rem;
+				border: 1px solid var(--border);
+				border-left: 3px solid var(--accent-hot);
+				border-radius: 6px;
+				background: var(--surface);
+				padding: 1.2em 1.3em;
+				text-align: center;
+			}
+			.play-btn {
+				display: inline-block;
+				font-weight: 700;
+				font-size: 1.05em;
+				letter-spacing: 0.04em;
+				color: var(--accent-hot);
+				text-decoration: none;
+			}
+			.play-btn:hover {
+				text-decoration: underline;
+			}
+			.play-note {
+				margin: 0.6em 0 0;
+				font-size: 0.8em;
+				color: var(--text-muted);
+			}
 		}
 		.focus-hint {
 			font-size: 0.82em;
