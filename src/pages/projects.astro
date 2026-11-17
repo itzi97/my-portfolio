@@ -8,7 +8,7 @@ import { Icon } from 'astro-icon/components';
 import { techIcons } from '../lib/techIcons';
 
 const allProjects = await getCollection('projects');
-const projects = allProjects.map(p => p.data).sort((a, b) => a.order - b.order);
+const projects = allProjects.map(p => p.data).filter(p => !p.hidden).sort((a, b) => a.order - b.order);
 
 const featured = projects.filter(p => p.featured);
 const rest = projects.filter(p => !p.featured);
@@ -28,7 +28,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))].sort();
 				<p class="eyebrow">~/projects</p>
 				<h1>All Projects</h1>
 				<p class="intro">
-					Software engineering, data science, ML, game dev, and academic projects.
+					Data engineering and analytics first, then backend, machine learning and game development.
 					Each card links directly to the repository, notebook, or demo.
 				</p>
 
