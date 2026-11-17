@@ -16,49 +16,33 @@
 		"order": 0
 	},
 	{
-		"id": "tiny-ski",
-		"title": "Tiny Ski",
-		"link": "/tinyski",
-		"summary": "A 2D ski game built on my own engine, compiled to WebAssembly and playable right on this site.",
-		"tech": "C++20 · SDL3 · Lua · sol2 · WebAssembly · Tiled",
-		"highlight": "Procedurally generated courses, three difficulties, synthesized SFX, and a SkiFree-style yeti. Click the card and ski.",
+		"id": "social-media-odm",
+		"title": "Social Media Site ODM",
+		"link": "https://github.com/itzi97/AD-ODM",
+		"summary": "Object-document mapper for MongoDB and Redis implemented in Python.",
+		"tech": "Python · pymongo · redis-py · custom serialization",
+		"highlight": "Lightweight ODM features and examples for common patterns.",
 		"tags": [
-			"Game Dev",
-			"Web"
+			"Backend"
 		],
-		"origin": "Personal",
+		"origin": "U-tad",
 		"featured": true,
+		"blogSlug": "python-odm",
 		"order": 1
 	},
 	{
-		"id": "engine2d",
-		"title": "2D Game Engine",
-		"link": "https://github.com/itzi97/engine2d",
-		"summary": "2D game engine built from scratch in C++20: SDL3, flat ECS, Lua scripting through sol2, Tiled map loading.",
-		"tech": "C++ · Lua · Sol2 · SDL3 · GLM · CMake · Tiled JSON",
-		"highlight": "All game logic lives in Lua; the C++ layer owns the ECS and platform. Compiles to WebAssembly and powers Tiny Ski, playable on this site.",
+		"id": "bildyapp",
+		"title": "BildyApp",
+		"link": "https://github.com/itzi97/wpii-bildyapp",
+		"summary": "Backend JavaScript app for a fictitious company managing clients, projects, and certifications.",
+		"tech": "Node.js · Express · REST API · JWT · database integration",
+		"highlight": "Role-based endpoints and CRUD for core business entities.",
 		"tags": [
-			"Game Dev",
-			"Systems"
-		],
-		"origin": "Personal",
-		"featured": true,
-		"order": 2
-	},
-	{
-		"id": "alphanumeric-classification",
-		"title": "Alphanumeric Classification",
-		"link": "https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification",
-		"summary": "CNN that classifies 36 alphanumeric characters for licence plate OCR.",
-		"tech": "Python · Keras · TensorFlow · NumPy · pandas · matplotlib",
-		"highlight": "90.65% accuracy (MCC 0.907) after tuning batch size, dropout, and validation split on a cleaned EMNIST subset.",
-		"tags": [
-			"Machine Learning"
+			"Backend"
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"blogSlug": "alphanumeric-classification",
-		"order": 3
+		"order": 2
 	},
 	{
 		"id": "firearm-homicides",
@@ -74,48 +58,63 @@
 		"origin": "U-tad",
 		"featured": false,
 		"blogSlug": "firearm-homicides",
-		"order": 4
+		"order": 3
 	},
 	{
-		"id": "social-media-odm",
-		"title": "Social Media Site ODM",
-		"link": "https://github.com/itzi97/AD-ODM",
-		"summary": "Object-document mapper for MongoDB and Redis implemented in Python.",
-		"tech": "Python · pymongo · redis-py · custom serialization",
-		"highlight": "Lightweight ODM features and examples for common patterns.",
+		"id": "fitness-tracking",
+		"title": "Fitness Tracking Visualization",
+		"link": "https://github.com/itzi97/DV_Python",
+		"summary": "Five years of my own Garmin activity data explored in a Jupyter notebook.",
+		"tech": "Python · pandas · matplotlib · seaborn · plotly · ipywidgets",
+		"highlight": "Time-series analysis of my real training history, with ipywidgets controls instead of static charts.",
 		"tags": [
-			"Backend"
+			"Data Viz",
+			"Data Analysis"
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"blogSlug": "python-odm",
+		"order": 4
+	},
+	{
+		"id": "alphanumeric-classification",
+		"title": "Alphanumeric Classification",
+		"link": "https://www.kaggle.com/code/itzi97/u-tad-alphanumeric-classification",
+		"summary": "CNN that classifies 36 alphanumeric characters for licence plate OCR.",
+		"tech": "Python · Keras · TensorFlow · NumPy · pandas · matplotlib",
+		"highlight": "90.65% accuracy (MCC 0.907) after tuning batch size, dropout, and validation split on a cleaned EMNIST subset.",
+		"tags": [
+			"Machine Learning"
+		],
+		"origin": "U-tad",
+		"featured": false,
+		"blogSlug": "alphanumeric-classification",
 		"order": 5
 	},
 	{
-		"id": "bildyapp",
-		"title": "BildyApp",
-		"link": "https://github.com/itzi97/wpii-bildyapp",
-		"summary": "Backend JavaScript app for a fictitious company managing clients, projects, and certifications.",
-		"tech": "Node.js · Express · REST API · JWT · database integration",
-		"highlight": "Role-based endpoints and CRUD for core business entities.",
+		"id": "spam-filtering",
+		"title": "Spam Filtering",
+		"link": "https://www.kaggle.com/code/itzi97/u-tad-spam-not-spam",
+		"summary": "Spam-or-not text classification with scikit-learn: NLP preprocessing and feature engineering.",
+		"tech": "Python · NLP preprocessing · sklearn · feature engineering",
+		"highlight": "The unglamorous parts done carefully: cleaning and vectorising real message text before any model sees it.",
 		"tags": [
-			"Backend"
+			"Machine Learning",
+			"NLP"
 		],
 		"origin": "U-tad",
 		"featured": false,
 		"order": 6
 	},
 	{
-		"id": "portfolio-website",
-		"title": "Portfolio Website",
-		"link": "https://github.com/itzi97/my-portfolio",
-		"summary": "This portfolio and blog website.",
-		"tech": "Astro · JavaScript · CSS · Cloudflare",
-		"highlight": "Designed and built from scratch.",
+		"id": "dogs-vs-cats",
+		"title": "Dogs vs Cats",
+		"summary": "The classic dogs-vs-cats Kaggle problem: convolutional networks and transfer learning.",
+		"tech": "Python · Keras · TensorFlow · transfer learning",
+		"highlight": "A first serious computer-vision exercise, taken from raw images to a fine-tuned pretrained model.",
 		"tags": [
-			"Web"
+			"Machine Learning"
 		],
-		"origin": "Personal",
+		"origin": "U-tad",
 		"featured": false,
 		"order": 7
 	},
@@ -135,63 +134,48 @@
 		"order": 8
 	},
 	{
-		"id": "engine2d-old",
-		"title": "2D Game Engine (archived)",
-		"link": "https://github.com/itzi97/engine2d-old",
-		"summary": "Archived iteration of the 2D game engine, currently has more features than the active rewrite.",
-		"tech": "C++ · Lua · Sol2 · SDL2 · GLM",
-		"highlight": "Earlier version preserved as a reference; active development continues in engine2d.",
+		"id": "engine2d",
+		"title": "2D Game Engine",
+		"link": "https://github.com/itzi97/engine2d",
+		"summary": "2D game engine built from scratch in C++20: SDL3, flat ECS, Lua scripting through sol2, Tiled map loading.",
+		"tech": "C++ · Lua · Sol2 · SDL3 · GLM · CMake · Tiled JSON",
+		"highlight": "All game logic lives in Lua; the C++ layer owns the ECS and platform. Compiles to WebAssembly and powers Tiny Ski, playable on this site.",
 		"tags": [
 			"Game Dev",
 			"Systems"
 		],
 		"origin": "Personal",
-		"featured": false,
-		"blogSlug": "first-game-engine",
+		"featured": true,
 		"order": 9
 	},
 	{
-		"id": "fitness-tracking",
-		"title": "Fitness Tracking Visualization",
-		"link": "https://github.com/itzi97/DV_Python",
-		"summary": "Five years of my own Garmin activity data explored in a Jupyter notebook.",
-		"tech": "Python · pandas · matplotlib · seaborn · plotly · ipywidgets",
-		"highlight": "Time-series analysis of my real training history, with ipywidgets controls instead of static charts.",
+		"id": "tiny-ski",
+		"title": "Tiny Ski",
+		"link": "/tinyski",
+		"summary": "A 2D ski game built on my own engine, compiled to WebAssembly and playable right on this site.",
+		"tech": "C++20 · SDL3 · Lua · sol2 · WebAssembly · Tiled",
+		"highlight": "Procedurally generated courses, three difficulties, synthesized SFX, and a SkiFree-style yeti. Click the card and ski.",
 		"tags": [
-			"Data Viz",
-			"Data Analysis"
+			"Game Dev",
+			"Web"
 		],
-		"origin": "U-tad",
+		"origin": "Personal",
 		"featured": false,
 		"order": 10
 	},
 	{
-		"id": "spam-filtering",
-		"title": "Spam Filtering",
-		"link": "https://www.kaggle.com/code/itzi97/u-tad-spam-not-spam",
-		"summary": "Spam-or-not text classification with scikit-learn: NLP preprocessing and feature engineering.",
-		"tech": "Python · NLP preprocessing · sklearn · feature engineering",
-		"highlight": "The unglamorous parts done carefully: cleaning and vectorising real message text before any model sees it.",
+		"id": "portfolio-website",
+		"title": "Portfolio Website",
+		"link": "https://github.com/itzi97/my-portfolio",
+		"summary": "This portfolio and blog website.",
+		"tech": "Astro · JavaScript · CSS · Cloudflare",
+		"highlight": "Designed and built from scratch.",
 		"tags": [
-			"Machine Learning",
-			"NLP"
+			"Web"
 		],
-		"origin": "U-tad",
+		"origin": "Personal",
 		"featured": false,
 		"order": 11
-	},
-	{
-		"id": "dogs-vs-cats",
-		"title": "Dogs vs Cats",
-		"summary": "The classic dogs-vs-cats Kaggle problem: convolutional networks and transfer learning.",
-		"tech": "Python · Keras · TensorFlow · transfer learning",
-		"highlight": "A first serious computer-vision exercise, taken from raw images to a fine-tuned pretrained model.",
-		"tags": [
-			"Machine Learning"
-		],
-		"origin": "U-tad",
-		"featured": false,
-		"order": 12
 	},
 	{
 		"id": "world-of-traps",
@@ -205,7 +189,7 @@
 		],
 		"origin": "DigiPen",
 		"featured": false,
-		"order": 13
+		"order": 12
 	},
 	{
 		"id": "vacumcite",
@@ -220,35 +204,7 @@
 		"origin": "U-tad",
 		"featured": false,
 		"blogSlug": "vacumcite",
-		"order": 14
-	},
-	{
-		"id": "am-apuntes",
-		"title": "AM-apuntes",
-		"link": "https://github.com/itzi97/AM-apuntes",
-		"summary": "Real Analysis I & II class notes with linked exercise repositories.",
-		"tech": "LaTeX · Markdown",
-		"highlight": "Structured mathematical notes and worked problems.",
-		"tags": [
-			"Mathematics"
-		],
-		"origin": "U-tad",
-		"featured": false,
-		"order": 15
-	},
-	{
-		"id": "dev-ost",
-		"title": "DEV — OST",
-		"link": "https://soundcloud.com/zesher/sets/dev-ost",
-		"summary": "Original soundtrack for DEV, a DigiPen student game.",
-		"tech": "Milkytracker",
-		"highlight": "Layered soundtrack designed to mirror the game's progression, each track introduces a new element, culminating in the full arrangement.",
-		"tags": [
-			"Media"
-		],
-		"origin": "DigiPen",
-		"featured": false,
-		"order": 16
+		"order": 13
 	},
 	{
 		"id": "gateway-technologies",
@@ -262,6 +218,53 @@
 		],
 		"origin": "Personal",
 		"featured": false,
-		"order": 17
+		"order": 14
+	},
+	{
+		"id": "engine2d-old",
+		"title": "2D Game Engine (archived)",
+		"link": "https://github.com/itzi97/engine2d-old",
+		"summary": "Archived iteration of the 2D game engine, currently has more features than the active rewrite.",
+		"tech": "C++ · Lua · Sol2 · SDL2 · GLM",
+		"highlight": "Earlier version preserved as a reference; active development continues in engine2d.",
+		"tags": [
+			"Game Dev",
+			"Systems"
+		],
+		"origin": "Personal",
+		"featured": false,
+		"blogSlug": "first-game-engine",
+		"order": 15,
+		"hidden": true
+	},
+	{
+		"id": "am-apuntes",
+		"title": "AM-apuntes",
+		"link": "https://github.com/itzi97/AM-apuntes",
+		"summary": "Real Analysis I & II class notes with linked exercise repositories.",
+		"tech": "LaTeX · Markdown",
+		"highlight": "Structured mathematical notes and worked problems.",
+		"tags": [
+			"Mathematics"
+		],
+		"origin": "U-tad",
+		"featured": false,
+		"order": 16,
+		"hidden": true
+	},
+	{
+		"id": "dev-ost",
+		"title": "DEV — OST",
+		"link": "https://soundcloud.com/zesher/sets/dev-ost",
+		"summary": "Original soundtrack for DEV, a DigiPen student game.",
+		"tech": "Milkytracker",
+		"highlight": "Layered soundtrack designed to mirror the game's progression, each track introduces a new element, culminating in the full arrangement.",
+		"tags": [
+			"Media"
+		],
+		"origin": "DigiPen",
+		"featured": false,
+		"order": 17,
+		"hidden": true
 	}
 ]
