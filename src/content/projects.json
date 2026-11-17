@@ -209,7 +209,7 @@
 	{
 		"id": "vacumcite",
 		"title": "Vacumcite",
-		"link": "https://github.com/itzi97/vacumcite",
+		"link": "https://github.com/itzi97-utad/vacumcite",
 		"summary": "UX design project for a COVID vaccination website.",
 		"tech": "Figma · HTML · CSS prototyping",
 		"highlight": "User flows and accessibility-focused design decisions.",
@@ -255,7 +255,7 @@
 	{
 		"id": "am-apuntes",
 		"title": "AM-apuntes",
-		"link": "https://github.com/itzi97/AM-apuntes",
+		"link": "https://github.com/itzi97-utad/AM-apuntes",
 		"summary": "Real Analysis I & II class notes with linked exercise repositories.",
 		"tech": "LaTeX · Markdown",
 		"highlight": "Structured mathematical notes and worked problems.",

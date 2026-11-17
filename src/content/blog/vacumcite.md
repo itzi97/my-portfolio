@@ -48,4 +48,4 @@ The final SUS score was **89.66 out of 100**, which sits well into the excellent
 
 Two questions gave weaker results. "I would use VacumCite frequently" still scored well but is a slightly awkward question for a one-time service — high scores here probably reflect general satisfaction rather than literal intent to return. The more telling one was "The functions of VacumCite are well integrated", which was the most split response. One participant commented that showing the national vaccination counter on every page felt out of place. That's probably right. It was my suggestion and the intention was to give users a sense of the broader rollout context, but once you're mid-flow trying to book an appointment that information is irrelevant and just adds visual noise. Scoping it to the login screen only would have been the cleaner call.
 
-Full repo and wireframes on [GitHub](https://github.com/itzi97/vacumcite).
+Full repo and wireframes on [GitHub](https://github.com/itzi97-utad/vacumcite).
