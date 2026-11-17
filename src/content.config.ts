@@ -38,6 +38,8 @@ const projects = defineCollection({
 		tags: z.array(z.string()),
 		origin: z.enum(['U-tad', 'DigiPen', 'Personal']),
 		featured: z.boolean().default(false),
+		// hidden: kept in the data (and any blog post stays), but left off the project grids
+		hidden: z.boolean().default(false),
 		blogSlug: z.string().optional(),
 		githubUrl: z.string().url().optional(),
 		externalUrl: z.string().url().optional(),
