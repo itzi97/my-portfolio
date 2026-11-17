@@ -18,6 +18,7 @@ Built with [Astro](https://astro.build), deployed on Cloudflare Pages.
 - **Icons:** astro-icon + Simple Icons + Lucide
 - **Fonts:** JetBrains Mono
 - **Deployment:** Cloudflare Pages
+- **CV PDFs:** `public/itziar-morales-cv*.pdf` are built and pushed by the `cv` repo's CI. Those sync commits must not contain `[skip ci]`, or Cloudflare Pages skips the deploy and the site keeps the old PDF.
 
 ## Local dev
 
