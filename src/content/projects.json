@@ -183,7 +183,6 @@
 	{
 		"id": "dogs-vs-cats",
 		"title": "Dogs vs Cats",
-		"link": "https://www.kaggle.com/code/itzi97/u-tad-dogs-vs-cats",
 		"summary": "The classic dogs-vs-cats Kaggle problem: convolutional networks and transfer learning.",
 		"tech": "Python · Keras · TensorFlow · transfer learning",
 		"highlight": "A first serious computer-vision exercise, taken from raw images to a fine-tuned pretrained model.",
