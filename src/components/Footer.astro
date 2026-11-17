@@ -1,5 +1,5 @@
 ---
-import { SITE_AUTHOR, GITHUB_URL, LINKEDIN_URL, KAGGLE_URL, EMAIL } from '../consts';
+import { SITE_AUTHOR, GITHUB_URL, LINKEDIN_URL, EMAIL } from '../consts';
 import { Icon } from 'astro-icon/components';
 const today = new Date();
 ---
@@ -20,7 +20,6 @@ const today = new Date();
 			<a href={LINKEDIN_URL} target="_blank" rel="noopener" aria-label="LinkedIn">
 				<Icon name="simple-icons:linkedin" class="footer-icon" />
 			</a>
-			<a href={KAGGLE_URL} target="_blank" rel="noopener" class="kaggle-link">kg</a>
 			<a href={`mailto:${EMAIL}`} aria-label="Email">
 				<Icon name="lucide:mail" class="footer-icon" />
 			</a>
