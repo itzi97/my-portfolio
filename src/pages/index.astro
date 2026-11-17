@@ -121,9 +121,14 @@ const latestPost = (await getCollection('blog')).sort(
 							<p class="tech">{project.tech}</p>
 							<span class="card-cta">Open ↗</span>
 						</a>
-						{project.blogSlug && (
+						{(project.externalUrl || project.blogSlug) && (
 							<div class="card-footer">
-								<a class="footer-link" href={`/notes/${project.blogSlug}`}>Read post →</a>
+								{project.externalUrl && (
+									<a class="footer-link" href={project.externalUrl} target="_blank" rel="noopener">{project.externalLabel ?? 'Open ↗'}</a>
+								)}
+								{project.blogSlug && (
+									<a class="footer-link" href={`/notes/${project.blogSlug}`}>Read post →</a>
+								)}
 							</div>
 						)}
 					</div>

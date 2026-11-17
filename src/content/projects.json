@@ -12,7 +12,9 @@
 		],
 		"origin": "Personal",
 		"featured": true,
-		"order": 0
+		"order": 0,
+		"externalUrl": "https://itzi97.github.io/spain-electricity-pipeline/",
+		"externalLabel": "Live dashboard ↗"
 	},
 	{
 		"id": "dp-practice",
