@@ -15,6 +15,7 @@ const nfArt = String.raw` _ _       _
 `.trimEnd();
 
 const nfRows: [string, string][] = [
+	['focus', 'data engineering'],
 	['host', 'U-tad, Madrid'],
 	['kernel', 'Software Engineering + DS&AI'],
 	['shell', 'fish'],
@@ -24,7 +25,7 @@ const nfRows: [string, string][] = [
 ];
 
 const featuredProjects = (await getCollection('projects'))
-	.filter(p => p.data.featured)
+	.filter(p => p.data.featured && !p.data.hidden)
 	.map(p => p.data)
 	.sort((a, b) => a.order - b.order);
 
@@ -44,8 +45,9 @@ const latestPost = (await getCollection('blog')).sort(
 			<section class="hero">
 				<p class="eyebrow">~</p>
 				<h1>Itziar Morales</h1>
-				<p class="tagline">Software Engineering Student · Data Science & AI Minor · Madrid, Spain</p>
-				<p class="personality">I write C++ game engines for fun, train neural nets for class, and run a home server I definitely don't tinker with too much. These days I'm interning at MGA, turning years of spreadsheet workflows into a PostgreSQL + Spring Boot platform that enforces its own rules.</p>
+				<p class="tagline">Data engineering · Software Engineering student, Data Science & AI minor · Madrid</p>
+				<p class="personality">I build the boring, careful part of data: schemas that enforce their own rules, pipelines that load the same way every day, and tests that catch the row nobody expected. At MGA I'm turning years of spreadsheet workflows into a PostgreSQL + Spring Boot platform; at U-tad I'm in my final year. Off the clock I write C++ game engines and run a home server I definitely don't tinker with too much.</p>
+				<p class="availability">Looking for a full-time data role from February 2027.</p>
 				<div class="nf" aria-label="About me, neofetch style">
 					<div class="nf-cols">
 					<pre class="nf-art" aria-hidden="true">{nfArt}</pre>
@@ -87,7 +89,7 @@ const latestPost = (await getCollection('blog')).sort(
 				)}
 				<a class="pulse-item" href="/now">
 					<span class="pulse-label">now</span>
-					<span class="pulse-text">Final year looming, schemas by day, engine rewrite by night</span>
+					<span class="pulse-text">Final year, schemas by day, an electricity-data pipeline by night</span>
 				</a>
 			</section>
 
@@ -133,6 +135,13 @@ const latestPost = (await getCollection('blog')).sort(
 </html>
 
 <style>
+
+	.availability {
+		color: var(--accent);
+		font-family: var(--font-mono);
+		font-size: 0.82em;
+		margin: 0 0 0.9em;
+	}
 
 	.personality {
 		color: var(--text);
