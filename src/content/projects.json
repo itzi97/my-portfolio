@@ -1,5 +1,20 @@
 [
 	{
+		"id": "spain-electricity-pipeline",
+		"title": "Spain's Electricity Mix Pipeline",
+		"link": "https://github.com/itzi97/spain-electricity-pipeline",
+		"summary": "Daily pipeline on Red Eléctrica's open data: Python loads it into PostgreSQL, dbt models and tests it, and a public dashboard shows how much of Spain's electricity came from renewables.",
+		"tech": "Python · PostgreSQL · dbt · Airflow · GitHub Actions",
+		"highlight": "An idempotent loader that counts the source's revisions, 27 dbt tests (including a reconciliation against the source's own totals and a missing-day check), and a live dashboard rebuilt every morning.",
+		"tags": [
+			"Data Engineering",
+			"Data Viz"
+		],
+		"origin": "Personal",
+		"featured": true,
+		"order": 0
+	},
+	{
 		"id": "dp-practice",
 		"title": "Distributed Data Processing Pipeline",
 		"link": "https://github.com/itzi97/DP_practice",
@@ -13,7 +28,7 @@
 		"origin": "U-tad",
 		"featured": true,
 		"blogSlug": "flight-data-pipeline",
-		"order": 0
+		"order": 1
 	},
 	{
 		"id": "social-media-odm",
@@ -28,7 +43,7 @@
 		"origin": "U-tad",
 		"featured": true,
 		"blogSlug": "python-odm",
-		"order": 1
+		"order": 2
 	},
 	{
 		"id": "bildyapp",
@@ -42,7 +57,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 2
+		"order": 3
 	},
 	{
 		"id": "firearm-homicides",
@@ -58,7 +73,7 @@
 		"origin": "U-tad",
 		"featured": false,
 		"blogSlug": "firearm-homicides",
-		"order": 3
+		"order": 4
 	},
 	{
 		"id": "fitness-tracking",
@@ -73,7 +88,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 4
+		"order": 5
 	},
 	{
 		"id": "alphanumeric-classification",
@@ -88,7 +103,7 @@
 		"origin": "U-tad",
 		"featured": false,
 		"blogSlug": "alphanumeric-classification",
-		"order": 5
+		"order": 6
 	},
 	{
 		"id": "spam-filtering",
@@ -103,7 +118,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 6
+		"order": 7
 	},
 	{
 		"id": "dogs-vs-cats",
@@ -116,7 +131,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 7
+		"order": 8
 	},
 	{
 		"id": "distributed-systems",
@@ -131,7 +146,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 8
+		"order": 9
 	},
 	{
 		"id": "engine2d",
@@ -145,8 +160,8 @@
 			"Systems"
 		],
 		"origin": "Personal",
-		"featured": true,
-		"order": 9
+		"featured": false,
+		"order": 10
 	},
 	{
 		"id": "tiny-ski",
@@ -161,7 +176,7 @@
 		],
 		"origin": "Personal",
 		"featured": false,
-		"order": 10
+		"order": 11
 	},
 	{
 		"id": "portfolio-website",
@@ -175,7 +190,7 @@
 		],
 		"origin": "Personal",
 		"featured": false,
-		"order": 11
+		"order": 12
 	},
 	{
 		"id": "world-of-traps",
@@ -189,7 +204,7 @@
 		],
 		"origin": "DigiPen",
 		"featured": false,
-		"order": 12
+		"order": 13
 	},
 	{
 		"id": "vacumcite",
@@ -204,7 +219,7 @@
 		"origin": "U-tad",
 		"featured": false,
 		"blogSlug": "vacumcite",
-		"order": 13
+		"order": 14
 	},
 	{
 		"id": "gateway-technologies",
@@ -218,7 +233,7 @@
 		],
 		"origin": "Personal",
 		"featured": false,
-		"order": 14
+		"order": 15
 	},
 	{
 		"id": "engine2d-old",
@@ -234,7 +249,7 @@
 		"origin": "Personal",
 		"featured": false,
 		"blogSlug": "first-game-engine",
-		"order": 15,
+		"order": 16,
 		"hidden": true
 	},
 	{
@@ -249,7 +264,7 @@
 		],
 		"origin": "U-tad",
 		"featured": false,
-		"order": 16,
+		"order": 17,
 		"hidden": true
 	},
 	{
@@ -264,7 +279,7 @@
 		],
 		"origin": "DigiPen",
 		"featured": false,
-		"order": 17,
+		"order": 18,
 		"hidden": true
 	}
 ]
